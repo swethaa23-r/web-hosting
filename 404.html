@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Stackly Web Hosting</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Flex setup for vertical centering & No scroll */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; /* Prevent scrolling entirely */
+        }
+        
+        .error-section {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background: var(--bg-light, #f8faff);
+        }
+        
+        .error-content {
+            text-align: center;
+            max-width: 500px;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            overflow: hidden; 
+        }
+        
+        .error-icon {
+            font-size: 50px;
+            color: var(--primary, #2563eb);
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .error-code {
+            font-size: 80px;
+            font-weight: 800;
+            color: var(--dark-blue, #0b1536);
+            line-height: 1;
+            margin-bottom: 5px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .error-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-blue, #0b1536);
+            margin-bottom: 10px;
+        }
+        
+        .error-desc {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+        
+        .error-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-go-back {
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--dark-blue);
+            border: 2px solid #e5e7eb;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-go-back:hover {
+            border-color: var(--dark-blue);
+        }
+        
+        @media (max-width: 576px) {
+            .error-code { font-size: 80px; }
+            .error-title { font-size: 24px; }
+            .error-content { padding: 40px 20px; }
+        }
+    </style>
+    <style>
+        /* Logo Background Removal Trick & Scaled Up Sizing */
+        .navbar .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; mix-blend-mode: multiply; margin-top: 5px;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .footer .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .login-brand .brand-logo { 
+            height: 50px !important; width: auto !important; max-width: 100% !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            margin-bottom: 20px; display: block;
+            transform: scale(1.8); transform-origin: left center; 
+        }
+        .sidebar-brand .brand-logo { 
+            height: 35px !important; width: auto !important; max-width: 180px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            display: block; margin-left: 20px;
+            transform: scale(2.2); transform-origin: left center; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 404 Section -->
+    <section class="error-section">
+        <div class="error-content" data-aos="zoom-in" data-aos-duration="600">
+            <div class="error-icon" data-aos="fade-down" data-aos-delay="100">
+                <i class="fa-solid fa-server"></i>
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 25px; position: relative; top: -25px; left: -10px; color: #ef4444;"></i>
+            </div>
+            
+            <div class="error-code" data-aos="fade-up" data-aos-delay="200">404</div>
+            <h1 class="error-title" data-aos="fade-up" data-aos-delay="300">Page Not Found</h1>
+            
+            <p class="error-desc" data-aos="fade-up" data-aos-delay="400">
+                The page you're looking for may have been moved, removed, or is temporarily unavailable. Let's get your connection back on track.
+            </p>
+            
+            <div class="error-btns" data-aos="fade-up" data-aos-delay="500">
+                <a href="index.html" class="btn btn-primary" style="padding: 12px 30px; border-radius: 5px; font-weight: 600;">Go Home</a>
+                <a href="javascript:history.back()" class="btn-go-back">Go Back</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 0, /* ensure it triggers regardless of position */
+            duration: 800,
+        });
+    </script>
+</body>
+</html>

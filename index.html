@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Web Hosting</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Logo Background Removal Trick & Scaled Up Sizing */
+        .navbar .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; mix-blend-mode: multiply; margin-top: 5px;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .footer .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .login-brand .brand-logo { 
+            height: 50px !important; width: auto !important; max-width: 100% !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            margin-bottom: 20px; display: block;
+            transform: scale(1.8); transform-origin: left center; 
+        }
+        .sidebar-brand .brand-logo { 
+            height: 35px !important; width: auto !important; max-width: 180px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            display: block; margin-left: 20px;
+            transform: scale(2.2); transform-origin: left center; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
+            <div class="mobile-menu-overlay"></div>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="domain.html">Domain</a>
+                <a href="hosting.html">Hosting</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button aria-label="Search" style="background:none; border:none; font-size:18px; cursor:pointer; color: var(--text-dark);"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 8px 24px; font-size: 14px; margin-left: 10px;">Login</a>
+                <button class="hamburger-menu" aria-label="Menu" style="margin-left: 10px;"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                <div class="trust-rating">
+                    <i class="fa-solid fa-star text-green"></i> Trustpilot
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <h1>Fastest <span class="highlight">Performance</span><br>Web Hosting.</h1>
+                <p>Touch the success! Domain and Secure Web Hosting from <span class="price-highlight">$4.99 per month</span></p>
+                <div class="hero-buttons">
+                    <a href="hosting.html" class="btn btn-primary">Get Started</a>
+                    <a href="hosting.html" class="btn btn-outline">View Hosting Plans</a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+                <img src="assets/images/hero_img.webp" alt="Web Hosting Server">
+            </div>
+        </div>
+        
+        <!-- Hero Features Banner -->
+        <div class="container">
+            <div class="hero-features" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="icon bg-blue-light"><i class="fa-solid fa-headset text-blue"></i></div>
+                    <div class="text">
+                        <h3>Professional Support 24/7</h3>
+                        <p>Expert technical support available all day everyday by phone or live chat.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="icon bg-blue-light"><i class="fa-solid fa-gauge-high text-blue"></i></div>
+                    <div class="text">
+                        <h3>Lightning Fast Speeds</h3>
+                        <p>Experience unmatched performance with our optimized LiteSpeed web servers.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="icon bg-blue-light"><i class="fa-solid fa-shield-check text-blue"></i></div>
+                    <div class="text">
+                        <h3>Advanced Security</h3>
+                        <p>Keep your data safe with free SSL certificates and proactive DDoS protection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up">
+                <h2>We Have Perfect Web Hosting<br>Package For You</h2>
+                <div class="billing-toggle">
+                    <span>Monthly Plan</span>
+                    <label class="switch">
+                        <input type="checkbox" id="billing-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Yearly Plan</span>
+                </div>
+            </div>
+
+            <div class="pricing-cards">
+                <!-- Card 1 -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header">
+                        <div class="plan-info">
+                            <h3>Premium<br>Web Hosting</h3>
+                            <span class="save-badge">Save 40%</span>
+                        </div>
+                        <p class="form-only">Form only</p>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount" data-monthly="4.25" data-yearly="42.50">4.25</span>
+                            <span class="period">/mo</span>
+                        </div>
+                        <p class="plan-desc">Packed with great features, such as oneclick software installs, 24/7 support</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check text-blue"></i> 10 GB SSD Storage</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> 10 MySQL Database</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Unlimited Website</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> cPanel Control Panel</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Auto Backup & Cloud Storage</li>
+                    </ul>
+                    
+                    <a href="hosting.html" class="btn btn-dark-full">Purchase Plan</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="card-header">
+                        <div class="plan-info">
+                            <h3>VPS<br>Web Hosting</h3>
+                        </div>
+                        <p class="form-only">Form only</p>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount" data-monthly="5.25" data-yearly="52.50">5.25</span>
+                            <span class="period">/mo</span>
+                        </div>
+                        <p class="plan-desc">Packed with great features, such as oneclick software installs, 24/7 support</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check text-blue"></i> 10 GB SSD Storage</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> 10 MySQL Database</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Unlimited Website</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> cPanel Control Panel</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Auto Backup & Cloud Storage</li>
+                    </ul>
+                    
+                    <a href="hosting.html" class="btn btn-primary-full">Purchase Plan</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-header">
+                        <div class="plan-info">
+                            <h3>Manage<br>Dedicated Server</h3>
+                            <span class="save-badge">Save 60%</span>
+                        </div>
+                        <p class="form-only">Form only</p>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount" data-monthly="7.25" data-yearly="72.50">7.25</span>
+                            <span class="period">/mo</span>
+                        </div>
+                        <p class="plan-desc">Packed with great features, such as oneclick software installs, 24/7 support</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check text-blue"></i> 10 GB SSD Storage</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> 30 MySQL Database</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Unlimited Website</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> cPanel Control Panel</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Auto Backup & Cloud Storage</li>
+                    </ul>
+                    
+                    <a href="hosting.html" class="btn btn-dark-full">Purchase Plan</a>
+                </div>
+            </div>
+
+            <div class="guarantee-banner" data-aos="zoom-in" data-aos-delay="400">
+                <div class="banner-content">
+                    <h3>30 day Money-back Guarantee.</h3>
+                    <p>Packed with great features, such as one-click software installs, 24/7 support.</p>
+                    <div class="guarantee-features">
+                        <span><i class="fa-solid fa-circle-check text-blue"></i> Easily Upgrade or Downgrade</span>
+                        <span><i class="fa-solid fa-circle-check text-blue"></i> 2 months free if paid yearly</span>
+                        <span><i class="fa-solid fa-circle-check text-blue"></i> Instant prorated refund</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Migration Section -->
+    <section class="migration bg-dark-blue">
+        <div class="container migration-container">
+            <div class="migration-content" data-aos="fade-right">
+                <h2>Migrating from another<br>web hosting?</h2>
+                <p>Compare our plans and find the right solution for your company. Or get in touch for a custom solution. Whatever you need, we can tailor your infrastructure and service based on your needs.</p>
+                <div class="migration-buttons">
+                    <a href="contact.html" class="btn btn-light-blue">Contact Sales</a>
+                    <a href="contact.html" class="btn btn-outline-white">Contact Us</a>
+                </div>
+            </div>
+            <div class="migration-image" data-aos="fade-left">
+                <img src="assets/images/migration_img.webp" alt="Migrating Hosting">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-split">
+        <div class="container split-container">
+            <div class="split-text" data-aos="fade-right">
+                <h2>World Class Best Hosting<br>Feature For You.</h2>
+                <img src="assets/images/features_img.webp" alt="Server Features" class="features-ill">
+            </div>
+            <div class="split-list" data-aos="fade-left">
+                <div class="feature-item">
+                    <div class="icon-box"><i class="fa-solid fa-sliders text-blue"></i></div>
+                    <div class="desc">
+                        <h3>cPanel Control Panel</h3>
+                        <p>We strive to provide top rate reliability and affordability that most shared hosting will bring quality.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="icon-box"><i class="fa-solid fa-cloud-arrow-up text-blue"></i></div>
+                    <div class="desc">
+                        <h3>Daily Offsite Backups</h3>
+                        <p>We strive to provide top rate reliability and affordability that most shared hosting will bring quality.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="icon-box"><i class="fa-solid fa-microchip text-blue"></i></div>
+                    <div class="desc">
+                        <h3>Latest Technology</h3>
+                        <p>We strive to provide top rate reliability and affordability that most shared hosting will bring quality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose bg-dark-blue">
+        <div class="container choose-container">
+            <div class="choose-content" data-aos="fade-right">
+                <h2>Why Choose Stackly for<br>Your Web Hosting Needs.</h2>
+                <ul class="choose-list">
+                    <li style="margin-bottom: 20px; display: flex; gap: 15px;">
+                        <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 20px; margin-top: 5px;"></i>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">99.9% Uptime Guarantee</h4>
+                            <p style="font-size: 14px; opacity: 0.8; margin: 0;">We ensure your website stays online and accessible to your visitors around the clock.</p>
+                        </div>
+                    </li>
+                    <li style="margin-bottom: 20px; display: flex; gap: 15px;">
+                        <i class="fa-solid fa-shield" style="color: #10b981; font-size: 20px; margin-top: 5px;"></i>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Free SSL Security</h4>
+                            <p style="font-size: 14px; opacity: 0.8; margin: 0;">Protect your customers' data and improve your search rankings with included SSL.</p>
+                        </div>
+                    </li>
+                    <li style="margin-bottom: 20px; display: flex; gap: 15px;">
+                        <i class="fa-solid fa-bolt" style="color: #10b981; font-size: 20px; margin-top: 5px;"></i>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Blazing Fast Servers</h4>
+                            <p style="font-size: 14px; opacity: 0.8; margin: 0;">Utilizing NVMe SSDs and LiteSpeed caching for maximum performance.</p>
+                        </div>
+                    </li>
+                    <li style="margin-bottom: 20px; display: flex; gap: 15px;">
+                        <i class="fa-solid fa-cloud-arrow-up" style="color: #10b981; font-size: 20px; margin-top: 5px;"></i>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Automated Backups</h4>
+                            <p style="font-size: 14px; opacity: 0.8; margin: 0;">Rest easy knowing your data is backed up daily and can be restored in a click.</p>
+                        </div>
+                    </li>
+                    <li style="margin-bottom: 20px; display: flex; gap: 15px;">
+                        <i class="fa-solid fa-headset" style="color: #10b981; font-size: 20px; margin-top: 5px;"></i>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">24/7 Expert Support</h4>
+                            <p style="font-size: 14px; opacity: 0.8; margin: 0;">Our dedicated hosting specialists are always ready to help you succeed.</p>
+                        </div>
+                    </li>
+                    <li style="display: flex; gap: 15px;">
+                        <i class="fa-solid fa-server" style="color: #10b981; font-size: 20px; margin-top: 5px;"></i>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Highly Scalable Hosting</h4>
+                            <p style="font-size: 14px; opacity: 0.8; margin: 0;">Easily upgrade your resources as your traffic and business grow without downtime.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="choose-image" data-aos="fade-left">
+                <img src="assets/images/consultancy_img.webp" alt="Consultancy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Domain Search Section -->
+    <section class="domain-search">
+        <div class="container text-center" data-aos="fade-up">
+            <h2>Looking for a Perfect Domain Name?</h2>
+            <form class="domain-form" id="domain-search-form">
+                <input type="text" id="domain-input" placeholder="Search Domain Name" required>
+                <span class="domain-ext">.com <i class="fa-solid fa-chevron-down text-sm"></i></span>
+                <button type="submit" class="btn btn-primary">Search Now</button>
+            </form>
+            <div id="domain-result" style="display:none; padding: 15px; border-radius: 5px; margin-top: 15px; font-weight: 500;"></div>
+            <div class="domain-prices">
+                <div class="price-item"><span class="ext text-blue">.com</span><span class="cost">$2.44/Year</span></div>
+                <div class="price-item"><span class="ext text-red">.info</span><span class="cost">$3.44/Year</span></div>
+                <div class="price-item"><span class="ext text-green">.org</span><span class="cost">$2.44/Year</span></div>
+                <div class="price-item"><span class="ext text-purple">.biz</span><span class="cost">$1.00/Year</span></div>
+                <div class="price-item"><span class="ext text-yellow">.xyz</span><span class="cost">$0.88/Year</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services bg-blue-light">
+        <div class="container">
+            <div class="services-header" data-aos="fade-up">
+                <h2>We Provide you World<br>Hosting Services.</h2>
+                <a href="services.html" class="btn btn-primary">All Services <i class="fa-solid fa-arrow-right text-sm" style="margin-left: 5px;"></i></a>
+            </div>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="fa-brands fa-wordpress"></i></div>
+                    <h3>WordPress Hosting</h3>
+                    <p>Seamlessly transform dynamic testing my procedures rather than distributed process Compellingly myocardinate cost.</p>
+                    <a href="javascript:void(0);" class="starting-price">Starting at $1.99/mo <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="service-rating">
+                        <div class="brand-name text-blue"><i class="fa-brands fa-google"></i> Google</div>
+                        <div class="stars text-yellow"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        <span class="score">4.5/5</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon"><i class="fa-solid fa-server"></i></div>
+                    <h3>Shared Hosting</h3>
+                    <p>Collaboratively harness timely collaboration and idea-sharing after collaborative services. maximizing Best service.</p>
+                    <a href="javascript:void(0);" class="starting-price">Starting at $1.99/mo <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="service-rating">
+                        <div class="brand-name text-green"><i class="fa-solid fa-star"></i> Trustpilot</div>
+                        <div class="stars text-green"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        <span class="score">4.5/5</span>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon"><i class="fa-solid fa-cloud"></i></div>
+                    <h3>VPS Hosting</h3>
+                    <p>Seamlessly transform dynamic testing my procedures rather than distributed process Compellingly myocardinate cost.</p>
+                    <a href="javascript:void(0);" class="starting-price">Starting at $1.99/mo <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="service-rating">
+                        <div class="brand-name text-blue"><i class="fa-brands fa-google"></i> Google</div>
+                        <div class="stars text-yellow"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        <span class="score">4.5/5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials bg-dark-blue">
+        <div class="container text-center" data-aos="fade-up">
+            <h2>Hundreds of five-star Ratings. Every day!</h2>
+            <p class="testimonials-subtitle">We truly cannot say enough about the level of customer service that Kinsta provides - it's always a great experience, with very personable and helpful support.</p>
+            
+            <div class="masonry-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="author">
+                        <img src="assets/images/avatar_1.webp" alt="Floyd Miles">
+                        <div>
+                            <h4>Floyd Miles</h4>
+                            <div class="stars text-yellow"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        </div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p>"Switching to Stackly was the best decision for our agency. The server speeds are incredible, and their 24/7 support team is always there to help us with any technical issues."</p>
+                    <div class="brand">Stamps</div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="author">
+                        <img src="assets/images/avatar_2.webp" alt="Herman Parks">
+                        <div>
+                            <h4>Herman Parks</h4>
+                            <div class="stars text-yellow"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        </div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p>"We unexpectedly lost login access problem ourselves, and efficiency despite made it difficult to communicate details such as IP addresses."</p>
+                    <div class="brand">Stamps</div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="author">
+                        <img src="assets/images/avatar_3.webp" alt="Darrel Steward">
+                        <div>
+                            <h4>Darrel Steward</h4>
+                            <div class="stars text-green"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p>"I've hosted over 50 client websites with Stackly, and I'm consistently blown away by the uptime and reliability. The free SSL certificates and automated backups save me hours of work."</p>
+                    <div class="brand">Stamps</div>
+                </div>
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="author">
+                        <img src="assets/images/avatar_1.webp" alt="Albert Flores">
+                        <div>
+                            <h4>Albert Flores</h4>
+                            <div class="stars text-yellow"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        </div>
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                    </div>
+                    <p>"Their VPS hosting gives us the exact scalability our growing e-commerce store needs. During our biggest traffic spikes, Stackly kept our site running flawlessly without any slowdowns."</p>
+                    <div class="brand">Stamps</div>
+                </div>
+            </div>
+            
+            <a href="javascript:void(0);" class="btn btn-red mt-40">More Feedback</a>
+        </div>
+    </section>
+
+    <!-- News & Blogs Section -->
+    <section class="blogs">
+        <div class="container">
+            <div class="blogs-header" data-aos="fade-up">
+                <div class="text">
+                    <h2>Our Latest News & Blogs</h2>
+                    <p>We are committed to offering customers the most professional and reliable web on UK-based servers, at prices.</p>
+                </div>
+                <a href="javascript:void(0);" class="btn btn-dark-full" style="width: auto; padding: 12px 24px;">See All Stories</a>
+            </div>
+            
+            <div class="blogs-grid">
+                <!-- Main Blog -->
+                <div class="blog-main" data-aos="fade-right">
+                    <div class="img-wrapper">
+                        <img src="assets/images/blog_main.webp" alt="VR Security">
+                        <span class="category bg-primary">Shared Hosting</span>
+                    </div>
+                    <div class="content">
+                        <h3>WordPress security in 2020 - what we do to protect our users</h3>
+                        <p>Enthusiastically negotiate sticky intellectual capital through integrated Professionally tactical alignments.</p>
+                        <div class="meta">
+                            <div class="author">
+                                <img src="assets/images/avatar_2.webp" alt="Raymond Harris">
+                                <div>
+                                    <h5>Raymond Harris</h5>
+                                    <span>03 May 2022</span>
+                                </div>
+                            </div>
+                            <div class="stats">
+                                <span><i class="fa-regular fa-heart"></i> 4.8k likes</span>
+                                <span><i class="fa-regular fa-comment"></i> 19 comments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar Blogs -->
+                <div class="blog-sidebar" data-aos="fade-left">
+                    <div class="blog-small">
+                        <div class="img-wrapper">
+                            <img src="assets/images/blog_1.webp" alt="Tech">
+                            <span class="category bg-primary">Technology</span>
+                        </div>
+                        <div class="content">
+                            <h4>WordPress 6.0 release candidate why you should test it</h4>
+                            <div class="meta">
+                                <div class="author">
+                                    <img src="assets/images/avatar_1.webp" alt="Mark Vasquez">
+                                    <div>
+                                        <h5>Mark Vasquez</h5>
+                                        <span>03 May 2022</span>
+                                    </div>
+                                </div>
+                                <span class="likes"><i class="fa-regular fa-heart"></i> 4.8k likes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-small">
+                        <div class="img-wrapper">
+                            <img src="assets/images/blog_2.webp" alt="Tech">
+                            <span class="category bg-primary">Technology</span>
+                        </div>
+                        <div class="content">
+                            <h4>WordPress 6.0 release candidate why you should test it</h4>
+                            <div class="meta">
+                                <div class="author">
+                                    <img src="assets/images/avatar_3.webp" alt="Francisco Murphy">
+                                    <div>
+                                        <h5>Francisco Murphy</h5>
+                                        <span>03 May 2022</span>
+                                    </div>
+                                </div>
+                                <span class="likes"><i class="fa-regular fa-heart"></i> 4.8k likes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-small">
+                        <div class="img-wrapper">
+                            <img src="assets/images/blog_3.webp" alt="Tech">
+                            <span class="category bg-primary">Technology</span>
+                        </div>
+                        <div class="content">
+                            <h4>WordPress 6.0 release candidate why you should test it</h4>
+                            <div class="meta">
+                                <div class="author">
+                                    <img src="assets/images/avatar_2.webp" alt="Victor Sheridan">
+                                    <div>
+                                        <h5>Victor Sheridan</h5>
+                                        <span>03 May 2022</span>
+                                    </div>
+                                </div>
+                                <span class="likes"><i class="fa-regular fa-heart"></i> 4.8k likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section class="integrations text-center">
+        <div class="container" data-aos="fade-up">
+            <h2>Integrated with more than 100+<br>applications you love.</h2>
+            <div class="chips-container">
+                <div class="chip"><i class="fa-brands fa-joomla text-orange" style="color: #f97316;"></i> Joomla Hosting</div>
+                <div class="chip"><i class="fa-brands fa-drupal text-blue"></i> Drupal Hosting</div>
+                <div class="chip"><i class="fa-solid fa-ticket text-orange" style="color: #ea580c;"></i> Osticket Hosting</div>
+                <div class="chip"><i class="fa-solid fa-cart-shopping text-green" style="color: #10b981;"></i> Zencart Hosting</div>
+                <div class="chip"><i class="fa-solid fa-mobile-screen text-orange" style="color: #f97316;"></i> Mobile Hosting</div>
+                <div class="chip"><i class="fa-brands fa-wordpress text-blue"></i> WordPress Hosting</div>
+                <div class="chip"><i class="fa-brands fa-joomla text-orange" style="color: #f97316;"></i> Joomla Hosting</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Data Centers Section -->
+    <section class="data-centers text-center">
+        <div class="container" data-aos="fade-up">
+            <h2>Our Global Data Centers</h2>
+            <p class="subtitle" style="color: #6b7280; max-width: 600px; margin: 0 auto 40px;">Experience blazing fast speeds with our strategically located servers around the world.</p>
+            <div class="locations-grid" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div class="location-card" data-aos="zoom-in" data-aos-delay="100" style="background: white; padding: 30px 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; min-width: 200px;">
+                    <i class="fa-solid fa-location-dot text-red" style="font-size: 32px; margin-bottom: 15px; color: #ef4444;"></i>
+                    <h4 style="color: #0b1536; font-size: 18px;">New York, USA</h4>
+                </div>
+                <div class="location-card" data-aos="zoom-in" data-aos-delay="200" style="background: white; padding: 30px 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; min-width: 200px;">
+                    <i class="fa-solid fa-location-dot text-blue" style="font-size: 32px; margin-bottom: 15px; color: #2563eb;"></i>
+                    <h4 style="color: #0b1536; font-size: 18px;">London, UK</h4>
+                </div>
+                <div class="location-card" data-aos="zoom-in" data-aos-delay="300" style="background: white; padding: 30px 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; min-width: 200px;">
+                    <i class="fa-solid fa-location-dot text-green" style="font-size: 32px; margin-bottom: 15px; color: #10b981;"></i>
+                    <h4 style="color: #0b1536; font-size: 18px;">Frankfurt, DE</h4>
+                </div>
+                <div class="location-card" data-aos="zoom-in" data-aos-delay="400" style="background: white; padding: 30px 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; min-width: 200px;">
+                    <i class="fa-solid fa-location-dot text-yellow" style="font-size: 32px; margin-bottom: 15px; color: #f59e0b;"></i>
+                    <h4 style="color: #0b1536; font-size: 18px;">Singapore, SG</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq bg-light">
+        <div class="container faq-container" data-aos="fade-up">
+            <div class="faq-text">
+                <h2>Frequently Asked<br>Questions</h2>
+                <p>Have questions? We have answers. If you can't find what you're looking for, feel free to contact our support team.</p>
+                <a href="javascript:void(0);" class="btn btn-outline-dark mt-20">Contact Support</a>
+            </div>
+            <div class="faq-accordion">
+                <div class="accordion-item active">
+                    <div class="accordion-header">
+                        <h4>What is shared web hosting?</h4>
+                        <i class="fa-solid fa-plus icon"></i>
+                    </div>
+                    <div class="accordion-content" style="display: block;">
+                        <p>Shared hosting is a type of web hosting where multiple websites share the same physical server and its resources. It's the most cost-effective way to get a website online.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h4>Can I upgrade my hosting plan later?</h4>
+                        <i class="fa-solid fa-plus icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes! You can easily upgrade your hosting plan at any time directly from your control panel as your website traffic and resource needs grow.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h4>Do you offer free website migration?</h4>
+                        <i class="fa-solid fa-plus icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Absolutely. Our migration experts will seamlessly transfer your website from your previous host to Stackly with zero downtime, completely free of charge.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h4>Is there a money-back guarantee?</h4>
+                        <i class="fa-solid fa-plus icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We offer a 30-day no-questions-asked money-back guarantee on all our hosting plans. If you're not satisfied, you'll get a full refund.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section bg-primary text-center">
+        <div class="container" data-aos="zoom-in">
+            <h2>Ready to grow your business?</h2>
+            <p>Join over 100,000+ satisfied customers and launch your website today.</p>
+            <a href="hosting.html" class="btn btn-white">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark-blue">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <div class="logo white-logo" style="margin-bottom: 20px;"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
+                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px;">My service is not something I even think about because it is always there as we agreed. The customer service is responsive and knowledge needs for.</p>
+                    <div class="social-links">
+                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">Follow us on ____________</span>
+                        <div class="icons" style="display: flex; gap: 10px;">
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="javascript:void(0);">Support Center</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="javascript:void(0);">Search Domain</a></li>
+                        <li><a href="javascript:void(0);">My Account</a></li>
+                        <li><a href="javascript:void(0);">Customer Profiles</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="hosting.html">Shared Hosting</a></li>
+                        <li><a href="hosting.html">WordPress Hosting</a></li>
+                        <li><a href="hosting.html">VPS Hosting</a></li>
+                        <li><a href="javascript:void(0);">Game Hosting</a></li>
+                        <li><a href="javascript:void(0);">Dedicated Hosting</a></li>
+                        <li><a href="domain.html">Domain Name</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col newsletter-col">
+                    <h4>Get In Touch</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Type Your Mail">
+                        <button type="button" class="btn btn-light-blue">Subscribe</button>
+                    </form>
+                    <div class="payment-methods" style="margin-top: 30px;">
+                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">We Accepted ____________</span>
+                        <div class="methods" style="display: flex; gap: 15px; font-size: 24px; color: #94a3b8;">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                            <i class="fa-brands fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright 2026 Stackly. All Rights Reserved.</p>
+                <div class="bottom-links">
+                    <a href="javascript:void(0);">Terms & Conditions</a>
+                    <a href="javascript:void(0);">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

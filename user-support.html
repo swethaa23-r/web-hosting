@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb; --primary-hover: #1d4ed8; --dark-blue: #0b1536;
+            --text-dark: #1f2937; --text-light: #6b7280; --bg-light: #f3f4f6;
+            --white: #ffffff; --green: #10b981; --red: #ef4444; --yellow: #f59e0b;
+            --sidebar-width: 260px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
+        .admin-layout { display: flex; min-height: 100vh; }
+        .sidebar { width: var(--sidebar-width); background-color: var(--dark-blue); color: var(--white); display: flex; flex-direction: column; position: fixed; height: 100vh; left: 0; top: 0; z-index: 1000; transition: transform 0.3s ease; }
+        .sidebar-brand { padding: 20px; font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--white); text-decoration: none; }
+        .sidebar-brand i { color: var(--primary); }
+        .sidebar-nav { flex: 1; padding: 20px 0; overflow-y: auto; }
+        .nav-item { padding: 12px 20px; display: flex; align-items: center; gap: 15px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.3s; border-left: 3px solid transparent; }
+        .nav-item i { width: 20px; text-align: center; font-size: 16px; }
+        .nav-item:hover, .nav-item.active { color: var(--white); background: rgba(255,255,255,0.05); border-left-color: var(--primary); }
+        .sidebar-footer { padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .btn-logout { width: 100%; padding: 10px; background: rgba(239, 68, 68, 0.1); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s; }
+        .btn-logout:hover { background: var(--red); color: white; }
+        .main-content { flex: 1; margin-left: var(--sidebar-width); display: flex; flex-direction: column; min-height: 100vh; width: calc(100% - var(--sidebar-width)); }
+        .topbar { height: 70px; background: var(--white); display: flex; align-items: center; justify-content: space-between; padding: 0 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); position: sticky; top: 0; z-index: 99; }
+        .hamburger { display: none; background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-dark); }
+        .search-bar { display: flex; align-items: center; background: var(--bg-light); border-radius: 6px; padding: 8px 15px; width: 300px; }
+        .search-bar i { color: var(--text-light); }
+        .search-bar input { border: none; background: transparent; padding: 5px 10px; width: 100%; outline: none; font-size: 13px; }
+        .topbar-right { display: flex; align-items: center; gap: 20px; }
+        .notifications { position: relative; cursor: pointer; color: var(--text-light); font-size: 18px; }
+        .notifications .badge { position: absolute; top: -5px; right: -5px; background: var(--red); color: white; font-size: 10px; padding: 2px 5px; border-radius: 10px; font-weight: 600; }
+        .profile { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .profile img { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; }
+        .profile-info { display: flex; flex-direction: column; }
+        .profile-info .name { font-size: 13px; font-weight: 600; color: var(--dark-blue); }
+        .profile-info .role { font-size: 11px; color: var(--text-light); }
+        .dashboard-container { padding: 30px; flex: 1; display: flex; flex-direction: column; gap: 25px; }
+        .page-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .page-header-left h1 { font-size: 24px; color: var(--dark-blue); font-weight: 600; margin-bottom: 5px; }
+        .breadcrumb { font-size: 13px; color: var(--text-light); display: flex; gap: 8px; align-items: center; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .btn-action { padding: 10px 18px; background: var(--primary); border: 1px solid var(--primary); border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.3s; color: white; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+        .btn-action:hover { background: var(--primary-hover); }
+        .btn-outline { background: transparent; color: var(--dark-blue); border: 1px solid #e5e7eb; padding: 10px 18px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); background: white; }
+        .card { background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); padding: 25px; margin-bottom: 25px; }
+        .section-title { font-size: 18px; font-weight: 600; color: var(--dark-blue); margin-bottom: 20px; display:flex; justify-content:space-between; align-items:center; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .stat-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; justify-content: space-between; align-items: center; }
+        .stat-info h3 { font-size: 13px; color: var(--text-light); font-weight: 500; margin-bottom: 5px; }
+        .stat-info .value { font-size: 24px; font-weight: 700; color: var(--dark-blue); }
+        .stat-icon { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .icon-blue { background: rgba(37,99,235,0.1); color: var(--primary); }
+        .icon-green { background: rgba(16,185,129,0.1); color: var(--green); }
+        .icon-yellow { background: rgba(245,158,11,0.1); color: var(--yellow); }
+        .icon-purple { background: rgba(139,92,246,0.1); color: #8b5cf6; }
+        .icon-red { background: rgba(239,68,68,0.1); color: var(--red); }
+        .badge { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+        .badge.active { background: rgba(16,185,129,0.1); color: var(--green); }
+        .badge.pending { background: rgba(245,158,11,0.1); color: var(--yellow); }
+        .badge.error { background: rgba(239,68,68,0.1); color: var(--red); }
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th { text-align: left; padding: 15px 20px; font-size: 12px; color: var(--text-light); border-bottom: 1px solid #e5e7eb; font-weight: 600; text-transform: uppercase; background: #f9fafb; }
+        td { padding: 15px 20px; border-bottom: 1px solid #f3f4f6; font-size: 13px; color: var(--text-dark); vertical-align: middle; }
+        tr:hover td { background-color: #f8fafc; }
+        .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(11, 21, 54, 0.6); z-index: 999; }
+        @media (max-width: 992px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.show { transform: translateX(0); }
+            .main-content { margin-left: 0; width: 100%; }
+            .hamburger { display: block; }
+            .search-bar { display: none; }
+            .topbar { padding: 0 20px; }
+        }
+        
+    </style>
+    <style>
+        /* Logo Background Removal Trick & Scaled Up Sizing */
+        .navbar .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; mix-blend-mode: multiply; margin-top: 5px;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .footer .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .login-brand .brand-logo { 
+            height: 50px !important; width: auto !important; max-width: 100% !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            margin-bottom: 20px; display: block;
+            transform: scale(1.8); transform-origin: left center; 
+        }
+        .sidebar-brand .brand-logo { 
+            height: 35px !important; width: auto !important; max-width: 180px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            display: block; margin-left: 20px;
+            transform: scale(2.2); transform-origin: left center; 
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="admin-layout">
+        <aside class="sidebar" id="sidebar">
+            <a href="index.html" class="sidebar-brand"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></a>
+            <div class="sidebar-nav"><a href="user-dashboard.html" class="nav-item"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+<a href="user-hosting.html" class="nav-item"><i class="fa-solid fa-hard-drive"></i> My Hosting</a>
+<a href="user-domains.html" class="nav-item"><i class="fa-solid fa-globe"></i> My Domains</a>
+<a href="user-billing.html" class="nav-item"><i class="fa-solid fa-file-invoice-dollar"></i> Billing</a>
+<a href="user-support.html" class="nav-item"><i class="fa-solid fa-headset"></i> Support</a>
+<a href="user-profile.html" class="nav-item"><i class="fa-solid fa-user"></i> Profile</a>
+</div>
+            <div class="sidebar-footer"><button class="btn-logout" id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button></div>
+        </aside>
+        <main class="main-content">
+            <header class="topbar">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
+                    <div class="search-bar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search..."></div>
+                </div>
+                <div class="topbar-right">
+                    <div class="notifications"><i class="fa-regular fa-bell"></i><span class="badge">1</span></div>
+                    <div class="profile">
+                        <img src="https://ui-avatars.com/api/?name=User&background=2563eb&color=fff" alt="User" id="profile-img">
+                        <div class="profile-info"><span class="name" id="user-name">Loading...</span><span class="role">Client Account</span></div>
+                    </div>
+                </div>
+            </header>
+            <div class="dashboard-container">
+                
+<!-- 1. Support Header -->
+<div class="page-header" style="background: linear-gradient(135deg, var(--dark-blue) 0%, #162454 100%); color: white;">
+    <div class="page-header-left">
+        <h1 style="color: white;">How can we help?</h1>
+        <div class="breadcrumb">
+            <a href="user-dashboard.html" style="color: rgba(255,255,255,0.7);">Dashboard</a> <i class="fa-solid fa-chevron-right" style="font-size: 10px; color: rgba(255,255,255,0.5);"></i> <span style="color: white;">Support</span>
+        </div>
+    </div>
+    <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+        <div class="search-bar" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+            <i class="fa-solid fa-magnifying-glass" style="color: white;"></i>
+            <input type="text" placeholder="Search support..." style="color: white;">
+        </div>
+        <button class="btn-action" style="background: white; color: var(--dark-blue); border: none;" onclick="document.getElementById('create-ticket-section').scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-plus"></i> Create Ticket</button>
+    </div>
+</div>
+
+<!-- 2. Support Categories -->
+<div class="stats-grid">
+    <div class="stat-card" style="text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 30px 20px; cursor: pointer;">
+        <div class="stat-icon icon-blue" style="margin: 0 auto; border-radius: 50%;"><i class="fa-solid fa-hard-drive"></i></div>
+        <h3 style="color: var(--dark-blue); font-weight: 600; font-size: 15px;">Hosting</h3>
+    </div>
+    <div class="stat-card" style="text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 30px 20px; cursor: pointer;">
+        <div class="stat-icon icon-green" style="margin: 0 auto; border-radius: 50%;"><i class="fa-solid fa-globe"></i></div>
+        <h3 style="color: var(--dark-blue); font-weight: 600; font-size: 15px;">Domain</h3>
+    </div>
+    <div class="stat-card" style="text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 30px 20px; cursor: pointer;">
+        <div class="stat-icon icon-yellow" style="margin: 0 auto; border-radius: 50%;"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <h3 style="color: var(--dark-blue); font-weight: 600; font-size: 15px;">Billing</h3>
+    </div>
+    <div class="stat-card" style="text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 30px 20px; cursor: pointer;">
+        <div class="stat-icon icon-purple" style="margin: 0 auto; border-radius: 50%;"><i class="fa-solid fa-code"></i></div>
+        <h3 style="color: var(--dark-blue); font-weight: 600; font-size: 15px;">Technical</h3>
+    </div>
+    <div class="stat-card" style="text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 30px 20px; cursor: pointer;">
+        <div class="stat-icon icon-red" style="margin: 0 auto; border-radius: 50%;"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 style="color: var(--dark-blue); font-weight: 600; font-size: 15px;">Security</h3>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 25px;">
+    
+    <div style="display: flex; flex-direction: column; gap: 25px;">
+        <!-- 3. My Tickets Table -->
+        <div class="card" style="padding: 0;">
+            <div class="section-title" style="padding: 25px 25px 15px;">My Tickets</div>
+            <div class="table-responsive" style="margin: 0; padding: 0 25px 25px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ticket ID</th>
+                            <th>Subject</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#TKT-1042</strong></td>
+                            <td>SSL Certificate not installing</td>
+                            <td>Technical</td>
+                            <td><span class="badge active">Open</span></td>
+                            <td><span class="badge error">High</span></td>
+                            <td>Today</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#TKT-0950</strong></td>
+                            <td>How to upgrade plan?</td>
+                            <td>Sales</td>
+                            <td><span class="badge active" style="background:#e5e7eb;color:#6b7280;">Closed</span></td>
+                            <td><span class="badge pending">Low</span></td>
+                            <td>Oct 1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 4. Ticket Details -->
+        <div class="card">
+            <div class="section-title">Latest Ticket Details <span style="font-size: 13px; font-weight:normal; color:var(--text-light); margin-left:10px;">#TKT-1042</span></div>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <span class="badge active">Status: Open</span>
+                <span class="badge error">Priority: High</span>
+            </div>
+            <div style="border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+                <div style="padding: 15px; border-bottom: 1px solid #f3f4f6;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <strong style="font-size: 13px; color: var(--dark-blue);">You</strong>
+                        <span style="font-size: 11px; color: var(--text-light);">Today, 09:42 AM</span>
+                    </div>
+                    <p style="font-size: 13px;">Hi, I just bought the Shared Starter plan which includes a Free SSL, but my site is still saying Not Secure. Can you help install it?</p>
+                </div>
+                <div style="padding: 15px; background: #f8fafc;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <strong style="font-size: 13px; color: var(--primary);">Support Agent</strong>
+                        <span style="font-size: 11px; color: var(--text-light);">Today, 09:55 AM</span>
+                    </div>
+                    <p style="font-size: 13px;">Hello! I have triggered the AutoSSL provisioning for your domain. It should be fully active within the next 15-30 minutes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Create Ticket Form -->
+    <div class="card" id="create-ticket-section">
+        <div class="section-title">Create Ticket</div>
+        <form id="ticketForm" novalidate>
+            <div id="ticket-msg" style="display:none; padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 15px;"></div>
+            
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 13px; font-weight: 500; margin-bottom: 5px;">Subject</label>
+                <input type="text" id="t-subject" style="width: 100%; padding: 10px; border: 1px solid #e5e7eb; border-radius: 6px; outline:none; font-family:'Poppins';">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 13px; font-weight: 500; margin-bottom: 5px;">Category</label>
+                <select id="t-category" style="width: 100%; padding: 10px; border: 1px solid #e5e7eb; border-radius: 6px; outline:none; font-family:'Poppins';">
+                    <option value="">Select Category</option>
+                    <option value="Hosting">Hosting</option>
+                    <option value="Domain">Domain</option>
+                    <option value="Billing">Billing</option>
+                    <option value="Technical">Technical</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 13px; font-weight: 500; margin-bottom: 5px;">Priority</label>
+                <select id="t-priority" style="width: 100%; padding: 10px; border: 1px solid #e5e7eb; border-radius: 6px; outline:none; font-family:'Poppins';">
+                    <option value="">Select Priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display:block; font-size: 13px; font-weight: 500; margin-bottom: 5px;">Message</label>
+                <textarea id="t-message" rows="5" style="width: 100%; padding: 10px; border: 1px solid #e5e7eb; border-radius: 6px; outline:none; font-family:'Poppins'; resize:vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn-action" style="width: 100%; justify-content:center;">Submit Ticket</button>
+        </form>
+    </div>
+</div>
+
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userRole = localStorage.getItem('userRole');
+            const username = localStorage.getItem('stacklyUsername');
+            if (userRole !== 'User') window.location.href = 'login.html';
+            if (username) {
+                document.getElementById('user-name').innerText = username;
+                document.getElementById('profile-img').src = `https://ui-avatars.com/api/?name=${encodeURIComponent(username)}&background=2563eb&color=fff`;
+            }
+            const hamburger = document.getElementById('hamburger');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const navItems = document.querySelectorAll('.nav-item');
+            function toggleSidebar() {
+                sidebar.classList.toggle('show');
+                if(sidebar.classList.contains('show')) { overlay.style.display = 'block'; document.body.style.overflow = 'hidden'; } 
+                else { overlay.style.display = 'none'; document.body.style.overflow = ''; }
+            }
+            hamburger.addEventListener('click', toggleSidebar);
+            overlay.addEventListener('click', toggleSidebar);
+            navItems.forEach(item => { item.addEventListener('click', function() { if (window.innerWidth <= 992) toggleSidebar(); }); });
+            document.getElementById('btn-logout').addEventListener('click', function() {
+                localStorage.removeItem('userEmail'); localStorage.removeItem('stacklyUsername'); localStorage.removeItem('userRole');
+                window.location.href = 'login.html';
+            });
+            
+const tForm = document.getElementById('ticketForm');
+if(tForm) {
+    tForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const sub = document.getElementById('t-subject');
+        const cat = document.getElementById('t-category');
+        const pri = document.getElementById('t-priority');
+        const msg = document.getElementById('t-message');
+        const msgBox = document.getElementById('ticket-msg');
+        
+        [sub, cat, pri, msg].forEach(el => el.style.borderColor = '#e5e7eb');
+        
+        if(!sub.value.trim() || !cat.value || !pri.value || !msg.value.trim()) {
+            msgBox.style.display = 'block';
+            msgBox.style.backgroundColor = 'rgba(239,68,68,0.1)';
+            msgBox.style.color = 'var(--red)';
+            msgBox.innerText = 'Please fill out all required fields.';
+            if(!sub.value.trim()) sub.style.borderColor = 'var(--red)';
+            if(!cat.value) cat.style.borderColor = 'var(--red)';
+            if(!pri.value) pri.style.borderColor = 'var(--red)';
+            if(!msg.value.trim()) msg.style.borderColor = 'var(--red)';
+            return;
+        }
+        
+        msgBox.style.display = 'block';
+        msgBox.style.backgroundColor = 'rgba(16,185,129,0.1)';
+        msgBox.style.color = 'var(--green)';
+        window.location.href = "404.html"; return;
+        tForm.reset();
+    });
+}
+
+        });
+    </script>
+<script src="custom-fixes.js"></script>
+</body>
+</html>

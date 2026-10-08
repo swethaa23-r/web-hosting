@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Stackly Web Hosting</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Logo Background Removal Trick & Scaled Up Sizing */
+        .navbar .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; mix-blend-mode: multiply; margin-top: 5px;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .footer .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .login-brand .brand-logo { 
+            height: 50px !important; width: auto !important; max-width: 100% !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            margin-bottom: 20px; display: block;
+            transform: scale(1.8); transform-origin: left center; 
+        }
+        .sidebar-brand .brand-logo { 
+            height: 35px !important; width: auto !important; max-width: 180px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            display: block; margin-left: 20px;
+            transform: scale(2.2); transform-origin: left center; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
+            <div class="mobile-menu-overlay"></div>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="domain.html">Domain</a>
+                <a href="hosting.html">Hosting</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button aria-label="Search" style="background:none; border:none; font-size:18px; cursor:pointer; color: var(--text-dark);"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 8px 24px; font-size: 14px; margin-left: 10px;">Login</a>
+                <button class="hamburger-menu" aria-label="Menu" style="margin-left: 10px;"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero / Breadcrumb -->
+    <section class="about-hero bg-dark-blue text-center" style="padding: 120px 0 80px;">
+        <div class="container" data-aos="fade-up">
+            <h1 style="color: white; font-size: 3rem; margin-bottom: 20px;">About Stackly Hosting</h1>
+            <p class="breadcrumb" style="font-size: 14px; font-weight: 500;">
+                <a href="index.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a> 
+                <span class="mx-2 text-blue" style="margin: 0 10px; color: var(--primary);">/</span> 
+                <span class="text-white" style="color: white;">About Us</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Company Introduction -->
+    <section class="company-intro" style="padding: 80px 0; background: var(--white);">
+        <div class="container" style="display: flex; gap: 50px; flex-wrap: wrap; align-items: center;">
+            <div class="intro-text" data-aos="fade-right" style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 20px;">Empowering Businesses with Reliable Infrastructure.</h2>
+                <p style="color: var(--text-light); font-size: 15px; line-height: 1.8; margin-bottom: 20px;">Stackly is a premier web hosting provider dedicated to helping individuals, small businesses, and large enterprises establish a powerful online presence. We specialize in shared, VPS, dedicated, and optimized WordPress hosting solutions designed for maximum speed and rock-solid stability.</p>
+                <p style="color: var(--text-light); font-size: 15px; line-height: 1.8; margin-bottom: 30px;">We understand that in today's digital landscape, businesses absolutely need reliable hosting to succeed. Any downtime directly impacts revenue and reputation. That is why our commitment revolves around delivering robust performance, proactive security, and a highly optimized hosting environment backed by expert support round the clock.</p>
+                <ul style="list-style: none; padding: 0; color: var(--text-dark); font-weight: 500;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check text-primary" style="margin-right: 10px; color: var(--primary);"></i> Over 15 Years of Excellence</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check text-primary" style="margin-right: 10px; color: var(--primary);"></i> Global Tier-4 Data Centers</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check text-primary" style="margin-right: 10px; color: var(--primary);"></i> Thousands of Satisfied Customers</li>
+                </ul>
+            </div>
+            <div class="intro-img" data-aos="fade-left" style="flex: 1; min-width: 300px; text-align: center;">
+                <img src="assets/images/about_agency.webp" alt="Stackly Web Hosting Expert" style="width: 100%; max-width: 500px; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision" style="padding: 80px 0; background: var(--bg-light, #f8faff);">
+        <div class="container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+            <div class="card mission-card" data-aos="fade-up" style="flex: 1; min-width: 300px; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--primary);">
+                <div style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"><i class="fa-solid fa-bullseye"></i></div>
+                <h3 style="font-size: 24px; color: var(--dark-blue); margin-bottom: 15px;">Our Mission</h3>
+                <p style="color: var(--text-light); font-size: 15px; line-height: 1.7;">Our mission is to democratize high-performance web hosting, making enterprise-grade infrastructure accessible and affordable for everyone. We aim to empower creators and businesses by providing an impenetrable, lightning-fast foundation for their digital ventures.</p>
+            </div>
+            <div class="card vision-card" data-aos="fade-up" data-aos-delay="200" style="flex: 1; min-width: 300px; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid #10b981;">
+                <div style="font-size: 40px; color: #10b981; margin-bottom: 20px;"><i class="fa-solid fa-eye"></i></div>
+                <h3 style="font-size: 24px; color: var(--dark-blue); margin-bottom: 15px;">Our Vision</h3>
+                <p style="color: var(--text-light); font-size: 15px; line-height: 1.7;">We envision a digital world without limits, where slow loading times and server downtimes are a thing of the past. By continuously innovating and expanding our global network, we strive to remain the ultimate hosting partner for forward-thinking organizations worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosting Advantages (6 features) -->
+    <section class="hosting-advantages" style="padding: 80px 0; background: var(--white);">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up" style="margin-bottom: 50px;">
+                <h2 style="font-size: 2.5rem; color: var(--dark-blue);">Core Hosting Advantages</h2>
+                <p style="color: var(--text-light); max-width: 600px; margin: 10px auto 0;">Everything you need to successfully launch, run, and scale your website.</p>
+            </div>
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <!-- Adv 1 -->
+                <div class="adv-card" data-aos="fade-up" data-aos-delay="100" style="padding: 30px; background: #f8faff; border-radius: 10px; text-align: center; transition: transform 0.3s;">
+                    <i class="fa-solid fa-server" style="font-size: 35px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">High-Performance Infrastructure</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Utilizing cutting-edge NVMe storage and LiteSpeed servers for unparalleled website speed.</p>
+                </div>
+                <!-- Adv 2 -->
+                <div class="adv-card" data-aos="fade-up" data-aos-delay="200" style="padding: 30px; background: #f8faff; border-radius: 10px; text-align: center; transition: transform 0.3s;">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 35px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Free SSL Security</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Keep your visitors safe and rank higher on search engines with included let's encrypt SSL certificates.</p>
+                </div>
+                <!-- Adv 3 -->
+                <div class="adv-card" data-aos="fade-up" data-aos-delay="300" style="padding: 30px; background: #f8faff; border-radius: 10px; text-align: center; transition: transform 0.3s;">
+                    <i class="fa-solid fa-clock-rotate-left" style="font-size: 35px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Automated Backups</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Never lose your data again. Enjoy automated daily backups and one-click data restoration.</p>
+                </div>
+                <!-- Adv 4 -->
+                <div class="adv-card" data-aos="fade-up" data-aos-delay="400" style="padding: 30px; background: #f8faff; border-radius: 10px; text-align: center; transition: transform 0.3s;">
+                    <i class="fa-solid fa-chart-line" style="font-size: 35px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">99.9% Uptime Guarantee</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Our robust network architecture ensures maximum availability for your mission-critical sites.</p>
+                </div>
+                <!-- Adv 5 -->
+                <div class="adv-card" data-aos="fade-up" data-aos-delay="500" style="padding: 30px; background: #f8faff; border-radius: 10px; text-align: center; transition: transform 0.3s;">
+                    <i class="fa-solid fa-layer-group" style="font-size: 35px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Scalable Hosting Plans</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Start small and grow big. Seamlessly upgrade your server resources on the fly without downtime.</p>
+                </div>
+                <!-- Adv 6 -->
+                <div class="adv-card" data-aos="fade-up" data-aos-delay="600" style="padding: 30px; background: #f8faff; border-radius: 10px; text-align: center; transition: transform 0.3s;">
+                    <i class="fa-solid fa-user-tie" style="font-size: 35px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">24/7 Expert Support</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Technical issues don't sleep, and neither do we. Our hosting experts are available around the clock.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us bg-dark-blue" style="padding: 80px 0; color: white;">
+        <div class="container" style="display: flex; gap: 50px; flex-wrap: wrap; align-items: center;">
+            <div class="wcu-image" data-aos="fade-right" style="flex: 1; min-width: 300px;">
+                <img src="assets/images/consultancy_img.webp" alt="Why Choose Stackly" style="width: 100%; border-radius: 10px;">
+            </div>
+            <div class="wcu-text" data-aos="fade-left" style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Why Choose Our Hosting Solutions?</h2>
+                <div class="wcu-item" style="display: flex; gap: 15px; margin-bottom: 25px;">
+                    <div style="background: rgba(255,255,255,0.1); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;"><i class="fa-brands fa-cpanel"></i></div>
+                    <div>
+                        <h4 style="font-size: 18px; margin-bottom: 5px;">Industry-Leading Control Panel</h4>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;">Manage your website, emails, and databases effortlessly with our intuitive cPanel integration.</p>
+                    </div>
+                </div>
+                <div class="wcu-item" style="display: flex; gap: 15px; margin-bottom: 25px;">
+                    <div style="background: rgba(255,255,255,0.1); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;"><i class="fa-solid fa-code-merge"></i></div>
+                    <div>
+                        <h4 style="font-size: 18px; margin-bottom: 5px;">Developer Friendly Tools</h4>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;">Full root access, SSH, Git integration, and multiple PHP versions give developers total control.</p>
+                    </div>
+                </div>
+                <div class="wcu-item" style="display: flex; gap: 15px;">
+                    <div style="background: rgba(255,255,255,0.1); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div>
+                        <h4 style="font-size: 18px; margin-bottom: 5px;">Free Site Migration</h4>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;">Our technical team will safely move your existing website to Stackly without any data loss or downtime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="statistics" style="padding: 80px 0; background: var(--primary) url('assets/images/hero_img.webp') no-repeat center center/cover; position: relative; color: white; background-blend-mode: overlay; background-color: rgba(37,99,235,0.9);">
+        <div class="container">
+            <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center;">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fa-solid fa-globe" style="font-size: 40px; margin-bottom: 15px; opacity: 0.8;"></i>
+                    <div class="counter" style="font-size: 40px; font-weight: 700; margin-bottom: 5px;" data-target="150000">0</div>
+                    <p style="font-size: 16px; font-weight: 500; opacity: 0.9;">Websites Hosted</p>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fa-solid fa-face-smile" style="font-size: 40px; margin-bottom: 15px; opacity: 0.8;"></i>
+                    <div class="counter" style="font-size: 40px; font-weight: 700; margin-bottom: 5px;" data-target="100000">0</div>
+                    <p style="font-size: 16px; font-weight: 500; opacity: 0.9;">Happy Customers</p>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fa-solid fa-server" style="font-size: 40px; margin-bottom: 15px; opacity: 0.8;"></i>
+                    <div style="font-size: 40px; font-weight: 700; margin-bottom: 5px;"><span class="counter" data-target="99">0</span>.9%</div>
+                    <p style="font-size: 16px; font-weight: 500; opacity: 0.9;">Guaranteed Uptime</p>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fa-solid fa-award" style="font-size: 40px; margin-bottom: 15px; opacity: 0.8;"></i>
+                    <div style="font-size: 40px; font-weight: 700; margin-bottom: 5px;"><span class="counter" data-target="15">0</span>+</div>
+                    <p style="font-size: 16px; font-weight: 500; opacity: 0.9;">Years of Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team / Expertise -->
+    <section class="team-section" style="padding: 80px 0; background: var(--bg-light);">
+        <div class="container text-center">
+            <h2 data-aos="fade-up" style="font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 10px;">Meet Our Hosting Experts</h2>
+            <p data-aos="fade-up" style="color: var(--text-light); max-width: 600px; margin: 0 auto 50px;">The talented engineers and support specialists working behind the scenes to keep your websites online.</p>
+            
+            <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <img src="assets/images/avatar_1.webp" alt="David Miller" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 20px;">
+                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 5px;">David Miller</h4>
+                        <p style="color: var(--primary); font-size: 14px; font-weight: 500; margin-bottom: 15px;">Lead Systems Administrator</p>
+                        <div class="socials" style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="#" style="color: var(--text-light);"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" style="color: var(--text-light);"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <img src="assets/images/avatar_2.webp" alt="Sarah Jenkins" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 20px;">
+                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 5px;">Sarah Jenkins</h4>
+                        <p style="color: var(--primary); font-size: 14px; font-weight: 500; margin-bottom: 15px;">Head of Customer Support</p>
+                        <div class="socials" style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="#" style="color: var(--text-light);"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" style="color: var(--text-light);"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <img src="assets/images/avatar_3.webp" alt="Michael Chang" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 20px;">
+                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 5px;">Michael Chang</h4>
+                        <p style="color: var(--primary); font-size: 14px; font-weight: 500; margin-bottom: 15px;">Network Security Architect</p>
+                        <div class="socials" style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="#" style="color: var(--text-light);"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" style="color: var(--text-light);"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section text-center" style="padding: 80px 0; background: var(--primary);">
+        <div class="container" data-aos="zoom-in">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 15px;">Ready to host your website?</h2>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 30px; font-size: 16px;">Experience the fastest, most reliable web hosting platform tailored for your needs.</p>
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="hosting.html" class="btn btn-white" style="background: white; color: var(--dark-blue); padding: 12px 30px; border-radius: 5px; font-weight: 600; text-decoration: none;">View Plans</a>
+                <a href="contact.html" class="btn btn-outline-white" style="border: 2px solid white; color: white; padding: 12px 30px; border-radius: 5px; font-weight: 600; text-decoration: none;">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark-blue">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <div class="logo white-logo" style="margin-bottom: 20px;"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
+                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px;">My service is not something I even think about because it is always there as we agreed. The customer service is responsive and knowledge needs for.</p>
+                    <div class="social-links">
+                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">Follow us on ____________</span>
+                        <div class="icons" style="display: flex; gap: 10px;">
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="javascript:void(0);">Support Center</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="javascript:void(0);">Search Domain</a></li>
+                        <li><a href="javascript:void(0);">My Account</a></li>
+                        <li><a href="javascript:void(0);">Customer Profiles</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="hosting.html">Shared Hosting</a></li>
+                        <li><a href="hosting.html">WordPress Hosting</a></li>
+                        <li><a href="hosting.html">VPS Hosting</a></li>
+                        <li><a href="javascript:void(0);">Game Hosting</a></li>
+                        <li><a href="javascript:void(0);">Dedicated Hosting</a></li>
+                        <li><a href="domain.html">Domain Name</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col newsletter-col">
+                    <h4>Get In Touch</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Type Your Mail">
+                        <button type="button" class="btn btn-light-blue">Subscribe</button>
+                    </form>
+                    <div class="payment-methods" style="margin-top: 30px;">
+                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">We Accepted ____________</span>
+                        <div class="methods" style="display: flex; gap: 15px; font-size: 24px; color: #94a3b8;">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                            <i class="fa-brands fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright 2026 Stackly. All Rights Reserved.</p>
+                <div class="bottom-links">
+                    <a href="javascript:void(0);">Terms & Conditions</a>
+                    <a href="javascript:void(0);">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    
+    <!-- Counters JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.counter');
+            
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const speed = 200; // lower is faster
+                
+                const inc = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(() => animateCounter(counter), 20);
+                } else {
+                    counter.innerText = target;
+                    // Add formatting for thousands (e.g. 150K) if desired, keeping it simple for now.
+                    if(target >= 1000 && target !== 99 && target !== 15) {
+                         counter.innerText = (target / 1000) + 'K';
+                    }
+                }
+            };
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        });
+    </script>
+</body>
+</html>

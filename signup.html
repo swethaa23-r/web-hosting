@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Stackly Web Hosting</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS (imports variables) -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Specific Styles for Login/Signup Split Layout */
+        body, html {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-light, #f8faff);
+        }
+
+        .login-wrapper {
+            display: flex;
+            min-height: 100vh;
+            width: 100vw;
+        }
+
+        /* Left Side: Branding & Graphic */
+        .login-left {
+            flex: 1;
+            background: var(--dark-blue, #0b1536);
+            color: white;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.2), transparent 50%);
+            z-index: 1;
+        }
+
+        .login-brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            z-index: 2;
+        }
+        
+        .login-brand i { color: var(--primary, #2563eb); }
+
+        .login-message {
+            z-index: 2;
+            max-width: 500px;
+            margin-top: 40px;
+        }
+        .login-message h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .login-message p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        .login-illustration {
+            z-index: 2;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .login-illustration i {
+            font-size: 150px;
+            color: rgba(255,255,255,0.05);
+        }
+
+        /* Right Side: Signup Form */
+        .login-right {
+            flex: 1.5; /* Slightly wider for the larger form */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: white;
+            position: relative;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-size: 14px;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .back-home:hover { color: var(--primary); }
+
+        .login-card {
+            width: 100%;
+            max-width: 600px; /* Wider to accommodate grid */
+        }
+
+        .login-card h3 {
+            font-size: 28px;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .login-card p {
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Form Grid */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark-blue);
+        }
+        
+        .form-control, select.form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+            box-sizing: border-box;
+            background: #fcfcfc;
+            color: var(--text-dark);
+        }
+        .form-control:focus {
+            border-color: var(--primary);
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+        .form-control.is-invalid {
+            border-color: #ef4444;
+            background: #fffafa;
+        }
+
+        .invalid-feedback {
+            display: none;
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+        .password-toggle:hover { color: var(--dark-blue); }
+
+        /* Password Strength */
+        .password-strength {
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            display: none; /* hidden until typing */
+        }
+        .strength-bar-container {
+            height: 4px;
+            width: 100%;
+            background: #e5e7eb;
+            border-radius: 2px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        .strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+        }
+        .strength-weak .strength-bar { width: 33%; background: #ef4444; }
+        .strength-medium .strength-bar { width: 66%; background: #fbbf24; }
+        .strength-strong .strength-bar { width: 100%; background: #10b981; }
+        
+        .strength-weak-text { color: #ef4444; }
+        .strength-medium-text { color: #d97706; }
+        .strength-strong-text { color: #166534; }
+
+        .terms-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: var(--text-light);
+            grid-column: 1 / -1;
+        }
+        .terms-group input {
+            margin-top: 4px;
+        }
+        .terms-group a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .terms-group a:hover { text-decoration: underline; }
+
+        .btn-register {
+            grid-column: 1 / -1;
+            width: 100%;
+            background: var(--primary, #2563eb);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-register:hover { background: var(--dark-blue); }
+        .btn-register:disabled { opacity: 0.7; cursor: not-allowed; }
+        
+        .spinner {
+            display: none;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .login-footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        .login-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .login-footer a:hover { text-decoration: underline; }
+        
+        .alert-box {
+            display: none;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .alert-error { background: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+        .alert-success { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .login-wrapper { flex-direction: column; }
+            .login-left { padding: 40px; }
+            .login-illustration { display: none; }
+            .login-message { margin-top: 20px; }
+            .login-right { padding: 40px 20px; flex-direction: column; }
+            .back-home { position: static; justify-content: center; margin-bottom: 0px; margin-top: 30px; order: 2; }
+        }
+        @media (max-width: 576px) {
+            .form-grid { grid-template-columns: 1fr; gap: 0; }
+            .form-group { margin-bottom: 15px; }
+            .login-card h3 { font-size: 24px; }
+            .login-left { padding: 30px 20px; }
+        }
+    </style>
+    <style>
+        /* Logo Background Removal Trick & Scaled Up Sizing */
+        .navbar .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; mix-blend-mode: multiply; margin-top: 5px;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .footer .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .login-brand .brand-logo { 
+            height: 50px !important; width: auto !important; max-width: 100% !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            margin-bottom: 20px; display: block;
+            transform: scale(1.8); transform-origin: left center; 
+        }
+        .sidebar-brand .brand-logo { 
+            height: 35px !important; width: auto !important; max-width: 180px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            display: block; margin-left: 20px;
+            transform: scale(2.2); transform-origin: left center; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-wrapper">
+        
+        <!-- Left Split: Branding -->
+        <div class="login-left">
+            <a href="index.html" class="login-brand" data-aos="fade-right"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></a>
+            
+            <div class="login-message" data-aos="fade-up" data-aos-delay="100">
+                <h2>Start Your Hosting Journey.</h2>
+                <p>Join thousands of businesses relying on Stackly for unmatched performance, iron-clad security, and 24/7 dedicated support.</p>
+            </div>
+            
+            <div class="login-illustration" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fa-solid fa-rocket" style="font-size: 180px; color: rgba(255,255,255,0.05);"></i>
+            </div>
+        </div>
+        
+        <!-- Right Split: Registration Form -->
+        <div class="login-right">
+            <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+            
+            <div class="login-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Create an Account</h3>
+                <p>Set up your profile to deploy and manage your servers.</p>
+                
+                <div id="signup-alert" class="alert-box"></div>
+                
+                <form id="signup-form" novalidate>
+                    <div class="form-grid">
+                        
+                        <!-- Row 1: Name & Email -->
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" class="form-control" placeholder="John Doe">
+                            <div class="invalid-feedback" id="err-fullname"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="name@example.com">
+                            <div class="invalid-feedback" id="err-email"></div>
+                        </div>
+                        
+                        <!-- Row 2: Phone & Username -->
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 000-0000">
+                            <div class="invalid-feedback" id="err-phone"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="form-control" placeholder="johndoe99">
+                            <div class="invalid-feedback" id="err-username"></div>
+                        </div>
+                        
+                        <!-- Row 3: Passwords -->
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Create a strong password">
+                            <i class="fa-regular fa-eye password-toggle" id="toggle-password" title="Show/Hide Password"></i>
+                            <div class="invalid-feedback" id="err-password"></div>
+                            
+                            <div class="password-strength" id="strength-container">
+                                Strength: <span id="strength-text"></span>
+                                <div class="strength-bar-container">
+                                    <div class="strength-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" class="form-control" placeholder="Confirm your password">
+                            <i class="fa-regular fa-eye password-toggle" id="toggle-confirm" title="Show/Hide Password"></i>
+                            <div class="invalid-feedback" id="err-confirm-password"></div>
+                        </div>
+                        
+                        <!-- Row 4: Role -->
+                        <div class="form-group full-width">
+                            <label for="role">Select Account Type</label>
+                            <select id="role" class="form-control">
+                                <option value="" disabled selected>Choose a role...</option>
+                                <option value="User">Standard User (Client)</option>
+                                <option value="Admin">Administrator (Demo)</option>
+                            </select>
+                            <div class="invalid-feedback" id="err-role"></div>
+                            <small style="color: var(--text-light); font-size: 11px; margin-top: 5px; display: block;">
+                                <i class="fa-solid fa-circle-info"></i> For demo purposes, you can freely select the Admin role.
+                            </small>
+                        </div>
+                        
+                        <!-- Terms -->
+                        <div class="terms-group">
+                            <input type="checkbox" id="terms">
+                            <label for="terms">I agree to the Stackly <a href="javascript:void(0);">Terms & Conditions</a> and <a href="javascript:void(0);">Privacy Policy</a>.</label>
+                            <div class="invalid-feedback" id="err-terms" style="position: absolute; bottom: -20px; left: 24px;"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn-register" id="btn-register">
+                            <span class="btn-text">Create Account</span>
+                            <i class="fa-solid fa-spinner spinner" id="signup-spinner"></i>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="login-footer">
+                    Already have an account? <a href="login.html">Sign In</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800 });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const signupForm = document.getElementById('signup-form');
+            const alertBox = document.getElementById('signup-alert');
+            const btnRegister = document.getElementById('btn-register');
+            const btnText = document.querySelector('.btn-text');
+            const spinner = document.getElementById('signup-spinner');
+            
+            // Toggle Password Visbility
+            function setupToggle(toggleIconId, inputId) {
+                const toggle = document.getElementById(toggleIconId);
+                const input = document.getElementById(inputId);
+                toggle.addEventListener('click', function() {
+                    const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                    input.setAttribute('type', type);
+                    this.classList.toggle('fa-eye');
+                    this.classList.toggle('fa-eye-slash');
+                });
+            }
+            setupToggle('toggle-password', 'password');
+            setupToggle('toggle-confirm', 'confirm-password');
+            
+            // Password Strength Logic
+            const passInput = document.getElementById('password');
+            const strengthContainer = document.getElementById('strength-container');
+            const strengthText = document.getElementById('strength-text');
+            
+            passInput.addEventListener('input', function() {
+                const val = this.value;
+                if(val.length === 0) {
+                    strengthContainer.style.display = 'none';
+                    return;
+                }
+                
+                strengthContainer.style.display = 'block';
+                strengthContainer.className = 'password-strength'; // reset classes
+                
+                let strength = 0;
+                if(val.length >= 6) strength += 1;
+                if(val.length >= 8 && val.match(/[a-zA-Z]/) && val.match(/[0-9]/)) strength += 1;
+                if(val.length >= 10 && val.match(/[^a-zA-Z0-9]/)) strength += 1;
+                
+                if(strength === 0 || strength === 1) {
+                    strengthContainer.classList.add('strength-weak');
+                    strengthText.innerText = 'Weak';
+                    strengthText.className = 'strength-weak-text';
+                } else if(strength === 2) {
+                    strengthContainer.classList.add('strength-medium');
+                    strengthText.innerText = 'Medium';
+                    strengthText.className = 'strength-medium-text';
+                } else {
+                    strengthContainer.classList.add('strength-strong');
+                    strengthText.innerText = 'Strong';
+                    strengthText.className = 'strength-strong-text';
+                }
+            });
+            
+            // Form Submission
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Clear errors
+                document.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-invalid'));
+                document.querySelectorAll('.invalid-feedback').forEach(el => el.style.display = 'none');
+                alertBox.style.display = 'none';
+                alertBox.className = 'alert-box';
+                
+                // Fetch values
+                const name = document.getElementById('fullname');
+                const email = document.getElementById('email');
+                const phone = document.getElementById('phone');
+                const username = document.getElementById('username');
+                const role = document.getElementById('role');
+                const pass = document.getElementById('password');
+                const confirm = document.getElementById('confirm-password');
+                const terms = document.getElementById('terms');
+                
+                let isValid = true;
+                
+                // Validations
+                if(name.value.trim() === '') { showErrorField(name, 'Full name is required.'); isValid = false; }
+                
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(email.value.trim() === '') { showErrorField(email, 'Email is required.'); isValid = false; }
+                else if(!emailRegex.test(email.value.trim())) { showErrorField(email, 'Invalid email format.'); isValid = false; }
+                
+                const phoneRegex = /^[+]?[\d\s()-]{10,15}$/;
+                if(phone.value.trim() === '') { showErrorField(phone, 'Phone number is required.'); isValid = false; }
+                else if(!phoneRegex.test(phone.value.trim().replace(/[\s()-]/g, ''))) { showErrorField(phone, 'Invalid phone format.'); isValid = false; }
+                
+                if(username.value.trim().length < 3) { showErrorField(username, 'Username must be at least 3 characters.'); isValid = false; }
+                
+                if(role.value === '') { showErrorField(role, 'Please select an account type.'); isValid = false; }
+                
+                if(pass.value === '') { showErrorField(pass, 'Password is required.'); isValid = false; }
+                else if(pass.value.length < 6) { showErrorField(pass, 'Password must be at least 6 characters.'); isValid = false; }
+                
+                if(confirm.value === '') { showErrorField(confirm, 'Please confirm your password.'); isValid = false; }
+                else if(confirm.value !== pass.value) { showErrorField(confirm, 'Passwords do not match.'); isValid = false; }
+                
+                if(!terms.checked) {
+                    const err = document.getElementById('err-terms');
+                    err.innerText = 'You must accept the terms.';
+                    err.style.display = 'block';
+                    isValid = false;
+                }
+                
+                if(!isValid) return;
+                
+                // Loading State
+                btnRegister.disabled = true;
+                btnText.innerText = 'Creating Account...';
+                spinner.style.display = 'inline-block';
+                
+                // Simulate Network Delay
+                setTimeout(() => {
+                    // Store Demo User
+                    localStorage.setItem('userEmail', email.value.trim());
+                    localStorage.setItem('stacklyUsername', username.value.trim());
+                    localStorage.setItem('userRole', role.value);
+                    // Also store password for demo login to work with newly registered user
+                    localStorage.setItem('demoUserPass', pass.value);
+                    
+                    alertBox.innerHTML = '<i class="fa-solid fa-circle-check"></i> Account created successfully! Redirecting to login...';
+                    alertBox.className = 'alert-box alert-success';
+                    alertBox.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 2000);
+                    
+                }, 1500);
+            });
+            
+            function showErrorField(inputElement, msg) {
+                inputElement.classList.add('is-invalid');
+                const errElement = document.getElementById('err-' + inputElement.id);
+                if(errElement) {
+                    errElement.innerText = msg;
+                    errElement.style.display = 'block';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

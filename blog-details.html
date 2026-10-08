@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Choose the Right Web Hosting Plan for Your Business - Stackly Blog</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .blog-hero {
+            background-color: var(--primary, #041246);
+            padding: 120px 0 60px;
+            color: white;
+            text-align: center;
+        }
+        .blog-hero .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+        .blog-hero .breadcrumb a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .blog-hero .breadcrumb a:hover {
+            color: white;
+        }
+        .blog-category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .blog-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .blog-hero p.intro {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .blog-meta-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            flex-wrap: wrap;
+        }
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .author-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .blog-featured-image {
+            max-width: 900px;
+            margin: -40px auto 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .blog-featured-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-dark, #1f2937);
+        }
+        .article-content h2 {
+            font-size: 24px;
+            color: var(--dark-blue, #0b1536);
+            margin: 40px 0 20px;
+            font-weight: 600;
+        }
+        .article-content h3 {
+            font-size: 20px;
+            color: var(--dark-blue);
+            margin: 30px 0 15px;
+            font-weight: 600;
+        }
+        .article-content p {
+            margin-bottom: 20px;
+            color: var(--text-light, #6b7280);
+        }
+        .article-content ul {
+            margin: 0 0 25px 20px;
+            color: var(--text-light);
+        }
+        .article-content li {
+            margin-bottom: 10px;
+        }
+        .highlight-box {
+            background: #f8faff;
+            border-left: 4px solid var(--primary, #2563eb);
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            font-weight: 500;
+            color: var(--dark-blue);
+        }
+        
+        /* Key Takeaways Section */
+        .key-takeaways {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .key-takeaways h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark-blue);
+        }
+        .key-takeaways h3 i {
+            color: var(--primary);
+        }
+        .takeaway-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .takeaway-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+        .takeaway-list li:last-child {
+            margin-bottom: 0;
+        }
+        .takeaway-list li i {
+            color: var(--green, #10b981);
+            margin-top: 4px;
+        }
+
+        /* Related Articles */
+        .related-articles {
+            background: var(--bg-light, #f8faff);
+            padding: 80px 0;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .blog-img-wrap {
+            position: relative;
+            width: 100%;
+            padding-top: 60%;
+            overflow: hidden;
+            background: #eee;
+        }
+        .blog-img-wrap img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .blog-card:hover .blog-img-wrap img { transform: scale(1.05); }
+        
+        .blog-cat-badge-small {
+            position: absolute;
+            bottom: -15px;
+            left: 20px;
+            background: var(--dark-blue, #0b1536);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .blog-content {
+            padding: 35px 25px 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-title {
+            font-size: 18px;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .blog-excerpt {
+            color: var(--text-light);
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .read-more-btn {
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary, #2563eb);
+            text-decoration: none;
+            transition: gap 0.3s;
+            margin-top: auto;
+        }
+        .read-more-btn:hover {
+            gap: 10px;
+            color: var(--dark-blue);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+        .cta-box {
+            background: var(--dark-blue);
+            border-radius: 20px;
+            padding: 60px 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.4) 0%, transparent 50%);
+        }
+        .cta-box h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form-cta {
+            display: flex;
+            max-width: 500px;
+            margin: 40px auto 0;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+        .newsletter-form-cta input {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+        .newsletter-form-cta button {
+            padding: 15px 30px;
+            background: var(--primary, #2563eb);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .newsletter-form-cta button:hover {
+            background: var(--primary-hover, #1d4ed8);
+        }
+
+        @media (max-width: 992px) {
+            .blog-hero h1 { font-size: 2rem; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .related-grid { grid-template-columns: 1fr; }
+            .blog-meta-author { gap: 10px; font-size: 12px; }
+            .article-content h2 { font-size: 22px; }
+            .cta-box h2 { font-size: 26px; }
+            .blog-featured-image { margin-top: -20px; }
+        }
+    </style>
+    <style>
+        /* Logo Background Removal Trick & Scaled Up Sizing */
+        .navbar .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; mix-blend-mode: multiply; margin-top: 5px;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .footer .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .login-brand .brand-logo { 
+            height: 50px !important; width: auto !important; max-width: 100% !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            margin-bottom: 20px; display: block;
+            transform: scale(1.8); transform-origin: left center; 
+        }
+        .sidebar-brand .brand-logo { 
+            height: 35px !important; width: auto !important; max-width: 180px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            display: block; margin-left: 20px;
+            transform: scale(2.2); transform-origin: left center; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
+            <div class="mobile-menu-overlay"></div>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="domain.html">Domain</a>
+                <a href="hosting.html">Hosting</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button aria-label="Search" style="background:none; border:none; font-size:18px; cursor:pointer; color: var(--text-dark);"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 8px 24px; font-size: 14px; margin-left: 10px;">Login</a>
+                <button class="hamburger-menu" aria-label="Menu" style="margin-left: 10px;"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. BLOG HERO -->
+    <section class="blog-hero">
+        <div class="container" data-aos="fade-up">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> 
+                <span style="color: rgba(255,255,255,0.5);">/</span>
+                <a href="blog.html">Blog</a>
+                <span style="color: rgba(255,255,255,0.5);">/</span>
+                <span style="color: white;">Article</span>
+            </div>
+            <span class="blog-category-badge">Web Hosting</span>
+            <h1>How to Choose the Right Web Hosting Plan for Your Business</h1>
+            <p class="intro">Starting your first online business? Learn the critical differences between Shared, VPS, and Dedicated hosting so you can invest in the architecture that perfectly matches your traffic and budget requirements.</p>
+            
+            <div class="blog-meta-author">
+                <div class="author-info">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Carter&background=2563eb&color=fff" alt="Alex Carter">
+                    <span><strong>Alex Carter</strong></span>
+                </div>
+                <span style="color: rgba(255,255,255,0.3);">|</span>
+                <span><i class="fa-regular fa-calendar"></i> Oct 15, 2026</span>
+                <span style="color: rgba(255,255,255,0.3);">|</span>
+                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Image -->
+    <div class="blog-featured-image" data-aos="fade-up" data-aos-delay="100">
+        <img src="assets/images/blog-1.webp" alt="Web Hosting Basics">
+    </div>
+
+    <!-- 2. ARTICLE CONTENT -->
+    <section class="article-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="article-content">
+            <p>Choosing a web hosting plan is one of the most important decisions you will make when starting a new website. The right host acts as the foundation of your online presence, ensuring that your site remains fast, secure, and accessible to visitors at all times. But with so many options available—from shared hosting to dedicated servers—how do you know which one is right for you?</p>
+
+            <h2>Understanding Web Hosting Types</h2>
+            <p>Every website on the internet is stored on a server. Web hosting companies provide the space and resources on these servers for your website files. The type of hosting you choose dictates how much of a server's resources your website gets to use.</p>
+
+            <h3>Shared vs VPS Hosting</h3>
+            <p><strong>Shared Hosting</strong> is the most common and affordable option for beginners. As the name suggests, your website shares a server with many other websites. This means you share resources like CPU, RAM, and bandwidth. It is highly cost-effective but can lead to slower loading times if another site on the server experiences a sudden traffic spike.</p>
+            
+            <p><strong>VPS (Virtual Private Server) Hosting</strong> offers a middle ground. While you still share a physical server with others, the server is virtually partitioned. This guarantees a set amount of resources exclusively for your website, offering better stability, performance, and customization than shared hosting.</p>
+
+            <div class="highlight-box">
+                "If you are expecting consistent traffic or running an eCommerce store, skipping Shared Hosting in favor of a VPS can save you from potential slow-downs during peak hours."
+            </div>
+
+            <h3>Cloud Hosting and Scalability</h3>
+            <p>Cloud hosting is rapidly becoming the industry standard for growing businesses. Instead of relying on a single physical server, your website is hosted on a network of connected virtual and physical cloud servers. This provides incredible scalability; if you get a sudden surge in traffic, the cloud network instantly allocates more resources to keep your site online.</p>
+
+            <h2>Critical Factors to Consider</h2>
+            
+            <h3>Storage and Bandwidth</h3>
+            <p>Assess how much storage space your website files, images, and databases will require. Additionally, consider your bandwidth needs—the amount of data transferred to your users when they view your site. While many providers advertise "unlimited" bandwidth, always check the fair usage policy.</p>
+
+            <h3>SSL and Website Security</h3>
+            <p>Security should never be an afterthought. Ensure your hosting provider offers:</p>
+            <ul>
+                <li>Free SSL Certificates (Let's Encrypt) to secure data transfers.</li>
+                <li>Automated daily or weekly backups.</li>
+                <li>Web Application Firewalls (WAF) and malware scanning.</li>
+                <li>DDoS protection to mitigate attacks.</li>
+            </ul>
+
+            <h3>Server Performance and Uptime</h3>
+            <p>A fast website ranks better on search engines and provides a better user experience. Look for hosts utilizing NVMe SSD storage and modern web servers like LiteSpeed. Equally important is the uptime guarantee. Aim for hosts that provide at least a 99.9% uptime Service Level Agreement (SLA).</p>
+
+            <!-- 3. KEY TAKEAWAYS -->
+            <div class="key-takeaways" data-aos="fade-up">
+                <h3><i class="fa-solid fa-list-check"></i> Key Takeaways</h3>
+                <ul class="takeaway-list">
+                    <li><i class="fa-solid fa-check-circle"></i> <strong>Choose hosting based on traffic:</strong> Start with Shared for blogs, use VPS/Cloud for eCommerce.</li>
+                    <li><i class="fa-solid fa-check-circle"></i> <strong>Consider scalability:</strong> Ensure you can easily upgrade your resources without migrating files manually.</li>
+                    <li><i class="fa-solid fa-check-circle"></i> <strong>Check uptime guarantees:</strong> Never settle for less than 99.9% uptime.</li>
+                    <li><i class="fa-solid fa-check-circle"></i> <strong>Prioritize security:</strong> Look for free SSL, automated backups, and integrated firewalls.</li>
+                    <li><i class="fa-solid fa-check-circle"></i> <strong>Verify customer support:</strong> Test the live chat or ticketing system before purchasing.</li>
+                </ul>
+            </div>
+
+            <p>By carefully evaluating your business needs and comparing them against these critical factors, you can confidently choose a web hosting plan that will support your digital growth for years to come.</p>
+        </div>
+    </section>
+
+    <!-- 4. RELATED ARTICLES -->
+    <section class="related-articles">
+        <div class="container" data-aos="fade-up">
+            <h2 style="font-size: 28px; color: var(--dark-blue); font-weight: 700; text-align: center;">Related Articles</h2>
+            
+            <div class="related-grid">
+                <!-- Related Card 1 -->
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="assets/images/blog-2.webp" alt="Website Security">
+                        <div class="blog-cat-badge-small">Security</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">5 Essential Security Measures to Protect Your Customer Data</h3>
+                        <p class="blog-excerpt">Cyber threats are evolving rapidly. Discover actionable steps to lock down your web server, enforce SSL certificates, and configure Web Application Firewalls.</p>
+                        <a href="blog-details.html?id=2" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Related Card 2 -->
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="assets/images/blog-3.webp" alt="WordPress Optimization">
+                        <div class="blog-cat-badge-small">WordPress</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">The Ultimate Checklist for Migrating Your WordPress Site</h3>
+                        <p class="blog-excerpt">Moving to a faster host shouldn't mean losing traffic. Follow our comprehensive guide to seamlessly migrate your WordPress database and files.</p>
+                        <a href="blog-details.html?id=3" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Related Card 3 -->
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="assets/images/blog-4.webp" alt="Domain Registration">
+                        <div class="blog-cat-badge-small">Domains</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Why Registering Multiple Domain Extensions Protects Your Brand</h3>
+                        <p class="blog-excerpt">Is owning the .com enough? We explore why securing the .net, .org, and local country-code TLDs prevents competitors from diluting your identity.</p>
+                        <a href="blog-details.html?id=4" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CTA / NEWSLETTER -->
+    <section class="cta-section">
+        <div class="container" data-aos="zoom-in">
+            <div class="cta-box">
+                <h2>Ready to build a faster, more reliable website?</h2>
+                <div class="cta-buttons">
+                    <a href="hosting.html" class="btn btn-primary" style="padding: 12px 30px; font-weight: 600; background: white; color: var(--dark-blue);">View Hosting Plans</a>
+                    <a href="contact.html" class="btn btn-outline" style="padding: 12px 30px; font-weight: 600; border: 2px solid white; color: white; text-decoration: none; border-radius: 6px;">Contact Support</a>
+                </div>
+                
+                <form class="newsletter-form-cta" id="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email to join our newsletter" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div id="newsletter-msg" style="display:none; padding:15px; background:rgba(16,185,129,0.2); color:#10b981; border-radius:5px; max-width:500px; margin:20px auto 0; font-weight:500; text-align: center; border: 1px solid rgba(16,185,129,0.3);">
+                    Thank you for subscribing! We'll keep you updated.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark-blue">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <div class="logo white-logo" style="margin-bottom: 20px;"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
+                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px;">My service is not something I even think about because it is always there as we agreed. The customer service is responsive and knowledge needs for.</p>
+                    <div class="social-links">
+                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">Follow us on ____________</span>
+                        <div class="icons" style="display: flex; gap: 10px;">
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="javascript:void(0);">Support Center</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="javascript:void(0);">Search Domain</a></li>
+                        <li><a href="javascript:void(0);">My Account</a></li>
+                        <li><a href="javascript:void(0);">Customer Profiles</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="hosting.html">Shared Hosting</a></li>
+                        <li><a href="hosting.html">WordPress Hosting</a></li>
+                        <li><a href="hosting.html">VPS Hosting</a></li>
+                        <li><a href="javascript:void(0);">Game Hosting</a></li>
+                        <li><a href="javascript:void(0);">Dedicated Hosting</a></li>
+                        <li><a href="domain.html">Domain Name</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col newsletter-col">
+                    <h4>Get In Touch</h4>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Type Your Mail">
+                        <button type="button" class="btn btn-light-blue">Subscribe</button>
+                    </form>
+                    <div class="payment-methods" style="margin-top: 30px;">
+                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">We Accepted ____________</span>
+                        <div class="methods" style="display: flex; gap: 15px; font-size: 24px; color: #94a3b8;">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                            <i class="fa-brands fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright 2026 Stackly. All Rights Reserved.</p>
+                <div class="bottom-links">
+                    <a href="javascript:void(0);">Terms & Conditions</a>
+                    <a href="javascript:void(0);">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS (Simulated for this page) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS Animation
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+
+            // Mobile Menu functionality
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navLinks = document.getElementById('nav-links');
+            const overlay = document.querySelector('.mobile-menu-overlay');
+
+            if (hamburger && navLinks && overlay) {
+                hamburger.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+                });
+
+                overlay.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+            
+            // Newsletter form handling without alert()
+            const newsletterForm = document.getElementById('newsletter-form');
+            const msg = document.getElementById('newsletter-msg');
+            
+            if(newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('newsletter-email').value;
+                    if(email) {
+                        newsletterForm.style.display = 'none';
+                        msg.style.display = 'block';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosting Plans - Stackly Web Hosting</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .page-header {
+            background-color: var(--primary, #041246);
+            padding: 120px 0 100px;
+            text-align: center;
+            color: white;
+        }
+        .hosting-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+        .category-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        .category-card i {
+            font-size: 30px;
+            color: var(--primary, #2563eb);
+            margin-bottom: 15px;
+        }
+        .category-card h3 {
+            color: var(--dark-blue);
+            font-size: 18px;
+            margin: 0;
+        }
+        
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            min-width: 800px; /* Forces scroll on mobile */
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .comparison-table th {
+            background: #f8faff;
+            color: var(--dark-blue);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .comparison-table th:first-child, .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark-blue);
+            background: #f8faff;
+        }
+        .comparison-table td {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        .comparison-table tr:hover td {
+            background: #f8faff;
+        }
+        .check-icon { color: #10b981; font-size: 20px; }
+        .times-icon { color: #ef4444; font-size: 20px; }
+    </style>
+    <style>
+        /* Logo Background Removal Trick & Scaled Up Sizing */
+        .navbar .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; mix-blend-mode: multiply; margin-top: 5px;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .footer .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .login-brand .brand-logo { 
+            height: 50px !important; width: auto !important; max-width: 100% !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            margin-bottom: 20px; display: block;
+            transform: scale(1.8); transform-origin: left center; 
+        }
+        .sidebar-brand .brand-logo { 
+            height: 35px !important; width: auto !important; max-width: 180px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            display: block; margin-left: 20px;
+            transform: scale(2.2); transform-origin: left center; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
+            <div class="mobile-menu-overlay"></div>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="domain.html">Domain</a>
+                <a href="hosting.html" class="active">Hosting</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button aria-label="Search" style="background:none; border:none; font-size:18px; cursor:pointer; color: var(--text-dark);"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 8px 24px; font-size: 14px; margin-left: 10px;">Login</a>
+                <button class="hamburger-menu" aria-label="Menu" style="margin-left: 10px;"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="page-header" style="background-color: var(--primary, #041246);">
+        <div class="container">
+            <h1 data-aos="fade-up" style="font-size: 3rem; margin-bottom: 15px; font-weight: 700;">Powerful Hosting for Every Website</h1>
+            <p data-aos="fade-up" data-aos-delay="50" style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto;">Experience lightning-fast speeds, rock-solid reliability, and highly scalable infrastructure tailored to your unique online needs.</p>
+            <div class="breadcrumb" data-aos="fade-up" data-aos-delay="100" style="display: flex; justify-content: center; gap: 10px; font-size: 14px; font-weight: 500;">
+                <a href="index.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a> 
+                <span style="color: rgba(255,255,255,0.5);">/</span>
+                <span style="color: white;">Hosting Plans</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Hosting Categories -->
+    <div class="container">
+        <div class="hosting-categories" data-aos="fade-up" data-aos-delay="200">
+            <a href="#pricing" class="category-card">
+                <i class="fa-solid fa-server"></i>
+                <h3>Shared Hosting</h3>
+            </a>
+            <a href="#pricing" class="category-card">
+                <i class="fa-solid fa-cubes"></i>
+                <h3>VPS Hosting</h3>
+            </a>
+            <a href="#pricing" class="category-card">
+                <i class="fa-solid fa-cloud"></i>
+                <h3>Cloud Hosting</h3>
+            </a>
+            <a href="#pricing" class="category-card">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>Dedicated Hosting</h3>
+            </a>
+        </div>
+    </div>
+
+    <!-- 3. & 4. & 5. Pricing Cards -->
+    <section id="pricing" class="pricing" style="padding: 100px 0 80px; background: var(--bg-light, #f8faff);">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up">
+                <h2 style="font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 20px;">Choose Your Perfect Plan</h2>
+                <!-- Monthly/Yearly Toggle -->
+                <div class="billing-toggle" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 50px;">
+                    <span style="font-size: 16px; font-weight: 500; color: var(--dark-blue);">Monthly Plan</span>
+                    <label class="switch" style="position: relative; display: inline-block; width: 60px; height: 34px;">
+                        <input type="checkbox" id="billing-switch" style="opacity: 0; width: 0; height: 0;">
+                        <span class="slider round" style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px;"></span>
+                    </label>
+                    <span style="font-size: 16px; font-weight: 500; color: var(--dark-blue);">Yearly Plan <span style="background: #10b981; color: white; padding: 2px 8px; border-radius: 20px; font-size: 12px; margin-left: 5px;">Save 20%</span></span>
+                </div>
+            </div>
+
+            <div class="pricing-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                
+                <!-- Starter Plan -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="100" style="background: white; border-radius: 10px; padding: 40px 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;">
+                    <h3 style="font-size: 22px; color: var(--dark-blue); margin-bottom: 10px;">Starter</h3>
+                    <p style="color: var(--text-light); font-size: 14px; margin-bottom: 20px; min-height: 42px;">Great for personal blogs and small projects.</p>
+                    <div class="price" style="margin-bottom: 25px;">
+                        <span class="currency" style="font-size: 24px; font-weight: 600; color: var(--primary);">$</span>
+                        <span class="amount" data-monthly="2.99" data-yearly="28.70" style="font-size: 48px; font-weight: 700; color: var(--dark-blue);">2.99</span>
+                        <span class="period" style="color: var(--text-light);">/mo</span>
+                    </div>
+                    <ul class="plan-features" style="list-style: none; padding: 0; margin: 0 0 30px 0; text-align: left;">
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> 10 GB NVMe Storage</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> 100 GB Bandwidth</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> 1 Website</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Free SSL Certificate</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> 5 Email Accounts</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Weekly Backups</li>
+                        <li style="font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> 24/7 Standard Support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="display: block; padding: 12px; border: 2px solid #e5e7eb; border-radius: 5px; color: var(--dark-blue); font-weight: 600; text-decoration: none; transition: all 0.3s;">Select Plan</a>
+                </div>
+
+                <!-- Professional Plan (Recommended) -->
+                <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200" style="background: var(--dark-blue); border-radius: 10px; padding: 40px 30px; box-shadow: 0 15px 40px rgba(37,99,235,0.2); text-align: center; position: relative; transform: scale(1.05); z-index: 2;">
+                    <div class="popular-badge" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary, #2563eb); color: white; padding: 5px 20px; border-radius: 20px; font-size: 13px; font-weight: 600; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">Most Recommended</div>
+                    <h3 style="font-size: 22px; color: white; margin-bottom: 10px;">Professional</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 20px; min-height: 42px;">Perfect for growing businesses and high-traffic sites.</p>
+                    <div class="price" style="margin-bottom: 25px;">
+                        <span class="currency" style="font-size: 24px; font-weight: 600; color: #10b981;">$</span>
+                        <span class="amount" data-monthly="6.99" data-yearly="67.10" style="font-size: 48px; font-weight: 700; color: white;">6.99</span>
+                        <span class="period" style="color: rgba(255,255,255,0.7);">/mo</span>
+                    </div>
+                    <ul class="plan-features" style="list-style: none; padding: 0; margin: 0 0 30px 0; text-align: left;">
+                        <li style="margin-bottom: 12px; font-size: 14px; color: white;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> 50 GB NVMe Storage</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: white;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Unlimited Bandwidth</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: white;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Unlimited Websites</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: white;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Free SSL Certificate</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: white;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Unlimited Email Accounts</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: white;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Daily Automated Backups</li>
+                        <li style="font-size: 14px; color: white;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> 24/7 Priority Support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary" style="display: block; padding: 12px; border-radius: 5px; color: white; background: var(--primary, #2563eb); font-weight: 600; text-decoration: none; border: none; transition: background 0.3s;">Select Plan</a>
+                </div>
+
+                <!-- Business Plan -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300" style="background: white; border-radius: 10px; padding: 40px 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;">
+                    <h3 style="font-size: 22px; color: var(--dark-blue); margin-bottom: 10px;">Enterprise</h3>
+                    <p style="color: var(--text-light); font-size: 14px; margin-bottom: 20px; min-height: 42px;">Dedicated resources for agencies and heavy apps.</p>
+                    <div class="price" style="margin-bottom: 25px;">
+                        <span class="currency" style="font-size: 24px; font-weight: 600; color: var(--primary);">$</span>
+                        <span class="amount" data-monthly="15.99" data-yearly="153.50" style="font-size: 48px; font-weight: 700; color: var(--dark-blue);">15.99</span>
+                        <span class="period" style="color: var(--text-light);">/mo</span>
+                    </div>
+                    <ul class="plan-features" style="list-style: none; padding: 0; margin: 0 0 30px 0; text-align: left;">
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> 200 GB NVMe Storage</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Unlimited Bandwidth</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Unlimited Websites</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Wildcard Free SSL</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Unlimited Email Accounts</li>
+                        <li style="margin-bottom: 12px; font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> Multiple Daily Backups</li>
+                        <li style="font-size: 14px; color: var(--text-dark);"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> 24/7 Dedicated Support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="display: block; padding: 12px; border: 2px solid #e5e7eb; border-radius: 5px; color: var(--dark-blue); font-weight: 600; text-decoration: none; transition: all 0.3s;">Select Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Feature Comparison -->
+    <section class="feature-comparison" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 style="font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 15px;">Compare Plan Features</h2>
+                <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 40px;">Deep dive into the technical specifications and resource limits of each hosting tier to find exactly what you need.</p>
+            </div>
+            
+            <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Starter</th>
+                            <th style="background: var(--dark-blue); color: white;">Professional</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>NVMe Storage</td>
+                            <td>10 GB</td>
+                            <td>50 GB</td>
+                            <td>200 GB</td>
+                        </tr>
+                        <tr>
+                            <td>Bandwidth</td>
+                            <td>100 GB</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Websites Allowed</td>
+                            <td>1</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>RAM Allocation</td>
+                            <td>1 GB</td>
+                            <td>4 GB</td>
+                            <td>16 GB</td>
+                        </tr>
+                        <tr>
+                            <td>Free Domain Included</td>
+                            <td><i class="fa-solid fa-times times-icon"></i></td>
+                            <td><i class="fa-solid fa-check check-icon"></i> (1st Year)</td>
+                            <td><i class="fa-solid fa-check check-icon"></i> (Lifetime)</td>
+                        </tr>
+                        <tr>
+                            <td>Free SSL Certificates</td>
+                            <td><i class="fa-solid fa-check check-icon"></i></td>
+                            <td><i class="fa-solid fa-check check-icon"></i></td>
+                            <td><i class="fa-solid fa-check check-icon"></i> Wildcard</td>
+                        </tr>
+                        <tr>
+                            <td>Automated Backups</td>
+                            <td>Weekly</td>
+                            <td>Daily</td>
+                            <td>Every 6 Hours</td>
+                        </tr>
+                        <tr>
+                            <td>Dedicated IP Address</td>
+                            <td><i class="fa-solid fa-times times-icon"></i></td>
+                            <td><i class="fa-solid fa-times times-icon"></i></td>
+                            <td><i class="fa-solid fa-check check-icon"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Hosting Benefits -->
+    <section class="hosting-benefits" style="padding: 80px 0; background: var(--bg-light, #f8faff);">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 style="font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 50px;">Included in All Hosting Plans</h2>
+            </div>
+            
+            <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="benefit-card" data-aos="fade-up" style="display: flex; gap: 20px; align-items: flex-start; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                    <i class="fa-solid fa-chart-line" style="font-size: 30px; color: var(--primary);"></i>
+                    <div>
+                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">99.9% Uptime Guarantee</h4>
+                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">Our highly redundant network ensures your website stays online 24/7 without fail.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100" style="display: flex; gap: 20px; align-items: flex-start; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                    <i class="fa-solid fa-database" style="font-size: 30px; color: var(--primary);"></i>
+                    <div>
+                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Blazing NVMe/SSD</h4>
+                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">All plans utilize enterprise NVMe storage arrays for lightning-fast read/write speeds.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200" style="display: flex; gap: 20px; align-items: flex-start; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 30px; color: var(--primary);"></i>
+                    <div>
+                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Free Let's Encrypt SSL</h4>
+                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">Secure your visitors' data and boost your SEO rankings with free auto-renewing SSLs.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300" style="display: flex; gap: 20px; align-items: flex-start; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                    <i class="fa-solid fa-clock-rotate-left" style="font-size: 30px; color: var(--primary);"></i>
+                    <div>
+                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Automated Backups</h4>
+                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">We automatically back up your website files and databases to offsite secure servers.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400" style="display: flex; gap: 20px; align-items: flex-start; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                    <i class="fa-solid fa-lock" style="font-size: 30px; color: var(--primary);"></i>
+                    <div>
+                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Proactive Security</h4>
+                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">BitNinja server security, Web Application Firewalls (WAF), and automated malware scanning.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="500" style="display: flex; gap: 20px; align-items: flex-start; padding: 25px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                    <i class="fa-solid fa-headset" style="font-size: 30px; color: var(--primary);"></i>
+                    <div>
+                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">24/7 Expert Support</h4>
+                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">Our highly trained support technicians are available via live chat and ticket anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section class="faq" style="padding: 80px 0; background: white;">
+        <div class="container faq-container" data-aos="fade-up">
+            <div class="faq-text" style="flex: 1;">
+                <h2 style="font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 20px;">Frequently Asked Questions</h2>
+                <p style="color: var(--text-light); font-size: 15px; line-height: 1.7; margin-bottom: 30px;">Can't find the answer you're looking for? Reach out to our customer support team.</p>
+                <a href="contact.html" class="btn btn-outline-dark" style="padding: 10px 25px; border: 2px solid var(--dark-blue); color: var(--dark-blue); border-radius: 5px; text-decoration: none; font-weight: 600;">Contact Support</a>
+            </div>
+            <div class="faq-accordion" style="flex: 1.5; background: #f8faff; padding: 30px; border-radius: 10px;">
+                
+                <div class="accordion-item active" style="border-bottom: 1px solid #eee; padding: 20px 0;">
+                    <div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                        <h4 style="font-size: 16px; font-weight: 600; color: var(--dark-blue); margin: 0;">How do I choose the right hosting plan?</h4>
+                        <i class="fa-solid fa-minus icon" style="color: var(--primary);"></i>
+                    </div>
+                    <div class="accordion-content" style="display: block; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
+                        If you're just starting out, the Starter plan is perfect. If you expect high traffic or run an e-commerce store, we recommend the Professional or Enterprise plans for their increased RAM and CPU allocations.
+                    </div>
+                </div>
+                
+                <div class="accordion-item" style="border-bottom: 1px solid #eee; padding: 20px 0;">
+                    <div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                        <h4 style="font-size: 16px; font-weight: 500; color: var(--dark-blue); margin: 0;">Will you help me migrate my existing website?</h4>
+                        <i class="fa-solid fa-plus icon" style="color: var(--text-light);"></i>
+                    </div>
+                    <div class="accordion-content" style="display: none; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
+                        Yes! We offer free, seamless website migrations with zero downtime. Once you purchase a plan, simply open a migration ticket and our experts will handle the rest.
+                    </div>
+                </div>
+                
+                <div class="accordion-item" style="border-bottom: 1px solid #eee; padding: 20px 0;">
+                    <div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                        <h4 style="font-size: 16px; font-weight: 500; color: var(--dark-blue); margin: 0;">Can I upgrade my plan later?</h4>
+                        <i class="fa-solid fa-plus icon" style="color: var(--text-light);"></i>
+                    </div>
+                    <div class="accordion-content" style="display: none; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
+                        Absolutely. You can easily upgrade or downgrade your hosting plan at any time directly from your control panel without experiencing any downtime.
+                    </div>
+                </div>
+                
+                <div class="accordion-item" style="padding: 20px 0;">
+                    <div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                        <h4 style="font-size: 16px; font-weight: 500; color: var(--dark-blue); margin: 0;">What happens if I exceed my bandwidth limit?</h4>
+                        <i class="fa-solid fa-plus icon" style="color: var(--text-light);"></i>
+                    </div>
+                    <div class="accordion-content" style="display: none; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
+                        Our Professional and Enterprise plans include unlimited bandwidth. On the Starter plan, we will send you a warning email if you approach your limit, giving you time to upgrade without your site going offline.
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA Section -->
+    <section class="cta-section" style="padding: 80px 0; background: var(--primary); text-align: center;">
+        <div class="container" data-aos="zoom-in">
+            <h2 style="font-size: 2.5rem; color: white; margin-bottom: 15px; font-weight: 700;">Ready to Get Started?</h2>
+            <p style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 30px;">Join thousands of satisfied customers and launch your website today with a 30-day money-back guarantee.</p>
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <a href="contact.html" class="btn btn-white" style="background: white; color: var(--dark-blue); padding: 12px 30px; border-radius: 5px; font-weight: 600; text-decoration: none;">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Added Section 1: Global Datacenters -->
+    <section class="global-network" style="padding: 80px 0; background: var(--dark-blue, #041246); color: white; text-align: center;">
+        <div class="container" data-aos="fade-up">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700;">Global Tier-4 Datacenters</h2>
+            <p style="color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 50px;">Deliver your content blazingly fast to users anywhere in the world with our strategically located, highly secure servers.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); flex: 1; min-width: 250px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa-solid fa-location-dot" style="color: #10b981; font-size: 30px; margin-bottom: 15px;"></i>
+                    <h4 style="font-size: 20px; margin-bottom: 5px;">North America</h4>
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.6);">New York, Chicago, Los Angeles</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); flex: 1; min-width: 250px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa-solid fa-location-dot" style="color: #10b981; font-size: 30px; margin-bottom: 15px;"></i>
+                    <h4 style="font-size: 20px; margin-bottom: 5px;">Europe</h4>
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.6);">London, Frankfurt, Amsterdam</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); flex: 1; min-width: 250px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa-solid fa-location-dot" style="color: #10b981; font-size: 30px; margin-bottom: 15px;"></i>
+                    <h4 style="font-size: 20px; margin-bottom: 5px;">Asia Pacific</h4>
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.6);">Singapore, Tokyo, Sydney</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Added Section 2: Newsletter Subscription -->
+    <section class="newsletter-promo" style="padding: 80px 0; background: var(--bg-light, #f8faff); text-align: center;">
+        <div class="container" data-aos="zoom-in">
+            <div style="background: white; padding: 60px 30px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto;">
+                <i class="fa-regular fa-envelope-open" style="font-size: 45px; color: var(--primary, #2563eb); margin-bottom: 20px;"></i>
+                <h2 style="font-size: 2rem; color: var(--dark-blue); margin-bottom: 15px; font-weight: 700;">Subscribe to Our Newsletter</h2>
+                <p style="color: var(--text-light); margin-bottom: 30px; font-size: 15px;">Get the latest web hosting tips, security alerts, and exclusive discounts delivered straight to your inbox.</p>
+                <form style="display: flex; max-width: 500px; margin: 0 auto; gap: 10px; flex-wrap: wrap;" onsubmit="event.preventDefault(); this.innerHTML = '<div style=\'padding:15px; background:#dcfce7; color:#166534; border-radius:5px; width:100%; border:1px solid #86efac; font-weight:500;\'>Thank you for subscribing! You will receive our next update soon.</div>';">
+                    <input type="email" placeholder="Enter your email address" required style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid #e5e7eb; border-radius: 5px; outline: none; font-family: 'Poppins', sans-serif; font-size: 14px; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
+                    <button type="submit" style="padding: 15px 30px; background: var(--primary, #2563eb); color: white; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: background 0.3s;" onmouseover="this.style.background='var(--dark-blue)'" onmouseout="this.style.background='var(--primary)'">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer bg-dark-blue">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <div class="logo white-logo" style="margin-bottom: 20px;"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
+                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px;">My service is not something I even think about because it is always there as we agreed. The customer service is responsive and knowledge needs for.</p>
+                    <div class="social-links">
+                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">Follow us on ____________</span>
+                        <div class="icons" style="display: flex; gap: 10px;">
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="404.html" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="javascript:void(0);">Support Center</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="javascript:void(0);">Search Domain</a></li>
+                        <li><a href="javascript:void(0);">My Account</a></li>
+                        <li><a href="javascript:void(0);">Customer Profiles</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="hosting.html">Shared Hosting</a></li>
+                        <li><a href="hosting.html">WordPress Hosting</a></li>
+                        <li><a href="hosting.html">VPS Hosting</a></li>
+                        <li><a href="javascript:void(0);">Game Hosting</a></li>
+                        <li><a href="javascript:void(0);">Dedicated Hosting</a></li>
+                        <li><a href="domain.html">Domain Name</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col newsletter-col">
+                    <h4>Get In Touch</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Type Your Mail">
+                        <button type="button" class="btn btn-light-blue">Subscribe</button>
+                    </form>
+                    <div class="payment-methods" style="margin-top: 30px;">
+                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">We Accepted ____________</span>
+                        <div class="methods" style="display: flex; gap: 15px; font-size: 24px; color: #94a3b8;">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                            <i class="fa-brands fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright 2026 Stackly. All Rights Reserved.</p>
+                <div class="bottom-links">
+                    <a href="javascript:void(0);">Terms & Conditions</a>
+                    <a href="javascript:void(0);">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script>
+        // Inline script to add styles for the switch (in case style.css lacks it)
+        const style = document.createElement('style');
+        style.textContent = `
+            .switch input:checked + .slider {
+                background-color: #2563eb;
+            }
+            .switch input:checked + .slider:before {
+                transform: translateX(26px);
+            }
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                transition: .4s;
+                border-radius: 50%;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
