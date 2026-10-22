@@ -1,39 +1,37 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found - Stackly Web Hosting</title>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Flex setup for vertical centering & No scroll */
+    <meta name="description" content="Page not found - The requested URL was not found on the Stackly Web Hosting server. Return to homepage or browse our hosting plans.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="The page you are looking for could not be found. Explore Stackly hosting plans, domains, and 24/7 support." name="description"/>
+<title>404 - Page Not Found - Stackly Web Hosting</title>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="style.css" rel="stylesheet"/>
+<style>
+        /* Flex setup for vertical centering & responsive scrolling */
         html, body {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden; /* Prevent scrolling entirely */
+            min-height: 100vh;
+            width: 100%;
+            background: var(--bg-light, #f8faff);
         }
         
         .error-section {
-            height: 100vh;
-            width: 100vw;
+            min-height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
             box-sizing: border-box;
             background: var(--bg-light, #f8faff);
         }
@@ -106,7 +104,7 @@
             .error-content { padding: 40px 20px; }
         }
     </style>
-    <style>
+<style>
         /* Logo Background Removal Trick & Scaled Up Sizing */
         .navbar .brand-logo { 
             height: 40px !important; width: auto !important; max-width: 250px !important; 
@@ -133,32 +131,35 @@
     </style>
 </head>
 <body>
-
-    <!-- 404 Section -->
-    <section class="error-section">
-        <div class="error-content" data-aos="zoom-in" data-aos-duration="600">
-            <div class="error-icon" data-aos="fade-down" data-aos-delay="100">
-                <i class="fa-solid fa-server"></i>
-                <i class="fa-solid fa-triangle-exclamation" style="font-size: 25px; position: relative; top: -25px; left: -10px; color: #ef4444;"></i>
-            </div>
-            
-            <div class="error-code" data-aos="fade-up" data-aos-delay="200">404</div>
-            <h1 class="error-title" data-aos="fade-up" data-aos-delay="300">Page Not Found</h1>
-            
-            <p class="error-desc" data-aos="fade-up" data-aos-delay="400">
+<!-- 404 Section -->
+<section class="error-section">
+<div class="error-content" data-aos="zoom-in" data-aos-duration="600">
+<div class="error-icon floating-element" data-aos="zoom-in" data-aos-delay="100">
+<i class="fa-solid fa-server"></i>
+<i class="fa-solid fa-triangle-exclamation" style="font-size: 25px; position: relative; top: -25px; left: -10px; color: #ef4444;"></i>
+</div>
+<div class="error-code" data-aos="fade-up" data-aos-delay="200">404</div>
+<h1 class="error-title" data-aos="fade-up" data-aos-delay="300">Page Not Found</h1>
+<p class="error-desc" data-aos="fade-up" data-aos-delay="400">
                 The page you're looking for may have been moved, removed, or is temporarily unavailable. Let's get your connection back on track.
             </p>
-            
-            <div class="error-btns" data-aos="fade-up" data-aos-delay="500">
-                <a href="index.html" class="btn btn-primary" style="padding: 12px 30px; border-radius: 5px; font-weight: 600;">Go Home</a>
-                <a href="javascript:history.back()" class="btn-go-back">Go Back</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
+<div class="error-btns" data-aos="fade-up" data-aos-delay="500">
+<a class="btn btn-primary" href="index.html" style="padding: 12px 30px; border-radius: 5px; font-weight: 600;">Back to Home</a>
+<a class="btn-go-back" href="index.html" onclick="if(window.history.length &gt; 1){window.history.back(); return false;}">Go Back</a>
+</div>
+<div data-aos="fade-up" data-aos-delay="600" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 13px; color: var(--text-light);">
+<p style="margin-bottom: 12px; font-weight: 500; color: var(--dark-blue);">Or explore key destinations:</p>
+<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+<a href="hosting.html" style="color: var(--primary); text-decoration: none; font-weight: 500;"><i class="fa-solid fa-server"></i> Hosting Plans</a>
+<a href="domain.html" style="color: var(--primary); text-decoration: none; font-weight: 500;"><i class="fa-solid fa-globe"></i> Domains</a>
+<a href="contact.html" style="color: var(--primary); text-decoration: none; font-weight: 500;"><i class="fa-solid fa-headset"></i> Support</a>
+</div>
+</div>
+</div>
+</section>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
         AOS.init({
             once: true,
             offset: 0, /* ensure it triggers regardless of position */

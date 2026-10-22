@@ -1,23 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Stackly Web Hosting</title>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <style>
+    <meta name="description" content="Read expert hosting insights, cloud architecture tutorials, cybersecurity best practices, and infrastructure news from Stackly engineers.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Latest industry news, cloud infrastructure guides, web hosting tutorials, and cybersecurity best practices from Stackly engineers." name="description"/>
+<link href="https://stackly.com/blog.html" rel="canonical"/>
+<title>Hosting & Cloud Infrastructure Blog - Stackly</title>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="style.css" rel="stylesheet"/>
+<style>
         .page-header {
             background-color: var(--primary, #041246);
             padding: 120px 0 100px;
@@ -232,7 +231,7 @@
             border-color: var(--primary);
         }
     </style>
-    <style>
+<style>
         /* Logo Background Removal Trick & Scaled Up Sizing */
         .navbar .brand-logo { 
             height: 40px !important; width: auto !important; max-width: 250px !important; 
@@ -259,290 +258,664 @@
     </style>
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="container nav-container">
-            <div class="logo"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
-            <div class="mobile-menu-overlay"></div>
-            <nav class="nav-links" id="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="domain.html">Domain</a>
-                <a href="hosting.html">Hosting</a>
-                <a href="services.html">Services</a>
-                <a href="blog.html" class="active">Blog</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="nav-actions">
-                <button aria-label="Search" style="background:none; border:none; font-size:18px; cursor:pointer; color: var(--text-dark);"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <a href="login.html" class="btn btn-primary" style="padding: 8px 24px; font-size: 14px; margin-left: 10px;">Login</a>
-                <button class="hamburger-menu" aria-label="Menu" style="margin-left: 10px;"><i class="fa-solid fa-bars"></i></button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="page-header">
-        <div class="container">
-            <h1 data-aos="fade-up" style="font-size: 3rem; margin-bottom: 15px; font-weight: 700;">Our Blog</h1>
-            <p data-aos="fade-up" data-aos-delay="50" style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto;">Insights, tutorials, and the latest news on web hosting, security, and digital performance.</p>
-            <div class="breadcrumb" data-aos="fade-up" data-aos-delay="100" style="display: flex; justify-content: center; gap: 10px; font-size: 14px; font-weight: 500;">
-                <a href="index.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a> 
-                <span style="color: rgba(255,255,255,0.5);">/</span>
-                <span style="color: white;">Blog</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="blog-section">
-        <div class="container">
-            
-            <!-- Controls (Search & Category Filter) -->
-            <div class="blog-controls" data-aos="fade-up">
-                <div class="category-filters">
-                    <button class="active">All</button>
-                    <button>Web Hosting</button>
-                    <button>Security</button>
-                    <button>WordPress</button>
-                    <button>Domains</button>
-                    <button>Performance</button>
-                    <button>Cloud</button>
-                </div>
-                
-                <form class="search-widget" action="blog.html" method="GET">
-                    <input type="text" placeholder="Search articles..." required>
-                    <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
-
-            <!-- Blog Grid (1 Col Mobile, 2 Col Tablet, 3 Col Desktop) -->
-            <div class="blog-grid">
-                
-                <!-- Blog Card 1: Web Hosting -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="blog-img-wrap">
-                        <img src="assets/images/blog-1.webp" alt="Web Hosting Basics">
-                        <div class="blog-cat-badge">Web Hosting</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta-top">
-                            <span><i class="fa-regular fa-calendar"></i> Oct 15, 2026</span>
-                            <span><i class="fa-regular fa-clock"></i> 5 min read</span>
-                        </div>
-                        <h3 class="blog-title">How to Choose the Right Hosting Plan for Your First Business Website</h3>
-                        <p class="blog-excerpt">Starting your first online business? Learn the critical differences between Shared, VPS, and Dedicated hosting so you can invest in the architecture that perfectly matches your traffic and budget requirements.</p>
-                        <a href="blog-details.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Blog Card 2: Website Security -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="blog-img-wrap">
-                        <img src="assets/images/blog-2.webp" alt="Website Security">
-                        <div class="blog-cat-badge">Security</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta-top">
-                            <span><i class="fa-regular fa-calendar"></i> Oct 12, 2026</span>
-                            <span><i class="fa-regular fa-clock"></i> 6 min read</span>
-                        </div>
-                        <h3 class="blog-title">5 Essential Security Measures to Protect Your Customer Data</h3>
-                        <p class="blog-excerpt">Cyber threats are evolving rapidly. Discover actionable steps to lock down your web server, enforce SSL certificates, configure Web Application Firewalls (WAF), and prevent malicious malware injections.</p>
-                        <a href="blog-details.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Blog Card 3: WordPress -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="blog-img-wrap">
-                        <img src="assets/images/blog-3.webp" alt="WordPress Optimization">
-                        <div class="blog-cat-badge">WordPress</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta-top">
-                            <span><i class="fa-regular fa-calendar"></i> Oct 09, 2026</span>
-                            <span><i class="fa-regular fa-clock"></i> 4 min read</span>
-                        </div>
-                        <h3 class="blog-title">The Ultimate Checklist for Migrating Your WordPress Site Without Downtime</h3>
-                        <p class="blog-excerpt">Moving to a faster host shouldn't mean losing traffic. Follow our comprehensive, step-by-step guide to seamlessly migrate your WordPress database and files while ensuring zero downtime during DNS propagation.</p>
-                        <a href="blog-details.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Blog Card 4: Domains -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="blog-img-wrap">
-                        <img src="assets/images/blog-4.webp" alt="Domain Registration">
-                        <div class="blog-cat-badge">Domains</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta-top">
-                            <span><i class="fa-regular fa-calendar"></i> Oct 05, 2026</span>
-                            <span><i class="fa-regular fa-clock"></i> 3 min read</span>
-                        </div>
-                        <h3 class="blog-title">Why Registering Multiple Domain Extensions Protects Your Brand</h3>
-                        <p class="blog-excerpt">Is owning the .com enough? We explore why securing the .net, .org, and local country-code TLDs prevents competitors from diluting your brand identity and capturing your valuable organic search traffic.</p>
-                        <a href="blog-details.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Blog Card 5: Performance -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="blog-img-wrap">
-                        <!-- Reusing images for the demo, since we only have 4 webps -->
-                        <img src="assets/images/blog-1.webp" alt="Server Performance">
-                        <div class="blog-cat-badge">Performance</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta-top">
-                            <span><i class="fa-regular fa-calendar"></i> Sep 28, 2026</span>
-                            <span><i class="fa-regular fa-clock"></i> 7 min read</span>
-                        </div>
-                        <h3 class="blog-title">LiteSpeed Caching vs Apache: Benchmarking Server Speeds</h3>
-                        <p class="blog-excerpt">Page load time directly impacts your conversion rates. We benchmarked identical websites across Apache and LiteSpeed web servers. Read our in-depth analysis on Time to First Byte (TTFB) and resource utilization.</p>
-                        <a href="blog-details.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Blog Card 6: Cloud Hosting -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="blog-img-wrap">
-                        <img src="assets/images/blog-2.webp" alt="Cloud Hosting">
-                        <div class="blog-cat-badge">Cloud Hosting</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta-top">
-                            <span><i class="fa-regular fa-calendar"></i> Sep 22, 2026</span>
-                            <span><i class="fa-regular fa-clock"></i> 5 min read</span>
-                        </div>
-                        <h3 class="blog-title">How Cloud Hosting Auto-Scaling Saves E-Commerce Stores During Black Friday</h3>
-                        <p class="blog-excerpt">Traffic spikes can crash traditional servers when you need them most. See how cloud auto-scaling instantly allocates emergency RAM and CPU resources to keep your shopping cart functional during holiday rushes.</p>
-                        <a href="blog-details.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination" data-aos="fade-up">
-                <a href="javascript:void(0);" class="active">1</a>
-                <a href="javascript:void(0);">2</a>
-                <a href="javascript:void(0);">3</a>
-                <a href="javascript:void(0);"><i class="fa-solid fa-chevron-right"></i></a>
-            </div>
-
-        </div>
-    </section>
-
-    
-    <!-- Added Section 1: Global Datacenters -->
-    <section class="global-network" style="padding: 80px 0; background: var(--dark-blue, #041246); color: white; text-align: center;">
-        <div class="container" data-aos="fade-up">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700;">Global Tier-4 Datacenters</h2>
-            <p style="color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 50px;">Deliver your content blazingly fast to users anywhere in the world with our strategically located, highly secure servers.</p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); flex: 1; min-width: 250px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa-solid fa-location-dot" style="color: #10b981; font-size: 30px; margin-bottom: 15px;"></i>
-                    <h4 style="font-size: 20px; margin-bottom: 5px;">North America</h4>
-                    <span style="font-size: 14px; color: rgba(255,255,255,0.6);">New York, Chicago, Los Angeles</span>
-                </div>
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); flex: 1; min-width: 250px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa-solid fa-location-dot" style="color: #10b981; font-size: 30px; margin-bottom: 15px;"></i>
-                    <h4 style="font-size: 20px; margin-bottom: 5px;">Europe</h4>
-                    <span style="font-size: 14px; color: rgba(255,255,255,0.6);">London, Frankfurt, Amsterdam</span>
-                </div>
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); flex: 1; min-width: 250px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa-solid fa-location-dot" style="color: #10b981; font-size: 30px; margin-bottom: 15px;"></i>
-                    <h4 style="font-size: 20px; margin-bottom: 5px;">Asia Pacific</h4>
-                    <span style="font-size: 14px; color: rgba(255,255,255,0.6);">Singapore, Tokyo, Sydney</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Added Section 2: Newsletter Subscription -->
-    <section class="newsletter-promo" style="padding: 80px 0; background: var(--bg-light, #f8faff); text-align: center;">
-        <div class="container" data-aos="zoom-in">
-            <div style="background: white; padding: 60px 30px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto;">
-                <i class="fa-regular fa-envelope-open" style="font-size: 45px; color: var(--primary, #2563eb); margin-bottom: 20px;"></i>
-                <h2 style="font-size: 2rem; color: var(--dark-blue); margin-bottom: 15px; font-weight: 700;">Subscribe to Our Newsletter</h2>
-                <p style="color: var(--text-light); margin-bottom: 30px; font-size: 15px;">Get the latest web hosting tips, security alerts, and exclusive discounts delivered straight to your inbox.</p>
-                <form style="display: flex; max-width: 500px; margin: 0 auto; gap: 10px; flex-wrap: wrap;" onsubmit="event.preventDefault(); this.innerHTML = '<div style=\'padding:15px; background:#dcfce7; color:#166534; border-radius:5px; width:100%; border:1px solid #86efac; font-weight:500;\'>Thank you for subscribing! You will receive our next update soon.</div>';">
-                    <input type="email" placeholder="Enter your email address" required style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid #e5e7eb; border-radius: 5px; outline: none; font-family: 'Poppins', sans-serif; font-size: 14px; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#e5e7eb'">
-                    <button type="submit" style="padding: 15px 30px; background: var(--primary, #2563eb); color: white; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: background 0.3s;" onmouseover="this.style.background='var(--dark-blue)'" onmouseout="this.style.background='var(--primary)'">Subscribe Now</button>
-                </form>
-            </div>
-        </div>
-    </section>
+<header class="navbar">
+<div class="container nav-container">
+<div class="logo">
+<a aria-label="Stackly Home" href="index.html"><img alt="Stackly Cloud Web Hosting" class="brand-logo" decoding="async" src="logo.webp"/></a>
+</div>
+<div class="mobile-menu-overlay"></div>
+<nav class="nav-links" id="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="domain.html">Domain</a>
+<a href="hosting.html">Hosting</a>
+<a href="services.html">Services</a>
+<a class="active" href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+<a class="mobile-nav-login" href="login.html">Login</a>
+</nav>
+<div class="nav-actions">
+<a aria-label="Domain Search" href="domain.html" style="background:none; border:none; font-size:18px; cursor:pointer; color: var(--text-dark); display: flex; align-items: center;"><i class="fa-solid fa-magnifying-glass"></i></a>
+<a class="btn btn-primary" href="login.html" style="padding: 10px 24px; font-size: 14px; margin-left: 10px;">Client Login</a>
+<button aria-label="Toggle navigation menu" class="hamburger-menu" style="margin-left: 10px;"><i class="fa-solid fa-bars"></i></button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="page-header">
+<div class="container">
+<h1 data-aos="fade-up" style="font-size: 3rem; margin-bottom: 15px; font-weight: 700;">Our Blog</h1>
+<p data-aos="fade-up" data-aos-delay="50" style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto;">Insights, tutorials, and the latest news on web hosting, security, and digital performance.</p>
+<div class="breadcrumb" data-aos="fade-up" data-aos-delay="100" style="display: flex; justify-content: center; gap: 10px; font-size: 14px; font-weight: 500;">
+<a href="index.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a>
+<span style="color: rgba(255,255,255,0.5);">/</span>
+<span style="color: white;">Blog</span>
+</div>
+</div>
+</section>
+<!-- Blog Section -->
+<section class="blog-section">
+<div class="container">
+<!-- Controls (Search & Category Filter) -->
+<div class="blog-controls" data-aos="fade-up">
+<div class="category-filters">
+<button class="filter-btn active" type="button">All</button>
+<button class="filter-btn" type="button">Web Hosting</button>
+<button class="filter-btn" type="button">Security</button>
+<button class="filter-btn" type="button">WordPress</button>
+<button class="filter-btn" type="button">Domains</button>
+<button class="filter-btn" type="button">Performance</button>
+<button class="filter-btn" type="button">Cloud</button>
+</div>
+<form action="blog.html" class="search-widget" method="GET">
+<input aria-label="Search dashboard" placeholder="Search articles..." required="" type="text"/>
+<button aria-label="Search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+</form>
+</div>
+<!-- Blog Grid (1 Col Mobile, 2 Col Tablet, 3 Col Desktop) -->
+<div class="blog-grid" id="blog-articles-container">
+<!-- Blog Card 1: Web Hosting -->
+<div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+<div class="blog-img-wrap">
+<img alt="Web Hosting Basics" decoding="async" loading="lazy" src="assets/images/blog-1.webp"/>
+<div class="blog-cat-badge">Web Hosting</div>
+</div>
+<div class="blog-content">
+<div class="blog-meta-top">
+<span><i class="fa-regular fa-calendar"></i> Oct 15, 2026</span>
+<span><i class="fa-regular fa-clock"></i> 5 min read</span>
+</div>
+<h3 class="blog-title">How to Choose the Right Hosting Plan for Your First Business Website</h3>
+<p class="blog-excerpt">Starting your first online business? Learn the critical differences between Shared, VPS, and Dedicated hosting so you can invest in the architecture that perfectly matches your traffic and budget requirements.</p>
+<a class="read-more-btn" href="blog-details.html">Read More</a>
+</div>
+</div>
+<!-- Blog Card 2: Website Security -->
+<div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+<div class="blog-img-wrap">
+<img alt="Website Security" decoding="async" loading="lazy" src="assets/images/blog-2.webp"/>
+<div class="blog-cat-badge">Security</div>
+</div>
+<div class="blog-content">
+<div class="blog-meta-top">
+<span><i class="fa-regular fa-calendar"></i> Oct 12, 2026</span>
+<span><i class="fa-regular fa-clock"></i> 6 min read</span>
+</div>
+<h3 class="blog-title">5 Essential Security Measures to Protect Your Customer Data</h3>
+<p class="blog-excerpt">Cyber threats are evolving rapidly. Discover actionable steps to lock down your web server, enforce SSL certificates, configure Web Application Firewalls (WAF), and prevent malicious malware injections.</p>
+<a class="read-more-btn" href="blog-details.html">Read More</a>
+</div>
+</div>
+<!-- Blog Card 3: WordPress -->
+<div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+<div class="blog-img-wrap">
+<img alt="WordPress Optimization" decoding="async" loading="lazy" src="assets/images/blog-3.webp"/>
+<div class="blog-cat-badge">WordPress</div>
+</div>
+<div class="blog-content">
+<div class="blog-meta-top">
+<span><i class="fa-regular fa-calendar"></i> Oct 09, 2026</span>
+<span><i class="fa-regular fa-clock"></i> 4 min read</span>
+</div>
+<h3 class="blog-title">The Ultimate Checklist for Migrating Your WordPress Site Without Downtime</h3>
+<p class="blog-excerpt">Moving to a faster host shouldn't mean losing traffic. Follow our comprehensive, step-by-step guide to seamlessly migrate your WordPress database and files while ensuring zero downtime during DNS propagation.</p>
+<a class="read-more-btn" href="blog-details.html">Read More</a>
+</div>
+</div>
+<!-- Blog Card 4: Domains -->
+<div class="blog-card" data-aos="fade-up" data-aos-delay="400">
+<div class="blog-img-wrap">
+<img alt="Domain Registration" decoding="async" loading="lazy" src="assets/images/blog-4.webp"/>
+<div class="blog-cat-badge">Domains</div>
+</div>
+<div class="blog-content">
+<div class="blog-meta-top">
+<span><i class="fa-regular fa-calendar"></i> Oct 05, 2026</span>
+<span><i class="fa-regular fa-clock"></i> 3 min read</span>
+</div>
+<h3 class="blog-title">Why Registering Multiple Domain Extensions Protects Your Brand</h3>
+<p class="blog-excerpt">Is owning the .com enough? We explore why securing the .net, .org, and local country-code TLDs prevents competitors from diluting your brand identity and capturing your valuable organic search traffic.</p>
+<a class="read-more-btn" href="blog-details.html">Read More</a>
+</div>
+</div>
+<!-- Blog Card 5: Performance -->
+<div class="blog-card" data-aos="fade-up" data-aos-delay="500">
+<div class="blog-img-wrap">
+<!-- Reusing images for the demo, since we only have 4 webps -->
+<img alt="Server Performance" decoding="async" loading="lazy" src="assets/images/blog-1.webp"/>
+<div class="blog-cat-badge">Performance</div>
+</div>
+<div class="blog-content">
+<div class="blog-meta-top">
+<span><i class="fa-regular fa-calendar"></i> Sep 28, 2026</span>
+<span><i class="fa-regular fa-clock"></i> 7 min read</span>
+</div>
+<h3 class="blog-title">LiteSpeed Caching vs Apache: Benchmarking Server Speeds</h3>
+<p class="blog-excerpt">Page load time directly impacts your conversion rates. We benchmarked identical websites across Apache and LiteSpeed web servers. Read our in-depth analysis on Time to First Byte (TTFB) and resource utilization.</p>
+<a class="read-more-btn" href="blog-details.html">Read More</a>
+</div>
+</div>
+<!-- Blog Card 6: Cloud Hosting -->
+<div class="blog-card" data-aos="fade-up" data-aos-delay="600">
+<div class="blog-img-wrap">
+<img alt="Cloud Hosting" decoding="async" loading="lazy" src="assets/images/blog-2.webp"/>
+<div class="blog-cat-badge">Cloud</div>
+</div>
+<div class="blog-content">
+<div class="blog-meta-top">
+<span><i class="fa-regular fa-calendar"></i> Sep 22, 2026</span>
+<span><i class="fa-regular fa-clock"></i> 5 min read</span>
+</div>
+<h3 class="blog-title">How Cloud Hosting Auto-Scaling Saves E-Commerce Stores During Black Friday</h3>
+<p class="blog-excerpt">Traffic spikes can crash traditional servers when you need them most. See how cloud auto-scaling instantly allocates emergency RAM and CPU resources to keep your shopping cart functional during holiday rushes.</p>
+<a class="read-more-btn" href="blog-details.html">Read More</a>
+</div>
+</div>
+</div>
+<!-- Interactive Dynamic Pagination -->
+<div class="pagination" id="blog-pagination" data-aos="fade-up">
+<a class="page-prev-btn" href="#blog-articles-container" aria-label="Previous Page" data-action="prev" style="display: none;"><i class="fa-solid fa-chevron-left"></i></a>
+<a class="page-btn active" href="#blog-articles-container" data-page="1">1</a>
+<a class="page-btn" href="#blog-articles-container" data-page="2">2</a>
+<a class="page-btn" href="#blog-articles-container" data-page="3">3</a>
+<a class="page-next-btn" href="#blog-articles-container" aria-label="Next Page" data-action="next"><i class="fa-solid fa-chevron-right"></i></a>
+</div>
+</div>
+</section>
+<!-- Added Section 1: Global Datacenters (Continuous Marquee Animation) -->
+<section class="global-network" style="padding: 80px 0; background: var(--dark-blue, #041246); color: white; text-align: center; overflow: hidden;">
+<div class="container" data-aos="fade-up">
+<h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700;">Global Tier-4 Datacenters</h2>
+<p style="color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto 40px;">Deliver your content blazingly fast to users anywhere in the world with our strategically located, highly secure Tier-4 certified servers.</p>
+</div>
+<div class="tier4-marquee-wrapper" data-aos="fade-up" data-aos-delay="150">
+<div class="tier4-marquee-track">
+<!-- Entry 1 -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>North America</h4>
+<p>New York, Chicago, Los Angeles, Dallas</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 5ms Latency</span></div>
+</div>
+<!-- Entry 2 -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>Europe</h4>
+<p>London, Frankfurt, Amsterdam, Paris</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 8ms Latency</span></div>
+</div>
+<!-- Entry 3 -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>Asia Pacific</h4>
+<p>Singapore, Tokyo, Hong Kong, Sydney</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 10ms Latency</span></div>
+</div>
+<!-- Entry 4 (New) -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>Middle East &amp; India</h4>
+<p>Dubai, Mumbai, Chennai, Riyadh</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 12ms Latency</span></div>
+</div>
+<!-- Entry 5 (New) -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>Latin America &amp; Oceania</h4>
+<p>São Paulo, Santiago, Melbourne, Auckland</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 15ms Latency</span></div>
+</div>
+<!-- Duplicated for continuous smooth ticker loop -->
+<!-- Entry 1 Dupl -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>North America</h4>
+<p>New York, Chicago, Los Angeles, Dallas</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 5ms Latency</span></div>
+</div>
+<!-- Entry 2 Dupl -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>Europe</h4>
+<p>London, Frankfurt, Amsterdam, Paris</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 8ms Latency</span></div>
+</div>
+<!-- Entry 3 Dupl -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>Asia Pacific</h4>
+<p>Singapore, Tokyo, Hong Kong, Sydney</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 10ms Latency</span></div>
+</div>
+<!-- Entry 4 Dupl -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>Middle East &amp; India</h4>
+<p>Dubai, Mumbai, Chennai, Riyadh</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 12ms Latency</span></div>
+</div>
+<!-- Entry 5 Dupl -->
+<div class="tier4-card">
+<span class="tier4-badge">Tier 4 Certified</span>
+<i class="fa-solid fa-location-dot loc-icon"></i>
+<h4>Latin America &amp; Oceania</h4>
+<p>São Paulo, Santiago, Melbourne, Auckland</p>
+<div class="tier4-spec"><span><i class="fa-solid fa-bolt text-yellow"></i> 99.995% Uptime</span> • <span>&lt; 15ms Latency</span></div>
+</div>
+</div>
+</div>
+</section>
 
 <footer class="footer bg-dark-blue">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col brand-col">
-                    <div class="logo white-logo" style="margin-bottom: 20px;"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
-                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px;">My service is not something I even think about because it is always there as we agreed. The customer service is responsive and knowledge needs for.</p>
-                    <div class="social-links">
-                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">Follow us on ____________</span>
-                        <div class="icons" style="display: flex; gap: 10px;">
-                            <a href="404.html" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="404.html" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="404.html" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="404.html" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-col links-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="javascript:void(0);">Support Center</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="javascript:void(0);">Search Domain</a></li>
-                        <li><a href="javascript:void(0);">My Account</a></li>
-                        <li><a href="javascript:void(0);">Customer Profiles</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col links-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="hosting.html">Shared Hosting</a></li>
-                        <li><a href="hosting.html">WordPress Hosting</a></li>
-                        <li><a href="hosting.html">VPS Hosting</a></li>
-                        <li><a href="javascript:void(0);">Game Hosting</a></li>
-                        <li><a href="javascript:void(0);">Dedicated Hosting</a></li>
-                        <li><a href="domain.html">Domain Name</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col newsletter-col">
-                    <h4>Get In Touch</h4>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Type Your Mail">
-                        <button type="button" class="btn btn-light-blue">Subscribe</button>
-                    </form>
-                    <div class="payment-methods" style="margin-top: 30px;">
-                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">We Accepted ____________</span>
-                        <div class="methods" style="display: flex; gap: 15px; font-size: 24px; color: #94a3b8;">
-                            <i class="fa-brands fa-cc-visa"></i>
-                            <i class="fa-brands fa-cc-mastercard"></i>
-                            <i class="fa-brands fa-cc-paypal"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Copyright 2026 Stackly. All Rights Reserved.</p>
-                <div class="bottom-links">
-                    <a href="javascript:void(0);">Terms & Conditions</a>
-                    <a href="javascript:void(0);">Privacy Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col brand-col">
+<div class="logo white-logo" style="margin-bottom: 20px;">
+<a aria-label="Stackly Home" href="index.html"><img alt="Stackly Cloud Web Hosting" class="brand-logo" decoding="async" src="logo.webp"/></a>
+</div>
+<p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px; line-height: 1.6;">Stackly provides enterprise-grade cloud web hosting, domain registration, and managed VPS solutions engineered for maximum performance, security, and 99.99% uptime.</p>
+<div class="social-links">
+<span style="font-size: 14px; margin-bottom: 10px; display: block;">Follow Us On Social Media</span>
+<div class="icons" style="display: flex; gap: 10px;">
+<a class="social-icon" href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+<a class="social-icon" href="404.html"><i class="fa-brands fa-twitter"></i></a>
+<a class="social-icon" href="404.html"><i class="fa-brands fa-instagram"></i></a>
+<a class="social-icon" href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+</div>
+</div>
+</div>
+<div class="footer-col links-col"><h4>Quick Links</h4>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="domain.html">Domain</a></li>
+<li><a href="hosting.html">Hosting</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul></div>
+<div class="footer-col links-col">
+<h4>Hosting Services</h4>
+<ul>
+<li><a href="hosting.html">Shared Cloud Hosting</a></li>
+<li><a href="hosting.html">WordPress Hosting</a></li>
+<li><a href="services.html">VPS Cloud Servers</a></li>
+<li><a href="services.html">Dedicated Servers</a></li>
+<li><a href="hosting.html">Reseller Hosting</a></li>
+<li><a href="domain.html">Domain Registration</a></li>
+</ul>
+</div>
+<div class="footer-col newsletter-col">
+<h4>Stay Updated</h4>
+<p style="color: #94a3b8; font-size: 13px; margin-bottom: 15px;">Subscribe for server status alerts, infrastructure updates, and exclusive hosting discounts.</p>
+<form class="newsletter-form" novalidate>
+<input aria-label="Your email address" placeholder="Enter your email address" type="email"/>
+<button class="btn btn-primary" type="submit">Subscribe</button>
+<div class="newsletter-msg" style="display: none; font-size: 13px; margin-top: 8px; font-weight: 500;"></div></form>
+<div class="payment-methods" style="margin-top: 30px;">
+<span style="font-size: 14px; margin-bottom: 10px; display: block;">Accepted Payment Methods</span>
+<div class="methods" style="display: flex; gap: 15px; font-size: 24px; color: #94a3b8;">
+<i class="fa-brands fa-cc-visa" title="Visa"></i>
+<i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+<i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+<i class="fa-brands fa-cc-apple-pay" title="Apple Pay"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Stackly Web Hosting Inc. All Rights Reserved.</p>
+<div class="bottom-links">
+<a href="404.html">Terms of Service</a>
+<a href="404.html">Privacy Policy</a>
+<a href="404.html">System Status</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Custom JS -->
+<script src="script.js"></script>
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+<!-- Interactive Blog Pagination & Filtering Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const blogArticles = {
+        1: [
+            {
+                img: 'assets/images/blog-1.webp',
+                category: 'Web Hosting',
+                date: 'Oct 15, 2026',
+                readTime: '5 min read',
+                title: 'How to Choose the Right Hosting Plan for Your First Business Website',
+                excerpt: 'Starting your first online business? Learn the critical differences between Shared, VPS, and Dedicated hosting so you can invest in the architecture that perfectly matches your traffic and budget requirements.'
+            },
+            {
+                img: 'assets/images/blog-2.webp',
+                category: 'Security',
+                date: 'Oct 12, 2026',
+                readTime: '6 min read',
+                title: '5 Essential Security Measures to Protect Your Customer Data',
+                excerpt: 'Cyber threats are evolving rapidly. Discover actionable steps to lock down your web server, enforce SSL certificates, configure Web Application Firewalls (WAF), and prevent malicious malware injections.'
+            },
+            {
+                img: 'assets/images/blog-3.webp',
+                category: 'WordPress',
+                date: 'Oct 09, 2026',
+                readTime: '4 min read',
+                title: 'The Ultimate Checklist for Migrating Your WordPress Site Without Downtime',
+                excerpt: 'Moving to a faster host shouldn\'t mean losing traffic. Follow our comprehensive, step-by-step guide to seamlessly migrate your WordPress database and files while ensuring zero downtime during DNS propagation.'
+            },
+            {
+                img: 'assets/images/blog-4.webp',
+                category: 'Domains',
+                date: 'Oct 05, 2026',
+                readTime: '3 min read',
+                title: 'Why Registering Multiple Domain Extensions Protects Your Brand',
+                excerpt: 'Is owning the .com enough? We explore why securing the .net, .org, and local country-code TLDs prevents competitors from diluting your brand identity and capturing your valuable organic search traffic.'
+            },
+            {
+                img: 'assets/images/blog-1.webp',
+                category: 'Performance',
+                date: 'Sep 28, 2026',
+                readTime: '7 min read',
+                title: 'LiteSpeed Caching vs Apache: Benchmarking Server Speeds',
+                excerpt: 'Page load time directly impacts your conversion rates. We benchmarked identical websites across Apache and LiteSpeed web servers. Read our in-depth analysis on Time to First Byte (TTFB) and resource utilization.'
+            },
+            {
+                img: 'assets/images/blog-2.webp',
+                category: 'Cloud',
+                date: 'Sep 22, 2026',
+                readTime: '5 min read',
+                title: 'How Cloud Hosting Auto-Scaling Saves E-Commerce Stores During Black Friday',
+                excerpt: 'Traffic spikes can crash traditional servers when you need them most. See how cloud auto-scaling instantly allocates emergency RAM and CPU resources to keep your shopping cart functional during holiday rushes.'
+            }
+        ],
+        2: [
+            {
+                img: 'assets/images/srv_shared.webp',
+                category: 'Performance',
+                date: 'Sep 18, 2026',
+                readTime: '6 min read',
+                title: 'Demystifying NVMe SSDs: Why Enterprise Storage Accelerates SEO Rankings',
+                excerpt: 'Google prioritizes Core Web Vitals and ultra-fast page speeds. Discover why switching from legacy SATA SSDs to enterprise PCIe Gen4 NVMe arrays cuts latency by 75% and directly elevates search rankings.'
+            },
+            {
+                img: 'assets/images/srv_bf.webp',
+                category: 'Security',
+                date: 'Sep 14, 2026',
+                readTime: '8 min read',
+                title: 'Protecting Mission-Critical Apps Against Layer 7 Application DDoS Attacks',
+                excerpt: 'Sophisticated HTTP flood attacks bypass traditional network filters. Learn how intelligent automated WAF rules and edge traffic scrubbing neutralize threats before they ever reach your web server.'
+            },
+            {
+                img: 'assets/images/srv_wp.webp',
+                category: 'WordPress',
+                date: 'Sep 10, 2026',
+                readTime: '5 min read',
+                title: 'Top 8 Ways to Optimize LiteSpeed & Redis Object Cache on WordPress',
+                excerpt: 'Unleash the full potential of server-side caching. We share our battle-tested settings for database query caching, automated CSS/JS minification, and image WebP conversion for 100/100 PageSpeed scores.'
+            },
+            {
+                img: 'assets/images/srv_cloud.webp',
+                category: 'Cloud',
+                date: 'Sep 05, 2026',
+                readTime: '4 min read',
+                title: 'The Complete Guide to Anycast DNS and Global Low-Latency Routing',
+                excerpt: 'How does Anycast DNS connect visitors to the geographically nearest server in under 10 milliseconds? Understand the routing protocol behind global CDN networks and multi-region failover.'
+            },
+            {
+                img: 'assets/images/srv_reseller.webp',
+                category: 'Web Hosting',
+                date: 'Aug 29, 2026',
+                readTime: '7 min read',
+                title: 'How to Start a High-Margin White-Label Reseller Hosting Agency',
+                excerpt: 'Looking to build predictable recurring monthly revenue? Explore how web design agencies bundle white-label cPanel hosting with website maintenance packages for steady 80%+ profit margins.'
+            },
+            {
+                img: 'assets/images/domain_hero.webp',
+                category: 'Domains',
+                date: 'Aug 24, 2026',
+                readTime: '4 min read',
+                title: 'New TLDs vs .COM: Does Having an .AI or .IO Domain Hurt Your Branding?',
+                excerpt: 'Tech unicorns and AI startups are embracing .io, .ai, and .co extensions. We analyze consumer trust surveys and domain SEO performance across modern non-traditional top-level extensions.'
+            }
+        ],
+        3: [
+            {
+                img: 'assets/images/srv_game.webp',
+                category: 'Cloud',
+                date: 'Aug 19, 2026',
+                readTime: '6 min read',
+                title: 'Setting Up Automated Daily Snapshots and Disaster Recovery Workflows',
+                excerpt: 'A reliable backup strategy is the ultimate insurance policy for any digital asset. Learn how offsite point-in-time cloud snapshots allow instant 1-click database rollbacks without downtime.'
+            },
+            {
+                img: 'assets/images/srv_dedicated.webp',
+                category: 'Security',
+                date: 'Aug 14, 2026',
+                readTime: '5 min read',
+                title: 'Server Hardening Best Practices: Disabling Root Logins and Securing SSH',
+                excerpt: 'Default server configurations are prime targets for brute-force botnets. Follow this step-by-step checklist to change default SSH ports, enforce ed25519 public key auth, and configure Fail2ban.'
+            },
+            {
+                img: 'assets/images/hero_bg.jpg',
+                category: 'Web Hosting',
+                date: 'Aug 08, 2026',
+                readTime: '6 min read',
+                title: 'Green Web Hosting: How Modern Cloud Data Centers Reduce Carbon Footprints',
+                excerpt: 'Learn how energy-efficient server cooling, high-density server blades, and 100% renewable energy commitments make enterprise cloud hosting sustainable without compromising performance.'
+            },
+            {
+                img: 'assets/images/srv_vps.webp',
+                category: 'WordPress',
+                date: 'Aug 02, 2026',
+                readTime: '7 min read',
+                title: 'Headless WordPress vs Traditional CMS: Architecture, Speed & Security',
+                excerpt: 'Decoupling your front-end Next.js application from the WordPress REST API delivers instantaneous page transitions and eliminates database injection vulnerabilities on public endpoints.'
+            },
+            {
+                img: 'assets/images/features_img.webp',
+                category: 'Security',
+                date: 'Jul 28, 2026',
+                readTime: '4 min read',
+                title: 'Wildcard SSL Certificates vs Multi-Domain SAN: What You Must Know',
+                excerpt: 'Managing certificates across multiple subdomains and landing pages can be challenging. We explain wildcard domain encryption versus subject alternative name (SAN) security certificates.'
+            },
+            {
+                img: 'assets/images/srv_email.webp',
+                category: 'Performance',
+                date: 'Jul 21, 2026',
+                readTime: '8 min read',
+                title: 'High-Performance MySQL & MariaDB Query Tuning for Busy Websites',
+                excerpt: 'Slow database queries are the #1 bottleneck on busy web applications. Master InnoDB buffer pool sizing, query cache optimization, and slow query log analysis to turbocharge database speeds.'
+            }
+        ]
+    };
+
+    const allArticles = Object.values(blogArticles).flat();
+    const container = document.getElementById('blog-articles-container');
+    const pagination = document.getElementById('blog-pagination');
+    const filterButtons = document.querySelectorAll('.category-filters .filter-btn');
+    const searchForm = document.querySelector('.search-widget');
+    const searchInput = searchForm ? searchForm.querySelector('input') : null;
+
+    if (!container || !pagination) return;
+
+    let currentPage = 1;
+    let activeFilter = 'All';
+    let searchQuery = '';
+
+    function renderArticlesList(articles) {
+        if (!articles || articles.length === 0) {
+            container.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <i class="fa-solid fa-magnifying-glass" style="font-size: 42px; color: #94a3b8; margin-bottom: 15px;"></i>
+                    <h3 style="color: var(--dark-blue, #0b1536); font-size: 20px; margin-bottom: 8px;">No articles found</h3>
+                    <p style="color: var(--text-light, #64748b); font-size: 14px; max-width: 450px; margin: 0 auto 20px;">We couldn't find any articles matching your selection. Try selecting another category or searching for different keywords.</p>
+                    <button type="button" class="btn btn-primary reset-filter-btn" style="padding: 10px 22px; font-size: 14px; border-radius: 6px; background: var(--primary, #2563eb); color: white; border: none; cursor: pointer;">Show All Articles</button>
+                </div>
+            `;
+            const resetBtn = container.querySelector('.reset-filter-btn');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', function() {
+                    activeFilter = 'All';
+                    searchQuery = '';
+                    if (searchInput) searchInput.value = '';
+                    filterButtons.forEach(b => b.classList.toggle('active', b.textContent.trim() === 'All'));
+                    applyState();
+                });
+            }
+            pagination.style.display = 'none';
+            return;
+        }
+
+        container.innerHTML = articles.map((item, idx) => `
+            <div class="blog-card" style="animation: fadeInUp 0.4s ease forwards ${Math.min(idx * 0.06, 0.4)}s;">
+                <div class="blog-img-wrap">
+                    <img src="${item.img}" alt="${item.title}" loading="lazy" decoding="async">
+                    <div class="blog-cat-badge">${item.category}</div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta-top">
+                        <span><i class="fa-regular fa-calendar"></i> ${item.date}</span>
+                        <span><i class="fa-regular fa-clock"></i> ${item.readTime}</span>
+                    </div>
+                    <h3 class="blog-title">${item.title}</h3>
+                    <p class="blog-excerpt">${item.excerpt}</p>
+                    <a href="blog-details.html" class="read-more-btn">Read More</a>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function applyState(smoothScroll = false) {
+        // Fade out
+        container.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        container.style.opacity = '0.3';
+        container.style.transform = 'translateY(6px)';
+
+        setTimeout(() => {
+            if (activeFilter === 'All' && !searchQuery) {
+                // Default paginated mode
+                pagination.style.display = 'flex';
+                renderArticlesList(blogArticles[currentPage] || blogArticles[1]);
+
+                // Update pagination buttons active state
+                pagination.querySelectorAll('.page-btn').forEach(btn => {
+                    const btnPage = parseInt(btn.getAttribute('data-page'));
+                    btn.classList.toggle('active', btnPage === currentPage);
+                });
+
+                const prevBtn = pagination.querySelector('.page-prev-btn');
+                const nextBtn = pagination.querySelector('.page-next-btn');
+                if (prevBtn) prevBtn.style.display = currentPage > 1 ? 'inline-flex' : 'none';
+                if (nextBtn) nextBtn.style.display = currentPage < 3 ? 'inline-flex' : 'none';
+            } else {
+                // Filtered mode
+                pagination.style.display = 'none';
+                const normFilter = activeFilter.toLowerCase();
+                const filtered = allArticles.filter(item => {
+                    const itemCat = item.category.toLowerCase();
+                    const matchCat = (activeFilter === 'All') ||
+                        (itemCat === normFilter) ||
+                        (normFilter === 'cloud' && itemCat.includes('cloud'));
+                    
+                    const matchSearch = !searchQuery || (
+                        item.title.toLowerCase().includes(searchQuery) ||
+                        item.excerpt.toLowerCase().includes(searchQuery) ||
+                        item.category.toLowerCase().includes(searchQuery)
+                    );
+                    return matchCat && matchSearch;
+                });
+                renderArticlesList(filtered);
+            }
+
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+
+            if (smoothScroll) {
+                const navHeight = 90;
+                const topPos = container.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                window.scrollTo({ top: topPos, behavior: 'smooth' });
+            }
+        }, 150);
+    }
+
+    // Category Filter Click Handler
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeFilter = this.textContent.trim();
+            applyState(true);
+        });
+    });
+
+    // Search Handler
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (searchInput) {
+                searchQuery = searchInput.value.trim().toLowerCase();
+            }
+            applyState(true);
+        });
+    }
+
+    if (searchInput) {
+        searchInput.removeAttribute('required');
+        searchInput.addEventListener('input', function(e) {
+            searchQuery = e.target.value.trim().toLowerCase();
+            applyState(false);
+        });
+    }
+
+    // Pagination Click Handler
+    pagination.addEventListener('click', function(e) {
+        const target = e.target.closest('a');
+        if (!target) return;
+        e.preventDefault();
+
+        if (target.classList.contains('page-btn')) {
+            const p = parseInt(target.getAttribute('data-page'));
+            if (p && p !== currentPage) {
+                currentPage = p;
+                applyState(true);
+            }
+        } else if (target.getAttribute('data-action') === 'next') {
+            if (currentPage < 3) {
+                currentPage++;
+                applyState(true);
+            }
+        } else if (target.getAttribute('data-action') === 'prev') {
+            if (currentPage > 1) {
+                currentPage--;
+                applyState(true);
+            }
+        }
+    });
+
+    // URL Param Check
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const pParam = parseInt(urlParams.get('page'));
+        if (pParam && pParam >= 1 && pParam <= 3) {
+            currentPage = pParam;
+            applyState(false);
+        }
+    } catch(e) {}
+});
+</script>
 </body>
 </html>

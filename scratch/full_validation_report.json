@@ -1,0 +1,294 @@
+{
+  "syntax": [
+    {
+      "file": "auth.js",
+      "passed": true
+    },
+    {
+      "file": "script.js",
+      "passed": true
+    },
+    {
+      "file": "custom-fixes.js",
+      "passed": true
+    },
+    {
+      "file": "dashboard/dashboard-engine.js",
+      "passed": true
+    }
+  ],
+  "publicPages": [
+    {
+      "page": "index.html",
+      "title": "Stackly - Enterprise Web & Cloud Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "about.html",
+      "title": "About Us - Stackly Web Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "services.html",
+      "title": "Hosting Services & Solutions - Stackly Web Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "hosting.html",
+      "title": "Web Hosting Plans & Pricing - Stackly Web Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "domain.html",
+      "title": "Domain Name Registration & Search - Stackly Web Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "blog.html",
+      "title": "Hosting & Cloud Infrastructure Blog - Stackly",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "blog-details.html",
+      "title": "How to Choose the Right Web Hosting Plan - Stackly Blog",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "contact.html",
+      "title": "Contact Support & Sales - Stackly Web Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "login.html",
+      "title": "Client Portal Login - Stackly Web Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "signup.html",
+      "title": "Create an Account - Stackly Web Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "forgot-password.html",
+      "title": "Reset Password - Stackly Web Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    },
+    {
+      "page": "404.html",
+      "title": "404 - Page Not Found - Stackly Web Hosting",
+      "hasMetaDesc": true,
+      "hasH1": true,
+      "passed": true
+    }
+  ],
+  "forms": [
+    {
+      "form": "contact.html",
+      "passed": true
+    },
+    {
+      "form": "domain.html",
+      "passed": true
+    },
+    {
+      "form": "login.html (Admin)",
+      "passed": true
+    }
+  ],
+  "dashboards": [
+    {
+      "page": "admin-dashboard.html",
+      "hasDemoBadge": true,
+      "hasTable": true,
+      "passed": true
+    },
+    {
+      "page": "admin-customers.html",
+      "hasDemoBadge": true,
+      "hasTable": true,
+      "passed": true
+    },
+    {
+      "page": "admin-orders.html",
+      "hasDemoBadge": true,
+      "hasTable": true,
+      "passed": true
+    },
+    {
+      "page": "admin-hosting-plans.html",
+      "hasDemoBadge": true,
+      "hasTable": true,
+      "passed": true
+    },
+    {
+      "page": "admin-domains.html",
+      "hasDemoBadge": true,
+      "hasTable": true,
+      "passed": true
+    },
+    {
+      "page": "admin-billing.html",
+      "hasDemoBadge": true,
+      "hasTable": true,
+      "passed": true
+    },
+    {
+      "page": "admin-reports.html",
+      "hasDemoBadge": true,
+      "hasTable": true,
+      "passed": true
+    },
+    {
+      "page": "admin-support.html",
+      "hasDemoBadge": true,
+      "hasTable": true,
+      "passed": true
+    },
+    {
+      "page": "admin-settings.html",
+      "hasDemoBadge": true,
+      "hasTable": false,
+      "passed": true
+    },
+    {
+      "page": "user-dashboard.html",
+      "hasDemoBadge": true,
+      "passed": true
+    },
+    {
+      "page": "user-hosting.html",
+      "hasDemoBadge": true,
+      "passed": true
+    },
+    {
+      "page": "user-domains.html",
+      "hasDemoBadge": true,
+      "passed": true
+    },
+    {
+      "page": "user-billing.html",
+      "hasDemoBadge": true,
+      "passed": true
+    },
+    {
+      "page": "user-profile.html",
+      "hasDemoBadge": true,
+      "passed": true
+    },
+    {
+      "page": "user-support.html",
+      "hasDemoBadge": true,
+      "passed": true
+    }
+  ],
+  "responsive": [],
+  "security": [
+    {
+      "test": "Standard user access to admin route blocked",
+      "passed": true
+    },
+    {
+      "test": "Logout redirects to login.html and clears session",
+      "passed": true
+    },
+    {
+      "test": "Unauthenticated access redirected to login with error reason",
+      "passed": true
+    }
+  ],
+  "consoleErrors": [],
+  "networkFailures": [
+    {
+      "page": "http://localhost:8089/contact.html",
+      "failedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.190130635293!2d78.14088925!3d11.6881479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1b13115fbcf%3A0xc5dcabdaee381e01!2sChinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/dashboard/user-dashboard.html?denied=admin_only",
+      "failedUrl": "http://localhost:8089/login.html?logout=true",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/dashboard/admin-customers.html",
+      "failedUrl": "http://localhost:8089/login.html?error=no_session&redirect=dashboard%2Fadmin-customers.html",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/contact.html",
+      "failedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.190130635293!2d78.14088925!3d11.6881479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1b13115fbcf%3A0xc5dcabdaee381e01!2sChinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/blog.html",
+      "failedUrl": "http://localhost:8089/assets/images/blog-1.webp",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/blog.html",
+      "failedUrl": "http://localhost:8089/assets/images/blog-4.webp",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/blog.html",
+      "failedUrl": "http://localhost:8089/assets/images/blog-2.webp",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/blog.html",
+      "failedUrl": "http://localhost:8089/assets/images/blog-3.webp",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/contact.html",
+      "failedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.190130635293!2d78.14088925!3d11.6881479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1b13115fbcf%3A0xc5dcabdaee381e01!2sChinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/contact.html",
+      "failedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.190130635293!2d78.14088925!3d11.6881479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1b13115fbcf%3A0xc5dcabdaee381e01!2sChinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/contact.html",
+      "failedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.190130635293!2d78.14088925!3d11.6881479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1b13115fbcf%3A0xc5dcabdaee381e01!2sChinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/contact.html",
+      "failedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.190130635293!2d78.14088925!3d11.6881479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1b13115fbcf%3A0xc5dcabdaee381e01!2sChinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/contact.html",
+      "failedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.190130635293!2d78.14088925!3d11.6881479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1b13115fbcf%3A0xc5dcabdaee381e01!2sChinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "http://localhost:8089/contact.html",
+      "failedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.190130635293!2d78.14088925!3d11.6881479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1b13115fbcf%3A0xc5dcabdaee381e01!2sChinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin",
+      "failure": "net::ERR_ABORTED"
+    }
+  ]
+}

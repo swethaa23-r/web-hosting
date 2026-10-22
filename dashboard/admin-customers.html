@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="description" content="Stackly Admin - Customer management console for managing customer accounts, provisioning status, plans, and profiles.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Stackly Admin - Customer management, account provisioning, and service tiers." name="description"/>
+<title>Customers - Admin Dashboard</title>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --dark-blue: #0b1536;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f3f4f6;
+            --white: #ffffff;
+            --green: #10b981;
+            --red: #ef4444;
+            --yellow: #f59e0b;
+            --sidebar-width: 260px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
+
+        /* Layout & Sidebar */
+        .admin-layout { display: flex; min-height: 100vh; }
+        .sidebar { width: var(--sidebar-width); background-color: var(--dark-blue); color: var(--white); display: flex; flex-direction: column; position: fixed; height: 100vh; left: 0; top: 0; z-index: 1000; transition: transform 0.3s ease; }
+        .sidebar-brand { padding: 20px; font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--white); text-decoration: none; }
+        .sidebar-brand i { color: var(--primary); }
+        .sidebar-nav { flex: 1; padding: 20px 0; overflow-y: auto; }
+        .nav-item { padding: 12px 20px; display: flex; align-items: center; gap: 15px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.3s; border-left: 3px solid transparent; }
+        .nav-item i { width: 20px; text-align: center; font-size: 16px; }
+        .nav-item:hover, .nav-item.active { color: var(--white); background: rgba(255,255,255,0.05); border-left-color: var(--primary); }
+        .sidebar-footer { padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .btn-logout { width: 100%; padding: 10px; background: rgba(239, 68, 68, 0.1); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s; }
+        .btn-logout:hover { background: var(--red); color: white; }
+
+        /* Main Content & Topbar */
+        .main-content { flex: 1; margin-left: var(--sidebar-width); display: flex; flex-direction: column; min-height: 100vh; width: calc(100% - var(--sidebar-width)); }
+        .topbar { height: 70px; background: var(--white); display: flex; align-items: center; justify-content: space-between; padding: 0 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); position: sticky; top: 0; z-index: 99; }
+        .hamburger { display: none; background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-dark); }
+        .topbar-right { display: flex; align-items: center; gap: 20px; margin-left: auto; }
+        .notifications { position: relative; cursor: pointer; color: var(--text-light); font-size: 18px; }
+        .notifications .badge { position: absolute; top: -5px; right: -5px; background: var(--red); color: white; font-size: 12px; padding: 2px 5px; border-radius: 10px; font-weight: 600; }
+        .profile { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .profile img { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; }
+        .profile-info { display: flex; flex-direction: column; }
+        .profile-info .name { font-size: 13px; font-weight: 600; color: var(--dark-blue); }
+        .profile-info .role { font-size: 12px; color: var(--text-light); }
+
+        /* Dashboard Container */
+        .dashboard-container { padding: 30px; flex: 1; display: flex; flex-direction: column; gap: 25px; }
+        
+        /* 1. Page Header */
+        .page-header { display: flex; justify-content: space-between; align-items: center; }
+        .page-header-left h1 { font-size: 24px; color: var(--dark-blue); font-weight: 600; margin-bottom: 5px; }
+        .breadcrumb { font-size: 13px; color: var(--text-light); display: flex; gap: 8px; align-items: center; }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .btn-action { padding: 10px 20px; background: var(--primary); border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s; color: white; display: flex; align-items: center; gap: 8px; }
+        .btn-action:hover { background: var(--primary-hover); }
+
+        /* 2. Customer Statistics */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .stat-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; justify-content: space-between; align-items: center; }
+        .stat-info h3 { font-size: 13px; color: var(--text-light); font-weight: 500; margin-bottom: 5px; }
+        .stat-info .value { font-size: 24px; font-weight: 700; color: var(--dark-blue); }
+        .stat-icon { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .icon-blue { background: rgba(37,99,235,0.1); color: var(--primary); }
+        .icon-green { background: rgba(16,185,129,0.1); color: var(--green); }
+        .icon-yellow { background: rgba(245,158,11,0.1); color: var(--yellow); }
+        .icon-red { background: rgba(239,68,68,0.1); color: var(--red); }
+
+        /* 3. Customer Search & Filters */
+        .filters-section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; gap: 15px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+        .search-group { display: flex; align-items: center; background: var(--bg-light); border-radius: 6px; padding: 10px 15px; flex: 1; min-width: 250px; border: 1px solid #e5e7eb; }
+        .search-group i { color: var(--text-light); margin-right: 10px; }
+        .search-group input { border: none; background: transparent; width: 100%; outline: none; font-size: 13px; }
+        
+        .filter-controls { display: flex; gap: 15px; flex-wrap: wrap; }
+        .filter-select { padding: 10px 15px; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 13px; color: var(--text-dark); background: white; outline: none; cursor: pointer; min-width: 140px; }
+        .filter-select:focus { border-color: var(--primary); }
+
+        /* 4. Customer Table */
+        .table-card { background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); overflow: hidden; }
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+        table { width: 100%; border-collapse: collapse; min-width: 900px; }
+        th { text-align: left; padding: 15px 20px; font-size: 12px; color: var(--text-light); border-bottom: 1px solid #e5e7eb; font-weight: 600; text-transform: uppercase; background: #f9fafb; }
+        td { padding: 15px 20px; border-bottom: 1px solid #f3f4f6; font-size: 13px; color: var(--text-dark); vertical-align: middle; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background-color: #f8fafc; }
+        
+        .customer-identity { display: flex; align-items: center; gap: 12px; }
+        .customer-avatar { width: 35px; height: 35px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; }
+        .customer-identity div strong { color: var(--dark-blue); display: block; margin-bottom: 2px; }
+        
+        .badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge.active { background: rgba(16,185,129,0.1); color: var(--green); }
+        .badge.suspended { background: rgba(239,68,68,0.1); color: var(--red); }
+        .badge.pending { background: rgba(245,158,11,0.1); color: var(--yellow); }
+
+        .table-actions { display: flex; gap: 10px; }
+        .btn-icon { width: 30px; height: 30px; border-radius: 5px; border: 1px solid #e5e7eb; background: white; color: var(--text-light); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+        .btn-icon:hover { color: white; border-color: transparent; }
+        .btn-icon.view:hover { background: var(--primary); }
+        .btn-icon.edit:hover { background: var(--yellow); }
+        .btn-icon.suspend:hover { background: var(--dark-blue); }
+        .btn-icon.delete:hover { background: var(--red); }
+
+        /* Pagination */
+        .pagination { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-top: 1px solid #e5e7eb; }
+        .page-info { font-size: 13px; color: var(--text-light); }
+        .page-controls { display: flex; gap: 5px; }
+        .page-btn { padding: 6px 12px; border: 1px solid #e5e7eb; background: white; color: var(--text-dark); border-radius: 4px; font-size: 13px; cursor: pointer; transition: 0.2s; }
+        .page-btn:hover { background: #f3f4f6; }
+        .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* 5. Modal */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(11,21,54,0.7); z-index: 1050; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(3px); }
+        .modal-overlay.active { display: flex; }
+        .modal { background: white; width: 100%; max-width: 700px; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); overflow: hidden; animation: modalFadeIn 0.3s ease; display: flex; flex-direction: column; max-height: 90vh; }
+        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .modal-header { padding: 20px 25px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; background: #f9fafb; }
+        .modal-header h2 { font-size: 18px; color: var(--dark-blue); font-weight: 600; }
+        .btn-close { background: none; border: none; font-size: 20px; color: var(--text-light); cursor: pointer; transition: 0.2s; }
+        .btn-close:hover { color: var(--red); }
+        
+        .modal-body { padding: 25px; overflow-y: auto; }
+        
+        .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px; }
+        .detail-group { background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e5e7eb; }
+        .detail-group h4 { font-size: 12px; color: var(--text-light); text-transform: uppercase; margin-bottom: 15px; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; }
+        
+        .detail-row { display: flex; margin-bottom: 10px; font-size: 13px; }
+        .detail-row span:first-child { width: 120px; color: var(--text-light); font-weight: 500; }
+        .detail-row span:last-child { color: var(--text-dark); font-weight: 600; }
+        
+        .activity-log { margin-top: 20px; }
+        .activity-log h4 { font-size: 14px; color: var(--dark-blue); margin-bottom: 15px; }
+        .log-item { padding: 10px 0; border-bottom: 1px dashed #e5e7eb; display: flex; justify-content: space-between; font-size: 13px; }
+        .log-item:last-child { border-bottom: none; }
+        .log-item span:first-child { color: var(--text-dark); }
+        .log-item span:last-child { color: var(--text-light); font-size: 12px; }
+
+        .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(11, 21, 54, 0.6); z-index: 999; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.show { transform: translateX(0); }
+            .main-content { margin-left: 0; width: 100%; }
+            .hamburger { display: block; }
+            .topbar { padding: 0 20px; }
+        }
+        @media (max-width: 768px) {
+            .filters-section { flex-direction: column; align-items: stretch; }
+            .search-group { width: 100%; }
+            .filter-controls { width: 100%; }
+            .filter-select { flex: 1; }
+            .page-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .modal-grid { grid-template-columns: 1fr; }
+            .detail-row span:first-child { width: 100px; }
+        }
+    </style>
+<style>
+        /* Logo Background Removal Trick & Scaled Up Sizing */
+        .navbar .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; mix-blend-mode: multiply; margin-top: 5px;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .footer .brand-logo { 
+            height: 40px !important; width: auto !important; max-width: 250px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen;
+            transform: scale(2.0); transform-origin: left center; 
+        }
+        .login-brand .brand-logo { 
+            height: 50px !important; width: auto !important; max-width: 100% !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            margin-bottom: 20px; display: block;
+            transform: scale(1.8); transform-origin: left center; 
+        }
+        .sidebar-brand .brand-logo { 
+            height: 35px !important; width: auto !important; max-width: 180px !important; 
+            object-fit: contain !important; filter: invert(1) grayscale(1) brightness(1.5); mix-blend-mode: screen; 
+            display: block; margin-left: 20px;
+            transform: scale(2.2); transform-origin: left center; 
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<div class="admin-layout">
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+<a class="sidebar-brand" href="../index.html"><img alt="Stackly Logo" class="brand-logo" decoding="async" src="../logo.webp"/></a>
+<div class="sidebar-nav">
+<a class="nav-item" href="admin-dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+<a class="nav-item active" href="admin-customers.html"><i class="fa-solid fa-users"></i> Customers</a>
+<a class="nav-item" href="admin-hosting-plans.html"><i class="fa-solid fa-box-open"></i> Hosting Plans</a>
+<a class="nav-item" href="admin-websites.html"><i class="fa-solid fa-globe"></i> Public Websites</a>
+<a class="nav-item" href="admin-domains.html"><i class="fa-solid fa-globe"></i> Domains</a>
+<a class="nav-item" href="admin-orders.html"><i class="fa-solid fa-cart-shopping"></i> Orders</a>
+<a class="nav-item" href="admin-support.html"><i class="fa-solid fa-ticket"></i> Support Tickets</a>
+<a class="nav-item" href="admin-billing.html"><i class="fa-solid fa-file-invoice-dollar"></i> Billing</a>
+<a class="nav-item" href="admin-reports.html"><i class="fa-solid fa-chart-pie"></i> Reports</a>
+<a class="nav-item" href="admin-settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+</div>
+<div class="sidebar-footer">
+<button class="btn-logout" id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="main-content">
+<!-- Topbar -->
+<header class="topbar">
+<div style="display: flex; align-items: center; gap: 20px;">
+<button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
+</div>
+<div class="topbar-right">
+<div class="notifications">
+<i class="fa-regular fa-bell"></i>
+<span class="badge">2</span>
+</div>
+<div class="profile">
+<i aria-hidden="true" class="fa-solid fa-circle-user" style="font-size: 38px; color: var(--primary); display: flex; align-items: center;"></i>
+<div class="profile-info">
+<span class="name" id="admin-name">Admin User</span>
+<span class="role">Super Admin</span>
+</div>
+</div>
+</div>
+</header>
+<div class="dashboard-container">
+<!-- 1. Page Header -->
+<div class="page-header">
+<div class="page-header-left">
+<h1>Customers</h1>
+<div class="breadcrumb">
+<a href="admin-dashboard.html">Dashboard</a> <i class="fa-solid fa-chevron-right" style="font-size: 12px;"></i> <span>Customers</span>
+</div>
+</div>
+<button class="btn-action"><i class="fa-solid fa-user-plus"></i> Add Customer</button>
+</div>
+<!-- 2. Customer Statistics -->
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-info">
+<h3>Total Customers</h3>
+<div class="value">2,845</div>
+</div>
+<div class="stat-icon icon-blue"><i class="fa-solid fa-users"></i></div>
+</div>
+<div class="stat-card">
+<div class="stat-info">
+<h3>Active Customers</h3>
+<div class="value">2,710</div>
+</div>
+<div class="stat-icon icon-green"><i class="fa-solid fa-user-check"></i></div>
+</div>
+<div class="stat-card">
+<div class="stat-info">
+<h3>New Customers (30d)</h3>
+<div class="value">124</div>
+</div>
+<div class="stat-icon icon-yellow"><i class="fa-solid fa-user-plus"></i></div>
+</div>
+<div class="stat-card">
+<div class="stat-info">
+<h3>Suspended Accounts</h3>
+<div class="value">15</div>
+</div>
+<div class="stat-icon icon-red"><i class="fa-solid fa-user-large-slash"></i></div>
+</div>
+</div>
+<!-- 3. Customer Search & Filters -->
+<div class="filters-section">
+<div class="search-group">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search dashboard" placeholder="Search by name, email, or ID..." type="text"/>
+</div>
+<div class="filter-controls">
+<select aria-label="Text" class="filter-select">
+<option value="">Status: All</option>
+<option value="active">Active</option>
+<option value="suspended">Suspended</option>
+<option value="pending">Pending</option>
+</select>
+<select aria-label="Text" class="filter-select">
+<option value="">Plan: All</option>
+<option value="shared">Shared Hosting</option>
+<option value="vps">VPS Hosting</option>
+<option value="dedicated">Dedicated Server</option>
+</select>
+<select aria-label="Text" class="filter-select">
+<option value="">Sort: Newest First</option>
+<option value="oldest">Sort: Oldest First</option>
+<option value="name">Sort: Name (A-Z)</option>
+</select>
+</div>
+</div>
+<!-- 4. Customer Table -->
+<div class="table-card">
+<div class="table-responsive">
+<table>
+<thead>
+<tr>
+<th>Customer</th>
+<th>Customer ID</th>
+<th>Hosting Plan</th>
+<th>Primary Domain</th>
+<th>Status</th>
+<th>Registration Date</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<div class="customer-identity">
+<div class="customer-avatar">MC</div>
+<div>
+<strong>Michael Chen</strong>
+<span style="font-size: 12px; color:var(--text-light);">mike@example.com</span>
+</div>
+</div>
+</td>
+<td>#CST-1042</td>
+<td>VPS Professional</td>
+<td>chenstudios.com</td>
+<td><span class="badge active">Active</span></td>
+<td>Oct 2, 2026</td>
+<td>
+<div class="table-actions">
+<button class="btn-icon view btn-view-modal" title="View Details"><i class="fa-solid fa-eye"></i></button>
+<button class="btn-icon edit" title="Edit"><i class="fa-solid fa-pen"></i></button>
+<button class="btn-icon suspend" title="Suspend"><i class="fa-solid fa-ban"></i></button>
+<button class="btn-icon delete" title="Delete"><i class="fa-solid fa-trash"></i></button>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="customer-identity">
+<div class="customer-avatar" style="background:#10b981;">SJ</div>
+<div>
+<strong>Sarah Jenkins</strong>
+<span style="font-size: 12px; color:var(--text-light);">sarah.j@example.com</span>
+</div>
+</div>
+</td>
+<td>#CST-1041</td>
+<td>Shared Starter</td>
+<td>jenkinsblog.co</td>
+<td><span class="badge active">Active</span></td>
+<td>Sep 28, 2026</td>
+<td>
+<div class="table-actions">
+<button class="btn-icon view btn-view-modal"><i class="fa-solid fa-eye"></i></button>
+<button class="btn-icon edit"><i class="fa-solid fa-pen"></i></button>
+<button class="btn-icon suspend"><i class="fa-solid fa-ban"></i></button>
+<button class="btn-icon delete"><i class="fa-solid fa-trash"></i></button>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="customer-identity">
+<div class="customer-avatar" style="background:#f59e0b;">TI</div>
+<div>
+<strong>TechCorp Inc.</strong>
+<span style="font-size: 12px; color:var(--text-light);">admin@techcorp.io</span>
+</div>
+</div>
+</td>
+<td>#CST-1040</td>
+<td>Dedicated Alpha</td>
+<td>techcorp.io</td>
+<td><span class="badge pending">Pending</span></td>
+<td>Sep 25, 2026</td>
+<td>
+<div class="table-actions">
+<button class="btn-icon view btn-view-modal"><i class="fa-solid fa-eye"></i></button>
+<button class="btn-icon edit"><i class="fa-solid fa-pen"></i></button>
+<button class="btn-icon suspend"><i class="fa-solid fa-ban"></i></button>
+<button class="btn-icon delete"><i class="fa-solid fa-trash"></i></button>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="customer-identity">
+<div class="customer-avatar" style="background:#ef4444;">DS</div>
+<div>
+<strong>David Smith</strong>
+<span style="font-size: 12px; color:var(--text-light);">david@smith.co</span>
+</div>
+</div>
+</td>
+<td>#CST-1039</td>
+<td>WordPress Hosting</td>
+<td>smithphotography.com</td>
+<td><span class="badge suspended">Suspended</span></td>
+<td>Aug 14, 2026</td>
+<td>
+<div class="table-actions">
+<button class="btn-icon view btn-view-modal"><i class="fa-solid fa-eye"></i></button>
+<button class="btn-icon edit"><i class="fa-solid fa-pen"></i></button>
+<button class="btn-icon suspend"><i class="fa-solid fa-ban"></i></button>
+<button class="btn-icon delete"><i class="fa-solid fa-trash"></i></button>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="customer-identity">
+<div class="customer-avatar" style="background:#8b5cf6;">EW</div>
+<div>
+<strong>Emily Wright</strong>
+<span style="font-size: 12px; color:var(--text-light);">emily.w@studio.net</span>
+</div>
+</div>
+</td>
+<td>#CST-1038</td>
+<td>Cloud Standard</td>
+<td>emilystudio.net</td>
+<td><span class="badge active">Active</span></td>
+<td>Aug 02, 2026</td>
+<td>
+<div class="table-actions">
+<button class="btn-icon view btn-view-modal"><i class="fa-solid fa-eye"></i></button>
+<button class="btn-icon edit"><i class="fa-solid fa-pen"></i></button>
+<button class="btn-icon suspend"><i class="fa-solid fa-ban"></i></button>
+<button class="btn-icon delete"><i class="fa-solid fa-trash"></i></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- 5. Customer Details Modal -->
+<div class="modal-overlay" id="customer-modal" role="dialog" aria-modal="true">
+<div class="modal" role="dialog" aria-modal="true">
+<div class="modal-header" role="dialog" aria-modal="true">
+<h2>Customer Details</h2>
+<button class="btn-close" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+</div>
+<div class="modal-body" role="dialog" aria-modal="true">
+<div class="modal-grid" role="dialog" aria-modal="true">
+<div class="detail-group">
+<h4>Personal Information</h4>
+<div class="detail-row"><span>Name:</span> <span>Michael Chen</span></div>
+<div class="detail-row"><span>Email:</span> <span>mike@example.com</span></div>
+<div class="detail-row"><span>Phone:</span> <span>+1 (555) 019-2834</span></div>
+<div class="detail-row"><span>Location:</span> <span>New York, USA</span></div>
+<div class="detail-row"><span>Registered:</span> <span>Oct 2, 2026</span></div>
+</div>
+<div class="detail-group">
+<h4>Hosting &amp; Domain</h4>
+<div class="detail-row"><span>Plan:</span> <span style="color:var(--primary);">VPS Professional</span></div>
+<div class="detail-row"><span>Primary Domain:</span> <span>chenstudios.com</span></div>
+<div class="detail-row"><span>Server IP:</span> <span>192.168.1.45</span></div>
+<div class="detail-row"><span>Bandwidth:</span> <span>450GB / 1TB</span></div>
+<div class="detail-row"><span>Storage:</span> <span>45GB / 100GB</span></div>
+</div>
+</div>
+<div class="detail-group" style="margin-bottom: 25px;">
+<h4>Billing Status</h4>
+<div class="detail-row"><span>Account Status:</span> <div><span class="badge active">Active</span></div></div>
+<div class="detail-row"><span>Current Balance:</span> <span style="color:var(--green);">$0.00</span></div>
+<div class="detail-row"><span>Next Invoice:</span> <span>Nov 2, 2026 ($29.99)</span></div>
+<div class="detail-row"><span>Payment Method:</span> <span>Visa ending in **** 4242</span></div>
+</div>
+<div class="activity-log">
+<h4>Recent Account Activity</h4>
+<div class="log-item">
+<span>Logged into control panel</span>
+<span>Today, 10:45 AM</span>
+</div>
+<div class="log-item">
+<span>Upgraded to VPS Professional</span>
+<span>Oct 2, 2026</span>
+</div>
+<div class="log-item">
+<span>Registered domain chenstudios.com</span>
+<span>Oct 2, 2026</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Centralized Auth Protection
+            if (window.AuthManager) {
+                window.AuthManager.protectPage('Admin');
+            } else {
+                const userRole = localStorage.getItem('userRole');
+                if (userRole !== 'Admin') window.location.href = '../login.html';
+            }
+            const username = localStorage.getItem('stacklyUsername');
+            const adminNameEl = document.getElementById('admin-name');
+            if (username && adminNameEl) adminNameEl.innerText = username;
+
+            // Sidebar Mobile Logic
+            const hamburger = document.getElementById('hamburger');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            function toggleSidebar() {
+                sidebar.classList.toggle('show');
+                if(sidebar.classList.contains('show')) {
+                    overlay.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    overlay.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+
+            hamburger.addEventListener('click', toggleSidebar);
+            overlay.addEventListener('click', toggleSidebar);
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) toggleSidebar();
+                });
+            });
+
+            // Logout Logic
+            var _bl = document.getElementById('btn-logout'); if (_bl) _bl.addEventListener('click', function() {
+                if (window.AuthManager) {
+                    window.AuthManager.logout();
+                } else {
+                    localStorage.removeItem('userEmail');
+                    localStorage.removeItem('stacklyUsername');
+                    localStorage.removeItem('userRole');
+                    window.location.href = '../login.html';
+                }
+            });
+            
+            // Modal Logic
+            const modal = document.getElementById('customer-modal');
+            const viewBtns = document.querySelectorAll('.btn-view-modal');
+            const closeBtn = document.getElementById('close-modal');
+            
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            
+        });
+    </script>
+<script src="../auth.js"></script>
+<script src="dashboard-engine.js"></script>
+<script src="../custom-fixes.js"></script>
+</body>
+</html>

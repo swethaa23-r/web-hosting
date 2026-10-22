@@ -1,23 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Stackly Web Hosting</title>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS (imports variables) -->
-    <link rel="stylesheet" href="style.css">
-
-    <style>
+    <meta name="description" content="Sign in to your Stackly Web Hosting client portal to manage hosting plans, registered domains, billing invoices, and support tickets.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Sign in to your Stackly Web Hosting client portal to manage your domains, servers, billing, and support tickets." name="description"/>
+<title>Client Portal Login - Stackly Web Hosting</title>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<!-- Custom CSS (imports variables) -->
+<link href="style.css" rel="stylesheet"/>
+<style>
         /* Specific Styles for Login Split Layout */
         body, html {
             margin: 0;
@@ -277,21 +275,36 @@
             color: #166534;
             border: 1px solid #86efac;
         }
-        
-        /* Demo Credentials Box */
-        .demo-creds {
-            margin-top: 30px;
-            padding: 15px;
-            background: #f8faff;
-            border: 1px dashed var(--primary);
-            border-radius: 8px;
-            font-size: 13px;
-            color: var(--text-light);
+        .alert-warning {
+            background: #fffbeb;
+            color: #b45309;
+            border: 1px solid #fcd34d;
         }
-        .demo-creds h5 { color: var(--dark-blue); margin-bottom: 5px; font-size: 14px; }
-        .demo-creds ul { padding-left: 15px; margin: 0; }
-        .demo-creds li { margin-bottom: 5px; }
-        .demo-creds strong { color: var(--dark-blue); }
+        .alert-info {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+        }
+
+        .auth-security-notice {
+            margin-top: 25px;
+            padding: 12px 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #64748b;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+        .auth-security-notice i {
+            color: var(--primary);
+            font-size: 16px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
 
         /* Responsive */
         @media (max-width: 992px) {
@@ -307,7 +320,7 @@
             .login-left { padding: 30px 20px; }
         }
     </style>
-    <style>
+<style>
         /* Logo Background Removal Trick & Scaled Up Sizing */
         .navbar .brand-logo { 
             height: 40px !important; width: auto !important; max-width: 250px !important; 
@@ -334,81 +347,69 @@
     </style>
 </head>
 <body>
-
-    <div class="login-wrapper">
-        
-        <!-- Left Split: Branding -->
-        <div class="login-left">
-            <a href="index.html" class="login-brand" data-aos="fade-right"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></a>
-            
-            <div class="login-message" data-aos="fade-up" data-aos-delay="100">
-                <h2>Manage Your Digital Infrastructure.</h2>
-                <p>Log in to your Stackly client area to manage domains, monitor server performance, access billing, and open support tickets securely.</p>
-            </div>
-            
-            <div class="login-illustration" data-aos="zoom-in" data-aos-delay="200">
-                <!-- Using a prominent font awesome icon group as an illustration since we can't guarantee external images -->
-                <i class="fa-solid fa-cloud-network" style="font-size: 180px; color: rgba(255,255,255,0.05);"></i>
-            </div>
-        </div>
-        
-        <!-- Right Split: Login Form -->
-        <div class="login-right">
-            <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-            
-            <div class="login-card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Welcome Back</h3>
-                <p>Enter your credentials to access your account.</p>
-                
-                <div id="login-alert" class="alert-box"></div>
-                
-                <form id="login-form" novalidate>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-control" placeholder="name@example.com">
-                        <div class="invalid-feedback" id="err-email"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" class="form-control" placeholder="Enter your password">
-                        <i class="fa-regular fa-eye password-toggle" id="toggle-password" title="Show/Hide Password"></i>
-                        <div class="invalid-feedback" id="err-password"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="role">Role</label>
-                        <select id="role" class="form-control">
-                            <option value="User">User</option>
-                            <option value="Admin">Admin</option>
-                        </select>
-                    </div>
-
-                    
-                    <div class="login-options">
-                        <label class="remember-me">
-                            <input type="checkbox" id="remember"> Remember Me
+<div class="login-wrapper">
+<!-- Left Split: Branding -->
+<div class="login-left">
+<a class="login-brand" data-aos="fade-right" href="index.html"><img alt="Stackly Logo" class="brand-logo" decoding="async" src="logo.webp"/></a>
+<div class="login-message" data-aos="fade-up" data-aos-delay="100">
+<h1 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; line-height: 1.2;">Manage Your Digital Infrastructure.</h1>
+<p>Log in to your Stackly client area to manage domains, monitor server performance, access billing, and open support tickets securely.</p>
+</div>
+<div class="login-illustration" data-aos="zoom-in" data-aos-delay="200">
+<!-- Using a prominent font awesome icon group as an illustration since we can't guarantee external images -->
+<i class="fa-solid fa-cloud-network" style="font-size: 180px; color: rgba(255,255,255,0.05);"></i>
+</div>
+</div>
+<!-- Right Split: Login Form -->
+<div class="login-right">
+<a class="back-home" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+<div class="login-card" data-aos="fade-up" data-aos-delay="300">
+<h3>Welcome Back</h3>
+<p>Enter your credentials to access your account.</p>
+<div class="alert-box" id="login-alert"></div>
+<form id="login-form" novalidate="">
+<div class="form-group">
+<label for="email">Email Address</label>
+<input autocomplete="email" class="form-control" id="email" placeholder="name@example.com" required="" type="email"/>
+<div class="invalid-feedback" id="err-email"></div>
+</div>
+<div class="form-group">
+<label for="password">Password</label>
+<input autocomplete="current-password" class="form-control" id="password" placeholder="Enter your password" required="" type="password"/>
+<i aria-label="Toggle password visibility" class="fa-regular fa-eye password-toggle" id="toggle-password" role="button" tabindex="0"></i>
+<div class="invalid-feedback" id="err-password"></div>
+</div>
+<div class="form-group">
+<label for="role">Role</label>
+<select class="form-control" id="role" required="">
+<option value="User">User</option>
+<option value="Admin">Admin</option>
+</select>
+<div class="invalid-feedback" id="err-role"></div>
+</div>
+<div class="login-options">
+<label class="remember-me">
+<input id="remember" type="checkbox"/> Remember Me
                         </label>
-                        <a href="javascript:void(0);" class="forgot-password">Forgot Password?</a>
-                    </div>
-                    
-                    <button type="submit" class="btn-login" id="btn-login">
-                        <span class="btn-text">Sign In</span>
-                        <i class="fa-solid fa-spinner spinner" id="login-spinner"></i>
-                    </button>
-                </form>
-                
-                <div class="login-footer">
+<a class="forgot-password" href="404.html">Forgot Password?</a>
+</div>
+<button class="btn-login" id="btn-login" type="submit">
+<span class="btn-text">Sign In</span>
+<i class="fa-solid fa-spinner spinner" id="login-spinner"></i>
+</button>
+</form>
+<div class="login-footer">
                     Don't have an account? <a href="signup.html">Create Account</a>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+</div>
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
+</div>
+</div>
+</div>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Authentication & Security Manager -->
+<script src="auth.js"></script>
+<script>
         AOS.init({ once: true, offset: 50, duration: 800 });
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -420,106 +421,182 @@
             const btnText = document.querySelector('.btn-text');
             const spinner = document.getElementById('login-spinner');
             const alertBox = document.getElementById('login-alert');
+            const roleInput = document.getElementById('role');
             
+            let isSubmitting = false;
+
+            // Handle URL Parameters (feedback messages)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('registered') === 'true') {
+                showAlert('success', 'Account created successfully! Please sign in with your credentials.');
+                if (urlParams.get('email')) {
+                    emailInput.value = urlParams.get('email');
+                    passInput.focus();
+                }
+            } else if (urlParams.get('reset') === 'true') {
+                showAlert('success', 'Password reset successful! You may now sign in with your new password.');
+                if (urlParams.get('email')) emailInput.value = urlParams.get('email');
+            } else if (urlParams.get('logout') === 'true') {
+                showAlert('info', 'You have been securely signed out.');
+            } else if (urlParams.get('error') === 'tampered') {
+                showAlert('error', 'Security Alert: Client-side session tampering detected. Access revoked.');
+            } else if (urlParams.get('error') === 'expired') {
+                showAlert('warning', 'Your session has expired. Please sign in again.');
+            } else if (urlParams.get('error') === 'unauthorized') {
+                showAlert('warning', 'Authentication required. Please sign in to access that page.');
+            }
+
+
             // Password Show/Hide Toggle
-            togglePassword.addEventListener('click', function() {
-                const type = passInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passInput.setAttribute('type', type);
-                this.classList.toggle('fa-eye');
-                this.classList.toggle('fa-eye-slash');
+            function togglePassVisibility() {
+                const isPassword = passInput.getAttribute('type') === 'password';
+                passInput.setAttribute('type', isPassword ? 'text' : 'password');
+                togglePassword.classList.toggle('fa-eye', !isPassword);
+                togglePassword.classList.toggle('fa-eye-slash', isPassword);
+            }
+            togglePassword.addEventListener('click', togglePassVisibility);
+            togglePassword.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    togglePassVisibility();
+                }
             });
-            
-            // Form Validation and Submission Logic
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Reset states
-                let isValid = true;
+
+            // Real-time error clearing on input
+            emailInput.addEventListener('input', function() {
+                this.classList.remove('is-invalid');
+                document.getElementById('err-email').style.display = 'none';
+            });
+            passInput.addEventListener('input', function() {
+                this.classList.remove('is-invalid');
+                document.getElementById('err-password').style.display = 'none';
+            });
+
+            function clearErrors() {
                 emailInput.classList.remove('is-invalid');
                 passInput.classList.remove('is-invalid');
                 document.getElementById('err-email').style.display = 'none';
                 document.getElementById('err-password').style.display = 'none';
-                alertBox.style.display = 'none';
+            }
+
+            function showAlert(type, msg) {
                 alertBox.className = 'alert-box';
+                let icon = 'fa-circle-check';
+                if (type === 'error') {
+                    alertBox.classList.add('alert-error');
+                    icon = 'fa-triangle-exclamation';
+                } else if (type === 'warning') {
+                    alertBox.classList.add('alert-warning');
+                    icon = 'fa-circle-exclamation';
+                } else if (type === 'info') {
+                    alertBox.classList.add('alert-info');
+                    icon = 'fa-circle-info';
+                } else {
+                    alertBox.classList.add('alert-success');
+                }
+                alertBox.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${msg}</span>`;
+                alertBox.style.display = 'flex';
+                alertBox.style.alignItems = 'center';
+                alertBox.style.gap = '10px';
+            }
+
+            // Form Validation and Submission Logic
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Prevent duplicate form submission
+                if (isSubmitting) return;
+
+                clearErrors();
+                alertBox.style.display = 'none';
                 
                 const emailVal = emailInput.value.trim();
                 const passVal = passInput.value.trim();
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const rememberEl = document.getElementById('remember');
+                const rememberMe = rememberEl ? rememberEl.checked : false;
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                 
+                let isValid = true;
+                let firstInvalid = null;
+
                 // Validate Email
-                if(emailVal === '') {
+                if (emailVal === '') {
                     emailInput.classList.add('is-invalid');
-                    document.getElementById('err-email').innerText = 'Email address is required.';
-                    document.getElementById('err-email').style.display = 'block';
+                    const err = document.getElementById('err-email');
+                    if (err) {
+                        err.innerText = 'Email address is required.';
+                        err.style.display = 'block';
+                    }
                     isValid = false;
-                } else if(!emailRegex.test(emailVal)) {
+                    if (!firstInvalid) firstInvalid = emailInput;
+                } else if (!emailRegex.test(emailVal)) {
                     emailInput.classList.add('is-invalid');
-                    document.getElementById('err-email').innerText = 'Please enter a valid email address.';
-                    document.getElementById('err-email').style.display = 'block';
+                    const err = document.getElementById('err-email');
+                    if (err) {
+                        err.innerText = 'Please enter a valid email address (e.g. name@domain.com).';
+                        err.style.display = 'block';
+                    }
                     isValid = false;
+                    if (!firstInvalid) firstInvalid = emailInput;
                 }
                 
                 // Validate Password
-                if(passVal === '') {
+                if (passVal === '') {
                     passInput.classList.add('is-invalid');
-                    document.getElementById('err-password').innerText = 'Password is required.';
-                    document.getElementById('err-password').style.display = 'block';
+                    const err = document.getElementById('err-password');
+                    if (err) {
+                        err.innerText = 'Password is required.';
+                        err.style.display = 'block';
+                    }
                     isValid = false;
-                } else if(passVal.length < 6) {
+                    if (!firstInvalid) firstInvalid = passInput;
+                } else if (passVal.length < 6) {
                     passInput.classList.add('is-invalid');
-                    document.getElementById('err-password').innerText = 'Password must be at least 6 characters.';
-                    document.getElementById('err-password').style.display = 'block';
+                    const err = document.getElementById('err-password');
+                    if (err) {
+                        err.innerText = 'Password must be at least 6 characters.';
+                        err.style.display = 'block';
+                    }
                     isValid = false;
+                    if (!firstInvalid) firstInvalid = passInput;
                 }
                 
-                if(!isValid) return;
+                if (!isValid) {
+                    if (firstInvalid) firstInvalid.focus();
+                    return;
+                }
                 
-                // Proceed with Authentication
-                // Set loading state
+                // Set loading state & block double-clicks
+                isSubmitting = true;
                 btnLogin.disabled = true;
                 btnText.innerText = 'Authenticating...';
                 spinner.style.display = 'inline-block';
                 
-                // Simulate network request delay (1.5 seconds)
+                // Simulated network request latency (800ms)
                 setTimeout(() => {
-                    btnLogin.disabled = false;
-                    btnText.innerText = 'Sign In';
-                    spinner.style.display = 'none';
+                    const roleVal = roleInput ? roleInput.value : 'User';
+                    const result = window.AuthManager.authenticate(emailVal, passVal, rememberMe, roleVal);
                     
-                    const roleVal = document.getElementById('role').value;
-                    
-                    if(roleVal === 'Admin') {
-                        // Admin Login Success
-                        localStorage.setItem('userEmail', emailVal);
-                        localStorage.setItem('stacklyUsername', 'SystemAdmin');
-                        localStorage.setItem('userRole', 'Admin');
+                    if (result.success) {
+                        const roleTitle = roleVal === 'Admin' ? 'Super Administrator' : 'Client User';
+                        showAlert('success', `Authentication verified as <strong>${roleTitle}</strong>! Redirecting to dashboard...`);
                         
-                        showSuccess('Login successful! Redirecting to Admin Dashboard...');
-                        setTimeout(() => { window.location.href = 'admin-dashboard.html'; }, 1500);
-                        
+                        setTimeout(() => {
+                            const target = roleVal === 'Admin' ? 'dashboard/admin-dashboard.html' : 'dashboard/user-dashboard.html';
+                            window.location.href = target;
+                        }, 800);
                     } else {
-                        // User Login Success
-                        localStorage.setItem('userEmail', emailVal);
-                        localStorage.setItem('stacklyUsername', 'HostingUser');
-                        localStorage.setItem('userRole', 'User');
+                        isSubmitting = false;
+                        btnLogin.disabled = false;
+                        btnText.innerText = 'Sign In';
+                        spinner.style.display = 'none';
                         
-                        showSuccess('Login successful! Redirecting to User Dashboard...');
-                        setTimeout(() => { window.location.href = 'user-dashboard.html'; }, 1500);
+                        showAlert('error', result.error);
+                        passInput.classList.add('is-invalid');
+                        passInput.focus();
                     }
-                }, 1500);
+                }, 800);
             });
-            
-            function showSuccess(msg) {
-                alertBox.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${msg}`;
-                alertBox.classList.add('alert-success');
-                alertBox.style.display = 'block';
-            }
-            
-            function showError(msg) {
-                alertBox.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> ${msg}`;
-                alertBox.classList.add('alert-error');
-                alertBox.style.display = 'block';
-            }
         });
     </script>
 </body>

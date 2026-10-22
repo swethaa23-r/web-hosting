@@ -1,0 +1,317 @@
+{
+  "index.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "script.js"
+    ],
+    "inlineScripts": 0,
+    "hasMetaDesc": true,
+    "title": "Stackly - Enterprise Web & Cloud Hosting",
+    "totalImages": 16,
+    "imgsWithoutAlt": 0
+  },
+  "about.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "script.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "About Us - Stackly Web Hosting",
+    "totalImages": 7,
+    "imgsWithoutAlt": 0
+  },
+  "services.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "script.js"
+    ],
+    "inlineScripts": 0,
+    "hasMetaDesc": true,
+    "title": "Hosting Services & Solutions - Stackly Web Hosting",
+    "totalImages": 3,
+    "imgsWithoutAlt": 0
+  },
+  "hosting.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "script.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Web Hosting Plans & Pricing - Stackly Web Hosting",
+    "totalImages": 2,
+    "imgsWithoutAlt": 0
+  },
+  "domain.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "script.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Domain Name Registration & Search - Stackly Web Hosting",
+    "totalImages": 2,
+    "imgsWithoutAlt": 0
+  },
+  "blog.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "script.js"
+    ],
+    "inlineScripts": 0,
+    "hasMetaDesc": true,
+    "title": "Hosting & Cloud Infrastructure Blog - Stackly",
+    "totalImages": 8,
+    "imgsWithoutAlt": 0
+  },
+  "blog-details.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "script.js"
+    ],
+    "inlineScripts": 0,
+    "hasMetaDesc": true,
+    "title": "How to Choose the Right Web Hosting Plan - Stackly Blog",
+    "totalImages": 6,
+    "imgsWithoutAlt": 0
+  },
+  "contact.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "script.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Contact Support & Sales - Stackly Web Hosting",
+    "totalImages": 2,
+    "imgsWithoutAlt": 0
+  },
+  "login.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "auth.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Client Portal Login - Stackly Web Hosting",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "signup.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "auth.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Create an Account - Stackly Web Hosting",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "forgot-password.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js",
+      "auth.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Reset Password - Stackly Web Hosting",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "404.html": {
+    "scripts": [
+      "https://unpkg.com/aos@2.3.1/dist/aos.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "404 - Page Not Found - Stackly Web Hosting",
+    "totalImages": 0,
+    "imgsWithoutAlt": 0
+  },
+  "admin-dashboard.html": {
+    "scripts": [
+      "https://cdn.jsdelivr.net/npm/chart.js",
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Admin Dashboard - Stackly Web Hosting",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "admin-customers.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Customers - Admin Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "admin-orders.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Orders - Admin Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "admin-hosting-plans.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Hosting Plans - Admin Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "admin-domains.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Domains - Admin Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "admin-billing.html": {
+    "scripts": [
+      "https://cdn.jsdelivr.net/npm/chart.js",
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Billing Management - Admin Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "admin-reports.html": {
+    "scripts": [
+      "https://cdn.jsdelivr.net/npm/chart.js",
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Reports & Analytics - Admin Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "admin-support.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Support Tickets - Admin Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "admin-settings.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Settings - Admin Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "user-dashboard.html": {
+    "scripts": [
+      "https://cdn.jsdelivr.net/npm/chart.js",
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "User Dashboard - Stackly Web Hosting",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "user-hosting.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "My Hosting - User Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "user-domains.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "My Domains - User Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "user-billing.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Billing - User Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "user-profile.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Profile - User Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  },
+  "user-support.html": {
+    "scripts": [
+      "../auth.js",
+      "dashboard-engine.js",
+      "../custom-fixes.js"
+    ],
+    "inlineScripts": 1,
+    "hasMetaDesc": true,
+    "title": "Support - User Dashboard",
+    "totalImages": 1,
+    "imgsWithoutAlt": 0
+  }
+}

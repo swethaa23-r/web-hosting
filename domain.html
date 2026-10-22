@@ -1,23 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domain Registration - Stackly Web Hosting</title>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <style>
+    <meta name="description" content="Find, register, and manage your custom domain name with Stackly. Instant activation, free WHOIS privacy, and automated DNS management.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Search, register, and transfer domain names with Stackly. Instant DNS propagation, WHOIS privacy protection, and affordable annual pricing." name="description"/>
+<link href="https://stackly.com/domain.html" rel="canonical"/>
+<title>Domain Name Registration & Search - Stackly Web Hosting</title>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="style.css" rel="stylesheet"/>
+<style>
         /* Specific Styles for Domain Page */
         .page-header {
             background-color: var(--primary, #041246);
@@ -117,7 +116,7 @@
             .domain-search-form button { width: 100%; }
         }
     </style>
-    <style>
+<style>
         /* Logo Background Removal Trick & Scaled Up Sizing */
         .navbar .brand-logo { 
             height: 40px !important; width: auto !important; max-width: 250px !important; 
@@ -144,366 +143,515 @@
     </style>
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="container nav-container">
-            <div class="logo"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
-            <div class="mobile-menu-overlay"></div>
-            <nav class="nav-links" id="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="domain.html" class="active">Domain</a>
-                <a href="hosting.html">Hosting</a>
-                <a href="services.html">Services</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="nav-actions">
-                <button aria-label="Search" style="background:none; border:none; font-size:18px; cursor:pointer; color: var(--text-dark);"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <a href="login.html" class="btn btn-primary" style="padding: 8px 24px; font-size: 14px; margin-left: 10px;">Login</a>
-                <button class="hamburger-menu" aria-label="Menu" style="margin-left: 10px;"><i class="fa-solid fa-bars"></i></button>
-            </div>
-        </div>
-    </header>
-
-    <!-- 1. Hero Section -->
-    <section class="page-header">
-        <div class="container">
-            <h1 data-aos="fade-up" style="font-size: 3rem; margin-bottom: 15px; font-weight: 700;">Find the Perfect Domain for Your Brand</h1>
-            <p data-aos="fade-up" data-aos-delay="50" style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto;">Your domain is your digital address. Choosing the right domain name builds credibility, boosts brand recognition, and secures your identity on the web.</p>
-            <div class="breadcrumb" data-aos="fade-up" data-aos-delay="100" style="display: flex; justify-content: center; gap: 10px; font-size: 14px; font-weight: 500;">
-                <a href="index.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a> 
-                <span style="color: rgba(255,255,255,0.5);">/</span>
-                <span style="color: white;">Domain</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. Domain Search -->
-    <section class="domain-search-section" style="background: var(--bg-light); padding-bottom: 80px;">
-        <div class="container">
-            <div class="domain-search-box" data-aos="fade-up" data-aos-delay="200">
-                <form id="domain-page-search" class="domain-search-form">
-                    <input type="text" id="domain-page-input" placeholder="Enter your ideal domain name (e.g., yourdomain.com)">
-                    <button type="submit">Search Domain</button>
-                </form>
-                <div id="domain-page-result" style="display:none; padding: 15px; border-radius: 5px; margin-top: 20px; font-weight: 500; text-align: center;"></div>
-            </div>
-        </div>
-
-        <!-- 3. Popular Domain Extensions -->
-        <div class="container">
-            <div class="text-center" data-aos="fade-up" style="margin-bottom: 40px;">
-                <h2 style="font-size: 2rem; color: var(--dark-blue);">Popular Domain Extensions</h2>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px;">
-                <div class="ext-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>.com</h3>
-                    <p style="font-size: 13px; color: var(--text-light); margin: 0;">The gold standard for business and commercial websites.</p>
-                </div>
-                <div class="ext-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>.in</h3>
-                    <p style="font-size: 13px; color: var(--text-light); margin: 0;">Establish a strong local presence for your Indian business.</p>
-                </div>
-                <div class="ext-card" data-aos="fade-up" data-aos-delay="300">
-                    <h3>.net</h3>
-                    <p style="font-size: 13px; color: var(--text-light); margin: 0;">Perfect for tech companies, networks, and IT startups.</p>
-                </div>
-                <div class="ext-card" data-aos="fade-up" data-aos-delay="400">
-                    <h3>.org</h3>
-                    <p style="font-size: 13px; color: var(--text-light); margin: 0;">Build trust instantly for non-profits and communities.</p>
-                </div>
-                <div class="ext-card" data-aos="fade-up" data-aos-delay="500">
-                    <h3>.co</h3>
-                    <p style="font-size: 13px; color: var(--text-light); margin: 0;">The trendy, short alternative for modern companies.</p>
-                </div>
-                <div class="ext-card" data-aos="fade-up" data-aos-delay="600">
-                    <h3>.io</h3>
-                    <p style="font-size: 13px; color: var(--text-light); margin: 0;">The highly sought-after extension for tech startups & SaaS.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Domain Pricing Table -->
-    <section class="domain-pricing" style="padding: 80px 0; background: white;">
-        <div class="container">
-            <div class="text-center" data-aos="fade-up" style="margin-bottom: 40px;">
-                <h2 style="font-size: 2.5rem; color: var(--dark-blue);">Transparent Domain Pricing</h2>
-                <p style="color: var(--text-light);">No hidden fees. Free WHOIS privacy included with eligible extensions.</p>
-            </div>
-            
-            <div class="table-responsive" data-aos="fade-up" data-aos-delay="100" style="width: 100%; overflow-x: auto; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px;">
-                <table style="width: 100%; border-collapse: collapse; min-width: 600px; text-align: center;">
-                    <thead>
-                        <tr style="background: var(--dark-blue); color: white;">
-                            <th style="padding: 20px;">Extension</th>
-                            <th style="padding: 20px;">Registration (1 Year)</th>
-                            <th style="padding: 20px;">Renewal (1 Year)</th>
-                            <th style="padding: 20px;">Transfer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.com</td>
-                            <td style="padding: 15px; color: var(--text-light);">$9.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$14.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$9.99</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.in</td>
-                            <td style="padding: 15px; color: var(--text-light);">$5.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$10.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$5.99</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.net</td>
-                            <td style="padding: 15px; color: var(--text-light);">$11.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$15.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$11.99</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.org</td>
-                            <td style="padding: 15px; color: var(--text-light);">$12.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$16.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$12.99</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.io</td>
-                            <td style="padding: 15px; color: var(--text-light);">$35.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$45.99</td>
-                            <td style="padding: 15px; color: var(--text-light);">$35.99</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Domain Features -->
-    <section class="domain-features" style="padding: 80px 0; background: var(--bg-light);">
-        <div class="container">
-            <div class="text-center" data-aos="fade-up" style="margin-bottom: 50px;">
-                <h2 style="font-size: 2.5rem; color: var(--dark-blue);">What's Included with Every Domain</h2>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div class="feat-card" data-aos="fade-up" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
-                    <i class="fa-solid fa-sliders" style="font-size: 30px; color: var(--primary);"></i>
-                    <div>
-                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Easy Management</h4>
-                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">An intuitive control panel allowing you to effortlessly manage your domain portfolio.</p>
-                    </div>
-                </div>
-                <div class="feat-card" data-aos="fade-up" data-aos-delay="100" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
-                    <i class="fa-solid fa-server" style="font-size: 30px; color: var(--primary);"></i>
-                    <div>
-                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">DNS Management</h4>
-                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">Total control over your DNS records. Point your domain to any host instantly.</p>
-                    </div>
-                </div>
-                <div class="feat-card" data-aos="fade-up" data-aos-delay="200" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
-                    <i class="fa-solid fa-user-secret" style="font-size: 30px; color: var(--primary);"></i>
-                    <div>
-                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Domain Privacy</h4>
-                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">Protect your personal information from spammers with our WHOIS privacy protection.</p>
-                    </div>
-                </div>
-                <div class="feat-card" data-aos="fade-up" data-aos-delay="300" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
-                    <i class="fa-solid fa-rotate" style="font-size: 30px; color: var(--primary);"></i>
-                    <div>
-                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Auto-Renewal</h4>
-                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">Never lose your domain. Set up automatic renewals to ensure continuous ownership.</p>
-                    </div>
-                </div>
-                <div class="feat-card" data-aos="fade-up" data-aos-delay="400" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
-                    <i class="fa-solid fa-lock" style="font-size: 30px; color: var(--primary);"></i>
-                    <div>
-                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Theft Security</h4>
-                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">Registrar locking prevents unauthorized transfers of your domain name to other registrars.</p>
-                    </div>
-                </div>
-                <div class="feat-card" data-aos="fade-up" data-aos-delay="500" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
-                    <i class="fa-solid fa-right-left" style="font-size: 30px; color: var(--primary);"></i>
-                    <div>
-                        <h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Transfer Support</h4>
-                        <p style="color: var(--text-light); font-size: 14px; margin: 0;">Dedicated support team to guide you through seamless domain transfers.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Registration Process -->
-    <section class="registration-process" style="padding: 80px 0; background: white;">
-        <div class="container">
-            <div class="text-center" data-aos="fade-up" style="margin-bottom: 60px;">
-                <h2 style="font-size: 2.5rem; color: var(--dark-blue);">Domain Registration Process</h2>
-                <p style="color: var(--text-light);">Four simple steps to claim your identity on the web.</p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
-                <div class="process-step" data-aos="fade-right" data-aos-delay="100">
-                    <div class="icon-wrap"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <h4 style="color: var(--dark-blue); font-size: 18px; margin-bottom: 10px;">1. Search</h4>
-                    <p style="color: var(--text-light); font-size: 14px;">Use our search tool to find your desired domain name.</p>
-                </div>
-                <div class="process-step" data-aos="fade-right" data-aos-delay="200">
-                    <div class="icon-wrap"><i class="fa-solid fa-hand-pointer"></i></div>
-                    <h4 style="color: var(--dark-blue); font-size: 18px; margin-bottom: 10px;">2. Select</h4>
-                    <p style="color: var(--text-light); font-size: 14px;">Choose the best extension (.com, .net) that fits your brand.</p>
-                </div>
-                <div class="process-step" data-aos="fade-right" data-aos-delay="300">
-                    <div class="icon-wrap"><i class="fa-solid fa-cart-shopping"></i></div>
-                    <h4 style="color: var(--dark-blue); font-size: 18px; margin-bottom: 10px;">3. Register</h4>
-                    <p style="color: var(--text-light); font-size: 14px;">Complete the secure checkout process to claim ownership.</p>
-                </div>
-                <div class="process-step" data-aos="fade-right" data-aos-delay="400">
-                    <div class="icon-wrap"><i class="fa-solid fa-gear"></i></div>
-                    <h4 style="color: var(--dark-blue); font-size: 18px; margin-bottom: 10px;">4. Manage</h4>
-                    <p style="color: var(--text-light); font-size: 14px;">Point your domain to your hosting and launch your site.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. FAQ -->
-    <section class="faq" style="padding: 80px 0; background: var(--bg-light);">
-        <div class="container faq-container" data-aos="fade-up">
-            <div class="faq-text" style="flex: 1;">
-                <h2 style="font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 20px;">Domain Name FAQs</h2>
-                <p style="color: var(--text-light); font-size: 15px; line-height: 1.7; margin-bottom: 30px;">Got questions about registering your domain? Find quick answers here or talk to our experts.</p>
-                <a href="contact.html" class="btn btn-outline-dark" style="padding: 10px 25px; border: 2px solid var(--dark-blue); color: var(--dark-blue); border-radius: 5px; text-decoration: none; font-weight: 600;">Contact Support</a>
-            </div>
-            <div class="faq-accordion" style="flex: 1.5; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.02);">
-                
-                <div class="accordion-item active" style="border-bottom: 1px solid #eee; padding: 20px 0;">
-                    <div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                        <h4 style="font-size: 16px; font-weight: 600; color: var(--dark-blue); margin: 0;">What is a domain name?</h4>
-                        <i class="fa-solid fa-minus icon" style="color: var(--primary);"></i>
-                    </div>
-                    <div class="accordion-content" style="display: block; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
+<header class="navbar">
+<div class="container nav-container">
+<div class="logo">
+<a aria-label="Stackly Home" href="index.html"><img alt="Stackly Cloud Web Hosting" class="brand-logo" decoding="async" src="logo.webp"/></a>
+</div>
+<div class="mobile-menu-overlay"></div>
+<nav class="nav-links" id="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a class="active" href="domain.html">Domain</a>
+<a href="hosting.html">Hosting</a>
+<a href="services.html">Services</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+<a class="mobile-nav-login" href="login.html">Login</a>
+</nav>
+<div class="nav-actions">
+<a aria-label="Domain Search" href="domain.html" style="background:none; border:none; font-size:18px; cursor:pointer; color: var(--text-dark); display: flex; align-items: center;"><i class="fa-solid fa-magnifying-glass"></i></a>
+<a class="btn btn-primary" href="login.html" style="padding: 10px 24px; font-size: 14px; margin-left: 10px;">Client Login</a>
+<button aria-label="Toggle navigation menu" class="hamburger-menu" style="margin-left: 10px;"><i class="fa-solid fa-bars"></i></button>
+</div>
+</div>
+</header>
+<!-- 1. Hero Section -->
+<section class="page-header">
+<div class="container">
+<h1 data-aos="fade-up" style="font-size: 3rem; margin-bottom: 15px; font-weight: 700;">Find the Perfect Domain for Your Brand</h1>
+<p data-aos="fade-up" data-aos-delay="50" style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto;">Your domain is your digital address. Choosing the right domain name builds credibility, boosts brand recognition, and secures your identity on the web.</p>
+<div class="breadcrumb" data-aos="fade-up" data-aos-delay="100" style="display: flex; justify-content: center; gap: 10px; font-size: 14px; font-weight: 500;">
+<a href="index.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a>
+<span style="color: rgba(255,255,255,0.5);">/</span>
+<span style="color: white;">Domain</span>
+</div>
+</div>
+</section>
+<!-- 2. Domain Search -->
+<section class="domain-search-section" style="background: var(--bg-light); padding-bottom: 80px;">
+<div class="container">
+<div class="domain-search-box" data-aos="fade-up" data-aos-delay="200">
+<form class="domain-search-form" id="domain-page-search">
+<input aria-label="Your ideal domain name (e.g., yourdomain.com)" id="domain-page-input" placeholder="Enter your ideal domain name (e.g., yourdomain.com)" type="text"/>
+<button type="submit">Search Domain</button>
+</form>
+<div id="domain-page-result" style="display:none; padding: 15px; border-radius: 5px; margin-top: 20px; font-weight: 500; text-align: center;"></div>
+<div class="domain-prices-marquee-wrapper" style="margin-top: 25px;">
+<div class="domain-prices-marquee-track">
+<div class="price-item"><span class="ext text-blue">.com</span><span class="cost">$9.99/yr</span></div>
+<div class="price-item"><span class="ext text-red">.in</span><span class="cost">$5.99/yr</span></div>
+<div class="price-item"><span class="ext text-green">.net</span><span class="cost">$11.99/yr</span></div>
+<div class="price-item"><span class="ext" style="color: #8b5cf6;">.org</span><span class="cost">$12.99/yr</span></div>
+<div class="price-item"><span class="ext text-yellow">.co</span><span class="cost">$8.99/yr</span></div>
+<div class="price-item"><span class="ext text-blue">.io</span><span class="cost">$29.99/yr</span></div>
+<div class="price-item"><span class="ext text-red">.ai</span><span class="cost">$59.99/yr</span></div>
+<div class="price-item"><span class="ext text-green">.cloud</span><span class="cost">$4.99/yr</span></div>
+<!-- Duplicated for continuous ticker loop -->
+<div class="price-item"><span class="ext text-blue">.com</span><span class="cost">$9.99/yr</span></div>
+<div class="price-item"><span class="ext text-red">.in</span><span class="cost">$5.99/yr</span></div>
+<div class="price-item"><span class="ext text-green">.net</span><span class="cost">$11.99/yr</span></div>
+<div class="price-item"><span class="ext" style="color: #8b5cf6;">.org</span><span class="cost">$12.99/yr</span></div>
+<div class="price-item"><span class="ext text-yellow">.co</span><span class="cost">$8.99/yr</span></div>
+<div class="price-item"><span class="ext text-blue">.io</span><span class="cost">$29.99/yr</span></div>
+<div class="price-item"><span class="ext text-red">.ai</span><span class="cost">$59.99/yr</span></div>
+<div class="price-item"><span class="ext text-green">.cloud</span><span class="cost">$4.99/yr</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Popular Domain Extensions (Continuous Marquee Animation) -->
+<div class="domain-ext-marquee-section">
+<div class="container">
+<div class="text-center" data-aos="fade-up" style="margin-bottom: 25px;">
+<h2 style="font-size: 2rem; color: var(--dark-blue);">Popular Domain Extensions</h2>
+<p style="color: var(--text-light); font-size: 14px; margin: 0;">Explore our top-selling top-level domains with real-time pricing and instant setup.</p>
+</div>
+</div>
+<div class="domain-ext-marquee-wrapper" data-aos="fade-up" data-aos-delay="150">
+<div class="domain-ext-marquee-track">
+<!-- Card 1 -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.com</span>
+<span class="ext-pill hot">Hot</span>
+</div>
+<div class="ext-price">Only $9.99/yr</div>
+<p>The gold standard for business and commercial websites worldwide.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 2 -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.in</span>
+<span class="ext-pill popular">Popular</span>
+</div>
+<div class="ext-price">Only $5.99/yr</div>
+<p>Establish a strong local presence for your Indian business audience.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 3 -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.net</span>
+<span class="ext-pill tech">Tech</span>
+</div>
+<div class="ext-price">Only $11.99/yr</div>
+<p>Perfect for tech companies, internet networks, and IT startups.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 4 -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.org</span>
+<span class="ext-pill special">Trust</span>
+</div>
+<div class="ext-price">Only $12.99/yr</div>
+<p>Build trust instantly for non-profits, institutions, and communities.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 5 -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.co</span>
+<span class="ext-pill hot">Trending</span>
+</div>
+<div class="ext-price">Only $8.99/yr</div>
+<p>The trendy, short alternative for modern enterprises &amp; companies.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 6 -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.io</span>
+<span class="ext-pill tech">SaaS</span>
+</div>
+<div class="ext-price">Only $29.99/yr</div>
+<p>The highly sought-after extension for tech startups, developers &amp; SaaS.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 7 -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.ai</span>
+<span class="ext-pill hot">AI Wave</span>
+</div>
+<div class="ext-price">Only $59.99/yr</div>
+<p>The premier global extension for artificial intelligence &amp; machine learning.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 8 -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.cloud</span>
+<span class="ext-pill special">Cloud</span>
+</div>
+<div class="ext-price">Only $4.99/yr</div>
+<p>Showcase modern infrastructure, DevOps solutions &amp; cloud systems.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Duplicated for continuous smooth ticker loop -->
+<!-- Card 1 Dupl -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.com</span>
+<span class="ext-pill hot">Hot</span>
+</div>
+<div class="ext-price">Only $9.99/yr</div>
+<p>The gold standard for business and commercial websites worldwide.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 2 Dupl -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.in</span>
+<span class="ext-pill popular">Popular</span>
+</div>
+<div class="ext-price">Only $5.99/yr</div>
+<p>Establish a strong local presence for your Indian business audience.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 3 Dupl -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.net</span>
+<span class="ext-pill tech">Tech</span>
+</div>
+<div class="ext-price">Only $11.99/yr</div>
+<p>Perfect for tech companies, internet networks, and IT startups.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 4 Dupl -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.org</span>
+<span class="ext-pill special">Trust</span>
+</div>
+<div class="ext-price">Only $12.99/yr</div>
+<p>Build trust instantly for non-profits, institutions, and communities.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 5 Dupl -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.co</span>
+<span class="ext-pill hot">Trending</span>
+</div>
+<div class="ext-price">Only $8.99/yr</div>
+<p>The trendy, short alternative for modern enterprises &amp; companies.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 6 Dupl -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.io</span>
+<span class="ext-pill tech">SaaS</span>
+</div>
+<div class="ext-price">Only $29.99/yr</div>
+<p>The highly sought-after extension for tech startups, developers &amp; SaaS.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 7 Dupl -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.ai</span>
+<span class="ext-pill hot">AI Wave</span>
+</div>
+<div class="ext-price">Only $59.99/yr</div>
+<p>The premier global extension for artificial intelligence &amp; machine learning.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+<!-- Card 8 Dupl -->
+<div class="ext-card">
+<div class="ext-badge-wrap">
+<span class="ext-badge">.cloud</span>
+<span class="ext-pill special">Cloud</span>
+</div>
+<div class="ext-price">Only $4.99/yr</div>
+<p>Showcase modern infrastructure, DevOps solutions &amp; cloud systems.</p>
+<a class="ext-btn" href="404.html">Register</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Domain Pricing Table -->
+<section class="domain-pricing" style="padding: 80px 0; background: white;">
+<div class="container" data-aos="fade-up" data-aos-delay="150">
+<div class="text-center" data-aos="fade-up" style="margin-bottom: 40px;">
+<h2 style="font-size: 2.5rem; color: var(--dark-blue);">Transparent Domain Pricing</h2>
+<p style="color: var(--text-light);">No hidden fees. Free WHOIS privacy included with eligible extensions.</p>
+</div>
+<div class="table-responsive" data-aos="fade-up" data-aos-delay="100" style="width: 100%; overflow-x: auto; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px;">
+<table style="width: 100%; border-collapse: collapse; min-width: 600px; text-align: center;">
+<thead>
+<tr style="background: var(--dark-blue); color: white;">
+<th style="padding: 20px;">Extension</th>
+<th style="padding: 20px;">Registration (1 Year)</th>
+<th style="padding: 20px;">Renewal (1 Year)</th>
+<th style="padding: 20px;">Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid #eee;">
+<td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.com</td>
+<td style="padding: 15px; color: var(--text-light);">$9.99</td>
+<td style="padding: 15px; color: var(--text-light);">$14.99</td>
+<td style="padding: 15px; color: var(--text-light);">$9.99</td>
+</tr>
+<tr style="border-bottom: 1px solid #eee;">
+<td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.in</td>
+<td style="padding: 15px; color: var(--text-light);">$5.99</td>
+<td style="padding: 15px; color: var(--text-light);">$10.99</td>
+<td style="padding: 15px; color: var(--text-light);">$5.99</td>
+</tr>
+<tr style="border-bottom: 1px solid #eee;">
+<td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.net</td>
+<td style="padding: 15px; color: var(--text-light);">$11.99</td>
+<td style="padding: 15px; color: var(--text-light);">$15.99</td>
+<td style="padding: 15px; color: var(--text-light);">$11.99</td>
+</tr>
+<tr style="border-bottom: 1px solid #eee;">
+<td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.org</td>
+<td style="padding: 15px; color: var(--text-light);">$12.99</td>
+<td style="padding: 15px; color: var(--text-light);">$16.99</td>
+<td style="padding: 15px; color: var(--text-light);">$12.99</td>
+</tr>
+<tr style="border-bottom: 1px solid #eee;">
+<td style="padding: 15px; font-weight: 600; color: var(--primary); font-size: 20px;">.io</td>
+<td style="padding: 15px; color: var(--text-light);">$35.99</td>
+<td style="padding: 15px; color: var(--text-light);">$45.99</td>
+<td style="padding: 15px; color: var(--text-light);">$35.99</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- 5. Domain Features -->
+<section class="domain-features" style="padding: 80px 0; background: var(--bg-light);">
+<div class="container">
+<div class="text-center" data-aos="fade-up" style="margin-bottom: 50px;">
+<h2 style="font-size: 2.5rem; color: var(--dark-blue);">What's Included with Every Domain</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+<div class="feat-card" data-aos="fade-up" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+<i class="fa-solid fa-sliders" style="font-size: 30px; color: var(--primary);"></i>
+<div>
+<h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Easy Management</h4>
+<p style="color: var(--text-light); font-size: 14px; margin: 0;">An intuitive control panel allowing you to effortlessly manage your domain portfolio.</p>
+</div>
+</div>
+<div class="feat-card" data-aos="fade-up" data-aos-delay="100" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+<i class="fa-solid fa-server" style="font-size: 30px; color: var(--primary);"></i>
+<div>
+<h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">DNS Management</h4>
+<p style="color: var(--text-light); font-size: 14px; margin: 0;">Total control over your DNS records. Point your domain to any host instantly.</p>
+</div>
+</div>
+<div class="feat-card" data-aos="fade-up" data-aos-delay="200" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+<i class="fa-solid fa-user-secret" style="font-size: 30px; color: var(--primary);"></i>
+<div>
+<h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Domain Privacy</h4>
+<p style="color: var(--text-light); font-size: 14px; margin: 0;">Protect your personal information from spammers with our WHOIS privacy protection.</p>
+</div>
+</div>
+<div class="feat-card" data-aos="fade-up" data-aos-delay="300" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+<i class="fa-solid fa-rotate" style="font-size: 30px; color: var(--primary);"></i>
+<div>
+<h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Auto-Renewal</h4>
+<p style="color: var(--text-light); font-size: 14px; margin: 0;">Never lose your domain. Set up automatic renewals to ensure continuous ownership.</p>
+</div>
+</div>
+<div class="feat-card" data-aos="fade-up" data-aos-delay="400" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+<i class="fa-solid fa-lock" style="font-size: 30px; color: var(--primary);"></i>
+<div>
+<h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Theft Security</h4>
+<p style="color: var(--text-light); font-size: 14px; margin: 0;">Registrar locking prevents unauthorized transfers of your domain name to other registrars.</p>
+</div>
+</div>
+<div class="feat-card" data-aos="fade-up" data-aos-delay="500" style="background: white; padding: 30px; border-radius: 10px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+<i class="fa-solid fa-right-left" style="font-size: 30px; color: var(--primary);"></i>
+<div>
+<h4 style="font-size: 18px; color: var(--dark-blue); margin-bottom: 10px;">Transfer Support</h4>
+<p style="color: var(--text-light); font-size: 14px; margin: 0;">Dedicated support team to guide you through seamless domain transfers.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Registration Process -->
+<section class="registration-process" style="padding: 80px 0; background: white;">
+<div class="container">
+<div class="text-center" data-aos="fade-up" style="margin-bottom: 60px;">
+<h2 style="font-size: 2.5rem; color: var(--dark-blue);">Domain Registration Process</h2>
+<p style="color: var(--text-light);">Four simple steps to claim your identity on the web.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+<div class="process-step" data-aos="fade-right" data-aos-delay="100">
+<div class="icon-wrap"><i class="fa-solid fa-magnifying-glass"></i></div>
+<h4 style="color: var(--dark-blue); font-size: 18px; margin-bottom: 10px;">1. Search</h4>
+<p style="color: var(--text-light); font-size: 14px;">Use our search tool to find your desired domain name.</p>
+</div>
+<div class="process-step" data-aos="fade-right" data-aos-delay="200">
+<div class="icon-wrap"><i class="fa-solid fa-hand-pointer"></i></div>
+<h4 style="color: var(--dark-blue); font-size: 18px; margin-bottom: 10px;">2. Select</h4>
+<p style="color: var(--text-light); font-size: 14px;">Choose the best extension (.com, .net) that fits your brand.</p>
+</div>
+<div class="process-step" data-aos="fade-right" data-aos-delay="300">
+<div class="icon-wrap"><i class="fa-solid fa-cart-shopping"></i></div>
+<h4 style="color: var(--dark-blue); font-size: 18px; margin-bottom: 10px;">3. Register</h4>
+<p style="color: var(--text-light); font-size: 14px;">Complete the secure checkout process to claim ownership.</p>
+</div>
+<div class="process-step" data-aos="fade-right" data-aos-delay="400">
+<div class="icon-wrap"><i class="fa-solid fa-gear"></i></div>
+<h4 style="color: var(--dark-blue); font-size: 18px; margin-bottom: 10px;">4. Manage</h4>
+<p style="color: var(--text-light); font-size: 14px;">Point your domain to your hosting and launch your site.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. FAQ -->
+<section class="faq" style="padding: 80px 0; background: var(--bg-light);">
+<div class="container faq-container" data-aos="fade-up">
+<div class="faq-text" style="flex: 1;">
+<h2 style="font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 20px;">Domain Name FAQs</h2>
+<p style="color: var(--text-light); font-size: 15px; line-height: 1.7; margin-bottom: 30px;">Got questions about registering your domain? Find quick answers here or talk to our experts.</p>
+<a class="btn btn-outline-dark" href="404.html" style="padding: 10px 25px; border: 2px solid var(--dark-blue); color: var(--dark-blue); border-radius: 5px; text-decoration: none; font-weight: 600;">Contact Support</a>
+</div>
+<div class="faq-accordion" style="flex: 1.5; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.02);">
+<div class="accordion-item active" data-aos="fade-up" data-aos-delay="80" style="border-bottom: 1px solid #eee; padding: 20px 0;">
+<div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+<h4 style="font-size: 16px; font-weight: 600; color: var(--dark-blue); margin: 0;">What is a domain name?</h4>
+<i class="fa-solid fa-minus icon" style="color: var(--primary);"></i>
+</div>
+<div class="accordion-content" style="display: block; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
                         A domain name is your website's address on the internet (like stackly.com). It's what users type into their browsers to find your website. Without a domain name, people would have to memorize your server's IP address.
                     </div>
-                </div>
-                
-                <div class="accordion-item" style="border-bottom: 1px solid #eee; padding: 20px 0;">
-                    <div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                        <h4 style="font-size: 16px; font-weight: 500; color: var(--dark-blue); margin: 0;">Can I transfer a domain I already own?</h4>
-                        <i class="fa-solid fa-plus icon" style="color: var(--text-light);"></i>
-                    </div>
-                    <div class="accordion-content" style="display: none; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
+</div>
+<div class="accordion-item" data-aos="fade-up" data-aos-delay="160" style="border-bottom: 1px solid #eee; padding: 20px 0;">
+<div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+<h4 style="font-size: 16px; font-weight: 500; color: var(--dark-blue); margin: 0;">Can I transfer a domain I already own?</h4>
+<i class="fa-solid fa-plus icon" style="color: var(--text-light);"></i>
+</div>
+<div class="accordion-content" style="display: none; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
                         Yes! You can transfer any eligible domain to Stackly. You'll need the EPP authorization code from your current registrar and to ensure the domain is unlocked. Our support team can assist you throughout the process.
                     </div>
-                </div>
-                
-                <div class="accordion-item" style="border-bottom: 1px solid #eee; padding: 20px 0;">
-                    <div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                        <h4 style="font-size: 16px; font-weight: 500; color: var(--dark-blue); margin: 0;">What is Domain Privacy Protection?</h4>
-                        <i class="fa-solid fa-plus icon" style="color: var(--text-light);"></i>
-                    </div>
-                    <div class="accordion-content" style="display: none; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
+</div>
+<div class="accordion-item" data-aos="fade-up" data-aos-delay="240" style="border-bottom: 1px solid #eee; padding: 20px 0;">
+<div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+<h4 style="font-size: 16px; font-weight: 500; color: var(--dark-blue); margin: 0;">What is Domain Privacy Protection?</h4>
+<i class="fa-solid fa-plus icon" style="color: var(--text-light);"></i>
+</div>
+<div class="accordion-content" style="display: none; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
                         When you register a domain, your contact details (name, email, phone) are added to a public database called WHOIS. Domain Privacy hides your personal information, replacing it with generic registrar data to prevent spam and identity theft.
                     </div>
-                </div>
-                
-                <div class="accordion-item" style="padding: 20px 0;">
-                    <div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-                        <h4 style="font-size: 16px; font-weight: 500; color: var(--dark-blue); margin: 0;">How long does it take for a domain to become active?</h4>
-                        <i class="fa-solid fa-plus icon" style="color: var(--text-light);"></i>
-                    </div>
-                    <div class="accordion-content" style="display: none; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
+</div>
+<div class="accordion-item" data-aos="fade-up" data-aos-delay="320" style="padding: 20px 0;">
+<div class="accordion-header" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+<h4 style="font-size: 16px; font-weight: 500; color: var(--dark-blue); margin: 0;">How long does it take for a domain to become active?</h4>
+<i class="fa-solid fa-plus icon" style="color: var(--text-light);"></i>
+</div>
+<div class="accordion-content" style="display: none; padding-top: 15px; color: var(--text-light); font-size: 14px; line-height: 1.7;">
                         Once you register a domain name, it is reserved immediately. However, it can take anywhere from a few minutes up to 48 hours for the DNS records to propagate globally across the internet.
                     </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. CTA -->
-    <section class="cta-section" style="padding: 80px 0; background: var(--primary); text-align: center;">
-        <div class="container" data-aos="zoom-in">
-            <h2 style="font-size: 2.5rem; color: white; margin-bottom: 15px; font-weight: 700;">Secure your domain today.</h2>
-            <p style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 30px;">Don't let someone else claim your perfect name. Search and register it instantly.</p>
-            <div style="display: flex; justify-content: center; gap: 15px;">
-                <a href="#domain-page-search" class="btn btn-white" style="background: white; color: var(--dark-blue); padding: 12px 30px; border-radius: 5px; font-weight: 600; text-decoration: none;" onclick="document.getElementById('domain-page-input').focus();">Search Now</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer bg-dark-blue">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col brand-col">
-                    <div class="logo white-logo" style="margin-bottom: 20px;"><img src="logo.webp" alt="Stackly Logo" class="brand-logo"></div>
-                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px;">My service is not something I even think about because it is always there as we agreed. The customer service is responsive and knowledge needs for.</p>
-                    <div class="social-links">
-                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">Follow us on ____________</span>
-                        <div class="icons" style="display: flex; gap: 10px;">
-                            <a href="404.html" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="404.html" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="404.html" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="404.html" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-col links-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="javascript:void(0);">Support Center</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="javascript:void(0);">Search Domain</a></li>
-                        <li><a href="javascript:void(0);">My Account</a></li>
-                        <li><a href="javascript:void(0);">Customer Profiles</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col links-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="hosting.html">Shared Hosting</a></li>
-                        <li><a href="hosting.html">WordPress Hosting</a></li>
-                        <li><a href="hosting.html">VPS Hosting</a></li>
-                        <li><a href="javascript:void(0);">Game Hosting</a></li>
-                        <li><a href="javascript:void(0);">Dedicated Hosting</a></li>
-                        <li><a href="domain.html">Domain Name</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col newsletter-col">
-                    <h4>Get In Touch</h4>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Type Your Mail">
-                        <button type="button" class="btn btn-light-blue">Subscribe</button>
-                    </form>
-                    <div class="payment-methods" style="margin-top: 30px;">
-                        <span style="font-size: 14px; margin-bottom: 10px; display: block;">We Accepted ____________</span>
-                        <div class="methods" style="display: flex; gap: 15px; font-size: 24px; color: #94a3b8;">
-                            <i class="fa-brands fa-cc-visa"></i>
-                            <i class="fa-brands fa-cc-mastercard"></i>
-                            <i class="fa-brands fa-cc-paypal"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Copyright 2026 Stackly. All Rights Reserved.</p>
-                <div class="bottom-links">
-                    <a href="javascript:void(0);">Terms & Conditions</a>
-                    <a href="javascript:void(0);">Privacy Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
-    
-    <!-- Domain Search Validation Script -->
-    <script>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. CTA -->
+<section class="cta-section" style="padding: 80px 0; background: var(--primary); text-align: center;">
+<div class="container" data-aos="zoom-in">
+<h2 style="font-size: 2.5rem; color: white; margin-bottom: 15px; font-weight: 700;">Secure your domain today.</h2>
+<p style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 30px;">Don't let someone else claim your perfect name. Search and register it instantly.</p>
+<div style="display: flex; justify-content: center; gap: 15px;">
+<a class="btn btn-white" href="404.html" style="background: white; color: var(--dark-blue); padding: 12px 30px; border-radius: 5px; font-weight: 600; text-decoration: none;">Search Now</a>
+</div>
+</div>
+</section>
+<footer class="footer bg-dark-blue">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col brand-col">
+<div class="logo white-logo" style="margin-bottom: 20px;">
+<a aria-label="Stackly Home" href="index.html"><img alt="Stackly Cloud Web Hosting" class="brand-logo" decoding="async" src="logo.webp"/></a>
+</div>
+<p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px; line-height: 1.6;">Stackly provides enterprise-grade cloud web hosting, domain registration, and managed VPS solutions engineered for maximum performance, security, and 99.99% uptime.</p>
+<div class="social-links">
+<span style="font-size: 14px; margin-bottom: 10px; display: block;">Follow Us On Social Media</span>
+<div class="icons" style="display: flex; gap: 10px;">
+<a class="social-icon" href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+<a class="social-icon" href="404.html"><i class="fa-brands fa-twitter"></i></a>
+<a class="social-icon" href="404.html"><i class="fa-brands fa-instagram"></i></a>
+<a class="social-icon" href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+</div>
+</div>
+</div>
+<div class="footer-col links-col"><h4>Quick Links</h4>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="domain.html">Domain</a></li>
+<li><a href="hosting.html">Hosting</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul></div>
+<div class="footer-col links-col">
+<h4>Hosting Services</h4>
+<ul>
+<li><a href="hosting.html">Shared Cloud Hosting</a></li>
+<li><a href="hosting.html">WordPress Hosting</a></li>
+<li><a href="services.html">VPS Cloud Servers</a></li>
+<li><a href="services.html">Dedicated Servers</a></li>
+<li><a href="hosting.html">Reseller Hosting</a></li>
+<li><a href="domain.html">Domain Registration</a></li>
+</ul>
+</div>
+<div class="footer-col newsletter-col">
+<h4>Stay Updated</h4>
+<p style="color: #94a3b8; font-size: 13px; margin-bottom: 15px;">Subscribe for server status alerts, infrastructure updates, and exclusive hosting discounts.</p>
+<form class="newsletter-form" novalidate>
+<input aria-label="Your email address" placeholder="Enter your email address" type="email"/>
+<button class="btn btn-primary" type="submit">Subscribe</button>
+<div class="newsletter-msg" style="display: none; font-size: 13px; margin-top: 8px; font-weight: 500;"></div></form>
+<div class="payment-methods" style="margin-top: 30px;">
+<span style="font-size: 14px; margin-bottom: 10px; display: block;">Accepted Payment Methods</span>
+<div class="methods" style="display: flex; gap: 15px; font-size: 24px; color: #94a3b8;">
+<i class="fa-brands fa-cc-visa" title="Visa"></i>
+<i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+<i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+<i class="fa-brands fa-cc-apple-pay" title="Apple Pay"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Stackly Web Hosting Inc. All Rights Reserved.</p>
+<div class="bottom-links">
+<a href="404.html">Terms of Service</a>
+<a href="404.html">Privacy Policy</a>
+<a href="404.html">System Status</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Custom JS -->
+<script src="script.js"></script>
+<!-- Domain Search Validation Script -->
+<script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('domain-page-search');
             const input = document.getElementById('domain-page-input');
