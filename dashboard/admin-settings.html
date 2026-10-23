@@ -179,7 +179,6 @@
 <a class="nav-item" href="admin-dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
 <a class="nav-item" href="admin-customers.html"><i class="fa-solid fa-users"></i> Customers</a>
 <a class="nav-item" href="admin-hosting-plans.html"><i class="fa-solid fa-box-open"></i> Hosting Plans</a>
-<a class="nav-item" href="admin-websites.html"><i class="fa-solid fa-globe"></i> Public Websites</a>
 <a class="nav-item" href="admin-domains.html"><i class="fa-solid fa-globe"></i> Domains</a>
 <a class="nav-item" href="admin-orders.html"><i class="fa-solid fa-cart-shopping"></i> Orders</a>
 <a class="nav-item" href="admin-support.html"><i class="fa-solid fa-ticket"></i> Support Tickets</a>
@@ -599,25 +598,21 @@
                 let valid = true;
                 ['gen-company', 'gen-website', 'gen-email'].forEach(id => {
                     const el = document.getElementById(id);
-                    if(!el.value || !el.value.trim()) {
+                    if(!el.value) {
                         el.classList.add('error');
-                        if (el.nextElementSibling) el.nextElementSibling.style.display = 'block';
+                        el.nextElementSibling.style.display = 'block';
                         valid = false;
                     } else {
                         el.classList.remove('error');
-                        if (el.nextElementSibling) el.nextElementSibling.style.display = 'none';
+                        el.nextElementSibling.style.display = 'none';
                     }
                 });
-                if(!valid) {
-                    showToast('Validation Error', 'Please fill out all required fields before saving.');
-                    return;
-                }
+                if(!valid) return;
                 
                 genFields.forEach(id => {
                     localStorage.setItem(id, document.getElementById(id).value);
                 });
                 showToast('Settings Saved', 'General settings have been updated.');
-                setTimeout(() => { window.location.href = '../404.html'; }, 300);
             });
 
             // 2. Hosting Settings
@@ -631,19 +626,10 @@
 
             formHosting.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const storage = document.getElementById('host-storage');
-                const bandwidth = document.getElementById('host-bandwidth');
-                if(!storage.value || storage.value <= 0 || !bandwidth.value || bandwidth.value <= 0) {
-                    if (storage) storage.classList.add('error');
-                    if (bandwidth) bandwidth.classList.add('error');
-                    showToast('Validation Error', 'Please enter valid storage and bandwidth values.');
-                    return;
-                }
                 hostFields.forEach(id => {
                     localStorage.setItem(id, document.getElementById(id).value);
                 });
                 showToast('Settings Saved', 'Hosting default settings have been updated.');
-                setTimeout(() => { window.location.href = '../404.html'; }, 300);
             });
 
             // 3. Notification Settings
@@ -661,7 +647,6 @@
                     localStorage.setItem(id, document.getElementById(id).checked);
                 });
                 showToast('Preferences Saved', 'Notification preferences have been updated.');
-                setTimeout(() => { window.location.href = '../404.html'; }, 300);
             });
 
             // Maintenance Mode toggle save
@@ -715,53 +700,47 @@
                 const pVal = passInput.value;
                 const cVal = confInput.value;
 
-                if(!pVal || pVal.length === 0) {
-                    passInput.classList.add('error');
-                    passError.innerText = 'New password is required.';
-                    passError.style.display = 'block';
-                    valid = false;
-                } else {
+                // Validate password if user entered one
+                if(pVal.length > 0) {
                     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/;
                     if(!regex.test(pVal)) {
                         passInput.classList.add('error');
-                        passError.innerText = 'Must be 8+ chars with uppercase, lowercase & number.';
                         passError.style.display = 'block';
                         valid = false;
                     } else {
                         passInput.classList.remove('error');
                         passError.style.display = 'none';
                     }
-                }
 
-                if(!cVal || cVal.length === 0) {
-                    confInput.classList.add('error');
-                    confError.innerText = 'Please confirm your password.';
-                    confError.style.display = 'block';
-                    valid = false;
-                } else if(pVal !== cVal) {
-                    confInput.classList.add('error');
-                    confError.innerText = 'Passwords do not match.';
-                    confError.style.display = 'block';
-                    valid = false;
+                    if(pVal !== cVal) {
+                        confInput.classList.add('error');
+                        confError.style.display = 'block';
+                        valid = false;
+                    } else {
+                        confInput.classList.remove('error');
+                        confError.style.display = 'none';
+                    }
                 } else {
+                    passInput.classList.remove('error');
+                    passError.style.display = 'none';
                     confInput.classList.remove('error');
                     confError.style.display = 'none';
                 }
 
-                if(!valid) {
-                    showToast('Validation Error', 'Please complete password fields correctly.');
-                    return;
-                }
+                if(!valid) return;
 
                 // Save dropdowns
                 localStorage.setItem('sec-2fa', document.getElementById('sec-2fa').value);
                 localStorage.setItem('sec-timeout', document.getElementById('sec-timeout').value);
 
-                passInput.value = '';
-                confInput.value = '';
-                strengthBar.style.display = 'none';
-                showToast('Security Updated', 'Password & security settings updated successfully.');
-                setTimeout(() => { window.location.href = '../404.html'; }, 300);
+                if(pVal.length > 0) {
+                    passInput.value = '';
+                    confInput.value = '';
+                    strengthBar.style.display = 'none';
+                    showToast('Security Updated', 'Password & security settings updated successfully.');
+                } else {
+                    showToast('Security Updated', 'Access control settings updated successfully.');
+                }
             });
 
             // 5. System Actions / Modal

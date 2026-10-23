@@ -120,7 +120,6 @@
 <a class="sidebar-brand" href="../index.html"><img alt="Stackly Logo" class="brand-logo" decoding="async" src="../logo.webp"/></a>
 <div class="sidebar-nav"><a class="nav-item" href="user-dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
 <a class="nav-item" href="user-hosting.html"><i class="fa-solid fa-hard-drive"></i> My Hosting</a>
-<a class="nav-item" href="user-websites.html"><i class="fa-solid fa-globe"></i> Public Websites</a>
 <a class="nav-item" href="user-domains.html"><i class="fa-solid fa-globe"></i> My Domains</a>
 <a class="nav-item" href="user-billing.html"><i class="fa-solid fa-file-invoice-dollar"></i> Billing</a>
 <a class="nav-item active" href="user-support.html"><i class="fa-solid fa-headset"></i> Support</a>
@@ -182,12 +181,12 @@
 <h3 style="color: var(--dark-blue); font-weight: 600; font-size: 15px;">Security</h3>
 </div>
 </div>
-<div class="dash-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 25px;">
+<div class="dash-grid">
 <div style="display: flex; flex-direction: column; gap: 25px;">
 <!-- 3. My Tickets Table -->
 <div class="card" style="padding: 0;">
 <div class="section-title" style="padding: 25px 25px 15px;">My Tickets</div>
-<div class="table-responsive" style="margin: 0; padding: 0 25px 25px;">
+<div class="table-responsive" style="margin: 0; padding: 0 15px 15px;">
 <table>
 <thead>
 <tr>
@@ -357,10 +356,7 @@ if(tForm) {
             });
         }
         tForm.reset();
-        setTimeout(() => { 
-            msgBox.style.display = 'none'; 
-            window.location.href = '../404.html';
-        }, 300);
+        setTimeout(() => { msgBox.style.display = 'none'; }, 4000);
     });
 }
 

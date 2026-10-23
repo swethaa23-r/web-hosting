@@ -311,6 +311,11 @@ if (window.__STACKLY_SCRIPT_INITIALIZED__) {
                     msgEl.style.marginTop = '12px';
                     msgEl.style.fontWeight = '500';
                     msgEl.style.width = '100%';
+                    msgEl.style.display = 'flex';
+                    msgEl.style.alignItems = 'center';
+                    msgEl.style.justifyContent = 'center';
+                    msgEl.style.textAlign = 'center';
+                    msgEl.style.gap = '8px';
                     form.appendChild(msgEl);
                 }
                 
@@ -631,6 +636,70 @@ if (window.__STACKLY_SCRIPT_INITIALIZED__) {
         });
     }
 
+
+    /* ============================
+       Domain Extension Marquee Interactive & Resilient Animation
+    =============================== */
+    const extCards = document.querySelectorAll('.domain-ext-marquee-track .ext-card');
+    const extTracks = document.querySelectorAll('.domain-ext-marquee-track, .domain-prices-marquee-track, .trust-marquee-track, .tier4-marquee-track');
+
+    function resumeMarqueeAnimations() {
+        extTracks.forEach(track => {
+            track.classList.add('anim-running');
+            track.style.animationPlayState = 'running';
+        });
+    }
+
+    if (extCards.length > 0) {
+        extCards.forEach(card => {
+            const btn = card.querySelector('.ext-btn');
+            const badge = card.querySelector('.ext-badge');
+            const ext = (badge ? badge.textContent.trim() : (btn ? btn.getAttribute('data-ext') : '.com')) || '.com';
+
+            const handleCardClick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const searchInput = document.getElementById('domain-page-input') || document.getElementById('domain-input');
+                const searchForm = document.getElementById('domain-page-search') || document.getElementById('domain-search-form');
+
+                if (searchInput) {
+                    const currentVal = searchInput.value.trim().replace(/\.[a-zA-Z0-9]+$/, '');
+                    searchInput.value = (currentVal || 'mybrand') + ext;
+                    if (searchForm) {
+                        searchForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    searchInput.focus();
+                    searchInput.style.transition = 'all 0.3s ease';
+                    searchInput.style.borderColor = 'var(--primary, #2563eb)';
+                    searchInput.style.boxShadow = '0 0 0 4px rgba(37, 99, 235, 0.2)';
+                    setTimeout(() => {
+                        searchInput.style.boxShadow = '';
+                    }, 1800);
+                }
+
+                // Immediately resume animation so cards continue moving!
+                resumeMarqueeAnimations();
+            };
+
+            if (btn) {
+                btn.addEventListener('click', handleCardClick);
+            }
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('.ext-btn')) return;
+                handleCardClick(e);
+            });
+        });
+    }
+
+    // Ensure all marquee tracks resume running immediately upon touchend, pointerup, click
+    extTracks.forEach(track => {
+        ['touchend', 'touchcancel', 'pointerup', 'click'].forEach(evt => {
+            track.addEventListener(evt, () => {
+                setTimeout(resumeMarqueeAnimations, 80);
+            }, { passive: true });
+        });
+    });
+
 });
 }
-

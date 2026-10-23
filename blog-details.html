@@ -323,6 +323,8 @@
             position: relative;
             z-index: 2;
             flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
         }
         .newsletter-form-cta input {
             flex: 1;
@@ -358,6 +360,22 @@
             .article-content h2 { font-size: 22px; }
             .cta-box h2 { font-size: 26px; }
             .blog-featured-image { margin-top: -20px; }
+            .newsletter-form-cta {
+                flex-direction: column !important;
+                width: 100% !important;
+                gap: 12px !important;
+            }
+            .newsletter-form-cta input {
+                width: 100% !important;
+                min-width: 0 !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
+            }
+            .newsletter-form-cta button {
+                width: 100% !important;
+                justify-content: center !important;
+                box-sizing: border-box !important;
+            }
         }
     </style>
 <style>

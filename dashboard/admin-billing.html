@@ -210,7 +210,6 @@
 <a class="nav-item" href="admin-dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
 <a class="nav-item" href="admin-customers.html"><i class="fa-solid fa-users"></i> Customers</a>
 <a class="nav-item" href="admin-hosting-plans.html"><i class="fa-solid fa-box-open"></i> Hosting Plans</a>
-<a class="nav-item" href="admin-websites.html"><i class="fa-solid fa-globe"></i> Public Websites</a>
 <a class="nav-item" href="admin-domains.html"><i class="fa-solid fa-globe"></i> Domains</a>
 <a class="nav-item" href="admin-orders.html"><i class="fa-solid fa-cart-shopping"></i> Orders</a>
 <a class="nav-item" href="admin-support.html"><i class="fa-solid fa-ticket"></i> Support Tickets</a>
@@ -632,19 +631,10 @@
             
             settingsForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const tax = document.getElementById('tax-gst');
-                const reminder = document.getElementById('payment-reminder');
-                if(!tax.value || tax.value < 0 || !reminder.value || reminder.value < 0) {
-                    if (tax) tax.style.borderColor = '#ef4444';
-                    if (reminder) reminder.style.borderColor = '#ef4444';
-                    if (window.showToast) window.showToast('Please enter valid tax and reminder values.', 'error');
-                    return;
-                }
                 successMsg.style.display = 'block';
-                if (window.showToast) window.showToast('Billing settings saved successfully!', 'success');
                 setTimeout(() => {
-                    window.location.href = '../404.html';
-                }, 300);
+                    successMsg.style.display = 'none';
+                }, 3000);
             });
 
             // Chart.js Revenue Analytics

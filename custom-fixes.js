@@ -73,10 +73,36 @@ if (window.__STACKLY_CUSTOM_FIXES_INITIALIZED__) {
         mobileBrand.setAttribute('aria-label', 'Stackly Home');
         mobileBrand.innerHTML = `<img src="${(isInsideDashboard ? '../' : '')}logo.webp" class="mobile-topbar-logo brand-logo" alt="Stackly" decoding="async"/>`;
         topbarLeft.appendChild(mobileBrand);
+    }
         
+    if (!document.getElementById('stackly-mobile-dashboard-fixes')) {
         const style = document.createElement('style');
+        style.id = 'stackly-mobile-dashboard-fixes';
         style.innerHTML = `
+            /* ========================================================
+               GLOBAL FIXED HEADER & DASHBOARD MOBILE RESPONSIVENESS
+            =========================================================== */
+            .topbar {
+                position: fixed !important;
+                top: 0 !important;
+                z-index: 1000 !important;
+                background: #ffffff !important;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+                box-sizing: border-box !important;
+            }
+            @media (min-width: 993px) {
+                .topbar {
+                    left: var(--sidebar-width, 260px) !important;
+                    width: calc(100% - var(--sidebar-width, 260px)) !important;
+                    height: 70px !important;
+                }
+                .main-content {
+                    padding-top: 70px !important;
+                }
+            }
             .mobile-topbar-brand { display: none; }
+
+            /* Mobile & Tablet Fixed Header (<= 992px) */
             @media (max-width: 992px) {
                 .mobile-topbar-brand { 
                     display: flex !important; 
@@ -92,14 +118,23 @@ if (window.__STACKLY_CUSTOM_FIXES_INITIALIZED__) {
                 }
                 .mobile-topbar-logo { 
                     display: block !important; 
-                    height: 46px !important; 
+                    height: 42px !important; 
                     width: auto !important; 
                     mix-blend-mode: multiply !important; 
                     cursor: pointer !important;
                 }
                 .topbar-right { display: none !important; }
                 .topbar > div:first-child .search-bar { display: none !important; }
-                .topbar { padding: 0 15px !important; position: sticky !important; top: 0 !important; z-index: 900 !important; }
+                .topbar { 
+                    position: fixed !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    right: 0 !important;
+                    width: 100% !important;
+                    height: 65px !important;
+                    padding: 0 15px !important; 
+                    z-index: 1000 !important; 
+                }
                 
                 .hamburger {
                     display: flex !important;
@@ -116,7 +151,7 @@ if (window.__STACKLY_CUSTOM_FIXES_INITIALIZED__) {
 
                 .sidebar {
                     transform: translateX(-100%) !important;
-                    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+                    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
                     position: fixed !important;
                     top: 0 !important;
                     left: 0 !important;
@@ -126,12 +161,16 @@ if (window.__STACKLY_CUSTOM_FIXES_INITIALIZED__) {
                     background-color: var(--dark-blue, #0b1536) !important;
                     display: flex !important;
                     flex-direction: column !important;
-                    box-shadow: 10px 0 30px rgba(0,0,0,0.4) !important;
+                    box-shadow: none !important;
+                    visibility: hidden !important;
+                    pointer-events: none !important;
                 }
                 .sidebar.show {
                     transform: translateX(0) !important;
                     display: flex !important;
                     visibility: visible !important;
+                    pointer-events: auto !important;
+                    box-shadow: 10px 0 30px rgba(0,0,0,0.4) !important;
                 }
                 .sidebar-overlay {
                     position: fixed !important;
@@ -143,6 +182,258 @@ if (window.__STACKLY_CUSTOM_FIXES_INITIALIZED__) {
                 }
                 .sidebar-overlay.show, .sidebar-overlay[style*="display: block"] {
                     display: block !important;
+                }
+
+                .admin-layout {
+                    display: block !important;
+                    width: 100% !important;
+                    max-width: 100vw !important;
+                    overflow-x: hidden !important;
+                }
+                .main-content {
+                    margin-left: 0 !important;
+                    width: 100% !important;
+                    max-width: 100vw !important;
+                    padding-top: 65px !important;
+                    overflow-x: hidden !important;
+                }
+                html, body {
+                    overflow-x: hidden !important;
+                    max-width: 100vw !important;
+                }
+
+                /* Multi-column grids must collapse to single column */
+                .dash-grid,
+                div[class*="dash-grid"],
+                div[style*="grid-template-columns"] {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    gap: 16px !important;
+                }
+                .dash-grid > div,
+                div[class*="dash-grid"] > div,
+                div[style*="grid-template-columns"] > div {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+            }
+
+            /* Tablet & Mobile Screens (<= 768px) */
+            @media (max-width: 768px) {
+                .dashboard-container {
+                    padding: 14px 10px !important;
+                    gap: 14px !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+                .card, .settings-card, .page-header, .page-header-box {
+                    padding: 16px 12px !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                    overflow: hidden !important;
+                }
+                .stats-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 10px !important;
+                    width: 100% !important;
+                }
+                .stat-card {
+                    padding: 14px 10px !important;
+                }
+
+                /* Flex card headers wrapping */
+                .card > div:first-child[style*="display: flex"],
+                .page-header-box,
+                .page-header,
+                .section-header {
+                    flex-direction: column !important;
+                    align-items: stretch !important;
+                    gap: 12px !important;
+                }
+                .card > div:first-child[style*="display: flex"] button,
+                .page-header-box button,
+                .page-header button,
+                .section-header button {
+                    width: 100% !important;
+                    justify-content: center !important;
+                }
+
+                /* Website Cards */
+                .website-card {
+                    flex-direction: column !important;
+                    align-items: stretch !important;
+                    padding: 14px 12px !important;
+                    gap: 14px !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+                .site-info {
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                    gap: 10px !important;
+                    width: 100% !important;
+                }
+                .site-details {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+                .site-details p {
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                    gap: 4px !important;
+                }
+                .site-badges {
+                    display: flex !important;
+                    flex-wrap: wrap !important;
+                    gap: 6px !important;
+                    width: 100% !important;
+                }
+                .site-badges .badge {
+                    font-size: 11px !important;
+                    padding: 3px 8px !important;
+                }
+
+                .site-actions {
+                    display: grid !important;
+                    grid-template-columns: 1fr 1fr !important;
+                    gap: 8px !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+                .site-actions button,
+                .site-actions .btn-outline,
+                .site-actions .btn-action {
+                    width: 100% !important;
+                    padding: 9px 8px !important;
+                    font-size: 12px !important;
+                    justify-content: center !important;
+                    text-align: center !important;
+                    box-sizing: border-box !important;
+                    white-space: nowrap !important;
+                }
+                .site-actions button:nth-child(3) {
+                    grid-column: span 2 !important;
+                }
+                .site-actions .btn-action,
+                .site-actions button[class*="primary"],
+                .site-actions .btn-primary {
+                    grid-column: span 2 !important;
+                    width: 100% !important;
+                }
+
+                /* CDN & Infrastructure Health items */
+                .health-item {
+                    display: flex !important;
+                    justify-content: space-between !important;
+                    align-items: center !important;
+                    flex-wrap: wrap !important;
+                    gap: 6px !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                    padding: 10px 0 !important;
+                }
+                .health-item span,
+                .health-item .badge {
+                    max-width: 100% !important;
+                    word-break: break-word !important;
+                    white-space: normal !important;
+                }
+
+                /* Tables & table-responsive */
+                .table-responsive {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    overflow-x: auto !important;
+                    -webkit-overflow-scrolling: touch !important;
+                    display: block !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                }
+                .table-responsive table {
+                    min-width: 480px !important;
+                }
+
+                /* Forms & Inputs (excluding checkboxes and radios) */
+                form, .form-group, select, textarea,
+                input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]) {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+
+                /* Checkboxes & Radios Fix for Mobile & Desktop */
+                input[type="checkbox"],
+                input[type="radio"] {
+                    width: 18px !important;
+                    min-width: 18px !important;
+                    max-width: 18px !important;
+                    height: 18px !important;
+                    min-height: 18px !important;
+                    max-height: 18px !important;
+                    flex: 0 0 18px !important;
+                    margin: 0 !important;
+                    cursor: pointer !important;
+                    accent-color: var(--primary, #2563eb) !important;
+                }
+
+                .card label,
+                .checkbox-group,
+                label:has(input[type="checkbox"]),
+                label:has(input[type="radio"]) {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: flex-start !important;
+                    text-align: left !important;
+                    gap: 12px !important;
+                    cursor: pointer !important;
+                    width: 100% !important;
+                    font-size: 14px !important;
+                }
+
+                /* Global Button Centering & Full-Width on Mobile */
+                .card form > div[style*="text-align: right"],
+                .card div[style*="text-align: right"],
+                .card-actions,
+                .form-actions {
+                    text-align: center !important;
+                    display: flex !important;
+                    justify-content: center !important;
+                    width: 100% !important;
+                    margin: 20px 0 0 !important;
+                }
+                .card form > div[style*="text-align: right"] .btn-action,
+                .card div[style*="text-align: right"] .btn-action,
+                .card form button[type="submit"],
+                .card .btn-action,
+                .card-actions .btn-action,
+                .card-actions button,
+                form button[type="submit"] {
+                    width: 100% !important;
+                    justify-content: center !important;
+                    display: flex !important;
+                    text-align: center !important;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    box-sizing: border-box !important;
+                }
+            }
+
+            /* Small Mobile Screens (<= 375px down to 320px) */
+            @media (max-width: 375px) {
+                .stats-grid {
+                    grid-template-columns: 1fr !important;
+                }
+                .site-actions {
+                    grid-template-columns: 1fr !important;
+                }
+                .site-actions button:nth-child(3),
+                .site-actions .btn-action,
+                .site-actions button[class*="primary"],
+                .site-actions .btn-primary {
+                    grid-column: span 1 !important;
                 }
             }
         `;
@@ -193,7 +484,7 @@ if (window.__STACKLY_CUSTOM_FIXES_INITIALIZED__) {
         }
 
         // Global Logout Interceptor
-        document.querySelectorAll('#btn-logout, .btn-logout, a.nav-item[href*="login.html"]').forEach(btn => {
+        document.querySelectorAll('#btn-logout, #btn-logout-main, #btn-logout-sidebar, #btn-logout-profile, .btn-logout, a.nav-item[href*="login.html"], button:has(.fa-right-from-bracket)').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -772,7 +1063,7 @@ if (window.__STACKLY_CUSTOM_FIXES_INITIALIZED__) {
             if (actionTarget) {
                 // Check if this button is inside a form or card with text inputs
                 const formOrCard = actionTarget.closest('form') || actionTarget.closest('.card, .settings-card, .search-domain-form, .modal, .form-container');
-                const hasTextInputs = formOrCard && formOrCard.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]), textarea').length > 0;
+                const hasTextInputs = formOrCard && formOrCard.querySelectorAll('input:not([type="hidden"]), select, textarea').length > 0;
 
                 if (hasTextInputs) {
                     // VALIDATE FORM FIRST!

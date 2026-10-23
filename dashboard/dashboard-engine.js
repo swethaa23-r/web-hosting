@@ -1804,8 +1804,23 @@
     // ==========================================
 
     function ensureSampleDataNotice() {
-        // Disabled per user request - no prototype demo notices displayed
-        return;
+        if (document.querySelector('.demo-data-badge')) return;
+        const pageHeader = document.querySelector('.page-header') || document.querySelector('.dashboard-container');
+        if (!pageHeader) return;
+
+        const badge = document.createElement('div');
+        badge.className = 'demo-data-badge';
+        badge.setAttribute('role', 'status');
+        badge.setAttribute('aria-label', 'Prototype Demonstration Notice');
+        badge.innerHTML = `
+            <i class="fa-solid fa-circle-info"></i>
+            <span><strong>Prototype Demonstration Environment:</strong> Displayed infrastructure metrics, system logs, and accounts represent simulated demonstration data. Live server provisioning, payments, and DNS require backend API integration.</span>
+        `;
+        if (pageHeader.classList.contains('page-header')) {
+            pageHeader.parentNode.insertBefore(badge, pageHeader);
+        } else {
+            pageHeader.insertBefore(badge, pageHeader.firstChild);
+        }
     }
 
     function verifyAdminClearance() {
@@ -1857,8 +1872,8 @@
             else openSidebar();
         }
 
-        // Drawer click handlers handled centrally in custom-fixes.js
-        // to prevent double-toggle cancellation conflict
+        hamburger.onclick = toggleSidebar;
+        overlay.onclick = closeSidebar;
 
         const navItems = sidebar.querySelectorAll('.nav-item');
         navItems.forEach(item => {

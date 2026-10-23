@@ -2168,6 +2168,7 @@ input:checked + .slider:before { transform: translateX(22px); }
     border-radius: var(--radius-md);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.15);
+    max-width: 100%;
 }
 
 .newsletter-form input {
@@ -2176,13 +2177,19 @@ input:checked + .slider:before { transform: translateX(22px); }
     padding: 14px 18px;
     color: var(--white);
     outline: none;
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 0;
     font-size: 14px;
 }
 
-.newsletter-form .btn {
+.newsletter-form .btn,
+.newsletter-form button {
     border-radius: 0;
-    padding: 0 20px;
+    padding: 0 22px;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .payment-methods span {
@@ -3869,6 +3876,21 @@ textarea:focus-visible {
     outline-offset: 2px !important;
 }
 
+/* Checkbox & Radio Base Sizing Guard */
+input[type="checkbox"],
+input[type="radio"] {
+    width: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    height: 18px !important;
+    min-height: 18px !important;
+    max-height: 18px !important;
+    flex: 0 0 18px !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+    accent-color: var(--primary, #2563eb) !important;
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -3930,8 +3952,13 @@ textarea:focus-visible {
     animation: marqueeTicker 24s linear infinite;
     align-items: center;
 }
-.trust-marquee-track:hover {
-    animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+    .trust-marquee-track:hover {
+        animation-play-state: paused;
+    }
+}
+.trust-marquee-track.anim-running {
+    animation-play-state: running !important;
 }
 @keyframes marqueeTicker {
     0% { transform: translateX(0); }
@@ -3955,8 +3982,13 @@ textarea:focus-visible {
     animation: domainTicker 20s linear infinite;
     align-items: center;
 }
-.domain-prices-marquee-track:hover {
-    animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+    .domain-prices-marquee-track:hover {
+        animation-play-state: paused;
+    }
+}
+.domain-prices-marquee-track.anim-running {
+    animation-play-state: running !important;
 }
 @keyframes domainTicker {
     0% { transform: translateX(0); }
@@ -3985,8 +4017,13 @@ textarea:focus-visible {
     align-items: stretch;
     padding: 8px 4px;
 }
-.domain-ext-marquee-track:hover {
-    animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+    .domain-ext-marquee-track:hover {
+        animation-play-state: paused;
+    }
+}
+.domain-ext-marquee-track.anim-running {
+    animation-play-state: running !important;
 }
 @keyframes domainExtTicker {
     0% { transform: translateX(0); }
@@ -4009,10 +4046,15 @@ textarea:focus-visible {
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
 }
-.domain-ext-marquee-track .ext-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 30px rgba(4, 18, 70, 0.12);
-    border-color: var(--primary);
+@media (hover: hover) and (pointer: fine) {
+    .domain-ext-marquee-track .ext-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 30px rgba(4, 18, 70, 0.12);
+        border-color: var(--primary);
+    }
+}
+.domain-ext-marquee-track .ext-card:active {
+    transform: scale(0.98);
 }
 .domain-ext-marquee-track .ext-badge-wrap {
     display: flex;
@@ -4080,10 +4122,22 @@ textarea:focus-visible {
     text-decoration: none;
     transition: all 0.2s ease;
 }
-.domain-ext-marquee-track .ext-card:hover .ext-btn {
+@media (hover: hover) and (pointer: fine) {
+    .domain-ext-marquee-track .ext-card:hover .ext-btn {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
+}
+.domain-ext-marquee-track .ext-btn:hover {
     background: var(--primary);
     color: white;
     border-color: var(--primary);
+}
+.domain-ext-marquee-track .ext-btn:active {
+    background: var(--dark-blue);
+    color: white;
+    transform: scale(0.96);
 }
 
 
@@ -4103,8 +4157,13 @@ textarea:focus-visible {
     animation: tier4Ticker 34s linear infinite;
     align-items: stretch;
 }
-.tier4-marquee-track:hover {
-    animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+    .tier4-marquee-track:hover {
+        animation-play-state: paused;
+    }
+}
+.tier4-marquee-track.anim-running {
+    animation-play-state: running !important;
 }
 @keyframes tier4Ticker {
     0% { transform: translateX(0); }
@@ -5066,4 +5125,283 @@ select:focus-visible {
 .btn-plan-select:hover {
     background: var(--primary, #2563eb) !important;
     color: #ffffff !important;
+}
+
+
+/* ========================================================
+   NEWSLETTER PROMO & SUBSCRIPTION CENTERING & RESPONSIVENESS
+=========================================================== */
+.newsletter-promo {
+    padding: 75px 0 85px;
+    background: var(--bg-light, #f8faff);
+    text-align: center;
+    position: relative;
+    scroll-margin-top: 90px;
+    overflow: hidden;
+}
+
+.newsletter-promo .container {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.newsletter-promo-card {
+    background: white;
+    padding: 55px 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.newsletter-promo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--primary, #2563eb);
+    border-radius: 50%;
+    font-size: 34px;
+    margin: 0 auto 24px;
+}
+
+.newsletter-promo-card h2 {
+    font-size: 2rem;
+    color: var(--dark-blue, #0b1536);
+    margin-bottom: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.newsletter-promo-card p {
+    color: var(--text-light, #6b7280);
+    margin: 0 auto 30px;
+    font-size: 15px;
+    max-width: 580px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.newsletter-promo-form,
+.newsletter-promo .newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 540px;
+    margin: 0 auto;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+}
+
+.newsletter-promo-form input,
+.newsletter-promo .newsletter-form input {
+    width: 320px;
+    max-width: 100%;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    flex: 0 1 320px !important;
+    padding: 0 20px !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    outline: none !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark, #1f2937) !important;
+    background: #ffffff !important;
+    transition: all 0.25s ease;
+    text-align: center;
+    box-sizing: border-box !important;
+    line-height: 48px !important;
+}
+
+.newsletter-promo-form input:focus,
+.newsletter-promo .newsletter-form input:focus,
+.newsletter-promo-form input:focus-visible,
+.newsletter-promo .newsletter-form input:focus-visible {
+    border-color: var(--primary, #2563eb) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2) !important;
+    outline: none !important;
+}
+
+.newsletter-promo-form button,
+.newsletter-promo .newsletter-form button {
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    padding: 0 28px !important;
+    background: var(--primary, #2563eb) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+    white-space: nowrap;
+    box-sizing: border-box !important;
+}
+
+.newsletter-promo-form button:hover,
+.newsletter-promo .newsletter-form button:hover {
+    background: var(--dark-blue, #0b1536) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(11, 21, 54, 0.25);
+}
+
+.newsletter-promo .newsletter-msg,
+.newsletter-promo-form .newsletter-msg {
+    width: 100%;
+    margin-top: 14px;
+    text-align: center;
+    font-size: 13.5px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+    .newsletter-promo {
+        padding: 50px 0 60px;
+    }
+    .newsletter-promo-card {
+        padding: 35px 20px;
+        border-radius: 14px;
+    }
+    .newsletter-promo-card h2 {
+        font-size: 1.6rem;
+    }
+    .newsletter-promo-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 28px;
+        margin-bottom: 18px;
+    }
+    .newsletter-promo-form,
+    .newsletter-promo .newsletter-form {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .newsletter-promo-form input,
+    .newsletter-promo .newsletter-form input {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        max-height: 48px !important;
+        flex: none !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        padding: 0 16px !important;
+        font-size: 14px !important;
+        line-height: 48px !important;
+    }
+    .newsletter-promo-form button,
+    .newsletter-promo .newsletter-form button {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        max-height: 48px !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+        justify-content: center !important;
+        padding: 0 24px !important;
+        font-size: 14px !important;
+    }
+}
+
+
+@media (max-width: 576px) {
+    /* Footer & Newsletter Mobile Responsiveness */
+    .footer-col .newsletter-form,
+    .newsletter-col .newsletter-form,
+    .footer .newsletter-form {
+        flex-direction: column !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+        gap: 10px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .footer-col .newsletter-form input,
+    .newsletter-col .newsletter-form input,
+    .footer .newsletter-form input {
+        width: 100% !important;
+        min-width: 0 !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: var(--radius-md) !important;
+        padding: 13px 16px !important;
+        font-size: 14px !important;
+        color: var(--white) !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .footer-col .newsletter-form input:focus,
+    .newsletter-col .newsletter-form input:focus,
+    .footer .newsletter-form input:focus {
+        border-color: var(--primary) !important;
+        background: rgba(255, 255, 255, 0.12) !important;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25) !important;
+    }
+
+    .footer-col .newsletter-form .btn,
+    .newsletter-col .newsletter-form .btn,
+    .footer .newsletter-form .btn,
+    .footer-col .newsletter-form button,
+    .newsletter-col .newsletter-form button,
+    .footer .newsletter-form button {
+        width: 100% !important;
+        border-radius: var(--radius-md) !important;
+        padding: 13px 20px !important;
+        justify-content: center !important;
+        white-space: nowrap !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        display: flex !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        background: var(--primary) !important;
+        color: white !important;
+        cursor: pointer !important;
+    }
+
+    .footer-col .newsletter-form .newsletter-msg,
+    .newsletter-col .newsletter-form .newsletter-msg,
+    .footer .newsletter-form .newsletter-msg {
+        text-align: center !important;
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
 }
